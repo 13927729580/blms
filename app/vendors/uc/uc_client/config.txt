@@ -1,0 +1,1 @@
+{"name":"svcart ucenter\u4f1a\u5458\u6574\u5408","directory":"\u4f1a\u5458\u6574\u5408\u4f1a\u5458\u6574\u5408","copyright":"\u00a9 2009 \u4e0a\u6d77\u5b9e\u73ae\u7f51\u7edc\u79d1\u6280\u6709\u9650\u516c\u53f8 \u7248\u6743\u6240\u6709","version":"1.1.0","code":"ucenter","contents":{"uc_client":"..\/","ucenter":"..\/libs\/sv-admin\/plugins\/"}} 
