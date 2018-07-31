@@ -95,6 +95,7 @@ class PaymentsController extends AppController
             }
             $this->Payment->save($this->data); //保存
             $payment_id = $this->Payment->id;
+            //pr($payment_id);
             $this->PaymentI18n->deleteAll(array('PaymentI18n.payment_id' => $payment_id));
             foreach ($this->data['PaymentI18n'] as $v) {
                 $paymentI18n_info = array(
@@ -104,6 +105,7 @@ class PaymentsController extends AppController
                       'status' => 1,
                        'description' => isset($v['description']) ? $v['description'] : '',
                  );
+               // pr($paymentI18n_info);
                 $this->PaymentI18n->saveAll(array('PaymentI18n' => $paymentI18n_info));//更新多语言
             }
             foreach ($this->data['PaymentI18n'] as $k => $v) {
@@ -117,9 +119,9 @@ class PaymentsController extends AppController
             }
             if (isset($_SESSION['app_lan'])) {
                 unset($_SESSION['app_lan']);
-                $this->redirect('/applications/');
+            //    $this->redirect('/applications/');
             }
-            $this->redirect('/payments/');
+            //$this->redirect('/payments/');
         }
 
         $payment = $this->Payment->localeformat($id);

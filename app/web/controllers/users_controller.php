@@ -242,12 +242,7 @@ class UsersController extends AppController
         $flash_conditions['Flash.type'] = '0';
         $flash_list = $this->Flash->find('first', array('conditions' => $flash_conditions));
         $this->set('flash_list', $flash_list);
-        if (constant('Product') == 'AllInOne') {
-            $this->loadModel('FenxiaoDistributorLevel');
-            //获取分销商等级集合
-            $fenxiao_distributor_levels = $this->FenxiaoDistributorLevel->find('all', array('fields' => array('id', 'name')));
-            $this->set('fenxiao_distributor_levels', $fenxiao_distributor_levels);
-        }
+
         $syns_cond=array(
             'UserApp.status'=>'1',
             'UserApp.location'=>array(0,2),
@@ -433,14 +428,7 @@ class UsersController extends AppController
             $this->data['Users']['last_login_time'] = gmdate('Y-m-d H:i:s', time());
             //填写的用户信息到session
             $x = $this->User->save($this->data['Users']);
-            if (constant('Product') == 'AllInOne') {
-                $this->loadModel('FenxiaoDistributor');
-                //如果是分销商 添加分销商数据
-                if (isset($this->data['Users']['type']) && $this->data['Users']['type'] == 1) {
-                    $distributorInfo['FenxiaoDistributor']['user_id'] = $this->User->id;
-                    $this->FenxiaoDistributor->save($distributorInfo);
-                }
-            }
+
             if (isset($this->data['Address']['RegionUpdate'])) {
                 $this->data['UserAddress']['consignee'] = $this->data['Users']['name'];
                 $this->data['UserAddress']['regions'] = (isset($this->data['Address']['RegionUpdate'][0]) ? $this->data['Address']['RegionUpdate'][0] : '1').' '.(isset($this->data['Address']['RegionUpdate'][1]) ? $this->data['Address']['RegionUpdate'][1] : '').' '.(isset($this->data['Address']['RegionUpdate'][2]) ? $this->data['Address']['RegionUpdate'][2] : '');
@@ -829,8 +817,8 @@ class UsersController extends AppController
                 //判断是否是分销商
                 //如果是分销商 添加分销商等级
                 if ($users['User']['type'] == 1) {
-                    $distributorInfo = $this->FenxiaoDistributor->find('first', array('conditions' => array('FenxiaoDistributor.user_id' => $users['User']['id'])));
-                    $users['User']['type_level_id'] = isset($distributorInfo['FenxiaoDistributor']['distributor_level_id']) ? $distributorInfo['FenxiaoDistributor']['distributor_level_id'] : 0;
+          //          $distributorInfo = $this->FenxiaoDistributor->find('first', array('conditions' => array('FenxiaoDistributor.user_id' => $users['User']['id'])));
+           //         $users['User']['type_level_id'] = isset($distributorInfo['FenxiaoDistributor']['distributor_level_id']) ? $distributorInfo['FenxiaoDistributor']['distributor_level_id'] : 0;
                 }
                 if (isset($_POST['status']) && $_POST['status'] == 1) {
                     //选择自动登录的，将用户保存到cookie，设为2周有效
