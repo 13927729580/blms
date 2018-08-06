@@ -277,7 +277,7 @@ class installsController extends AppController{
 		Configure::write('debug', 0);
 		$this->layout=null;
         	$sql_files = array(
-	        	WWW_ROOT . '/data/tools/tables.sql'
+	        	WWW_ROOT . '/data/tools/install.sql'
 		);
         	$sql_content_data=array();
         	foreach($sql_files as $v){
