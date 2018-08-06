@@ -98,13 +98,14 @@
 						<div class='am-form-group'>
 							<div class='am-u-lg-12 am-padding-xs'><textarea name="data[CourseAssignment][content]"><?php echo isset($v['assignment_detail'])?$v['assignment_detail']['content']:''; ?></textarea></div>
 							<div class='am-u-lg-8 am-padding-xs'><input type='file' class='am-fl' onchange='loadAssignmentMedia(this)' accept="audio/*,video/*,image/*,application/pdf,application/pdf,application/zip" /><?php
+		if(isset($v['assignment_detail']['media'])&&trim($v['assignment_detail']['media'])!=''&&file_exists(WWW_ROOT.$v['assignment_detail']['media'])&&is_file(WWW_ROOT.$v['assignment_detail']['media'])){
 								$assignment_media="am-icon-eye";
 								if(preg_match("/(audio|video)\/(.*)$/",mime_content_type(WWW_ROOT.$v['assignment_detail']['media']))){
 									$assignment_media="am-icon-youtube-play";
 								}else if(preg_match("/(image|IMAGE)\/(.*)$/",mime_content_type(WWW_ROOT.$v['assignment_detail']['media']))){
 									$assignment_media="am-icon-image";
 								}
-									if(isset($v['assignment_detail']['media'])&&trim($v['assignment_detail']['media'])!=''&&file_exists(WWW_ROOT.$v['assignment_detail']['media'])&&is_file(WWW_ROOT.$v['assignment_detail']['media'])){ ?><a href='javascript:void(0);' class='am-fl assignment_file_preview' onclick="PreviewCourseMedia('<?php echo $v['assignment_detail']['media']; ?>','<?php echo mime_content_type(WWW_ROOT.$v['assignment_detail']['media']); ?>')"><i class="<?php echo 'am-icon '.$assignment_media; ?>"></i></a><?php } ?><a href='javascript:void(0);' class='am-fl' style='display:none;' data-am-modal="{target: '#CourseMedia', closeViaDimmer: 0}"><i class='am-icon'></i></a></div>
+									 ?><a href='javascript:void(0);' class='am-fl assignment_file_preview' onclick="PreviewCourseMedia('<?php echo $v['assignment_detail']['media']; ?>','<?php echo mime_content_type(WWW_ROOT.$v['assignment_detail']['media']); ?>')"><i class="<?php echo 'am-icon '.$assignment_media; ?>"></i></a><?php } ?><a href='javascript:void(0);' class='am-fl' style='display:none;' data-am-modal="{target: '#CourseMedia', closeViaDimmer: 0}"><i class='am-icon'></i></a></div>
 							<div class='am-u-lg-4 am-padding-xs am-text-right'><button type='button' class='am-btn am-btn-sm am-btn-success am-radius' onclick="ajax_course_assignment(this)">提交</button></div>
 							<div class='am-cf'></div>
 						</div>
