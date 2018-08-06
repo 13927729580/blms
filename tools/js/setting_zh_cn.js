@@ -345,9 +345,10 @@ function installBaseData() {
             + "db_name=" + f["js-db-name"].value + "&"
             + "db_user=" + encodeURIComponent(f["js-db-user"].value) + "&"
             + "db_pass=" + encodeURIComponent(f["js-db-pass"].value);
-    notice.append("安装数据........................");
+    notice.append("安装数据(可能会花5-10分钟)...");
     $.ajax({ url: web_base+"/installs/install_base_data",
         type:"POST", 
+        timeout: 600000,
         data: { 'db_host':f["js-db-host"].value,'db_port':f["js-db-port"].value,'db_name':f["js-db-name"].value,'db_user':encodeURIComponent(f["js-db-user"].value),'db_pass':encodeURIComponent(f["js-db-pass"].value)},
         async:true,  // 设置同步方式
         cache:false,
@@ -357,7 +358,7 @@ function installBaseData() {
                 createAdminPassport();
             } else {
                 if(result=="install_base_data erro"){
-                    message="安装数据........................"
+                    message="安装数据错误..."
                     displayErrorMsg(message);
                 }
             }

@@ -200,7 +200,7 @@ input[type=checkbox]{margin:1px 5px 0 0;}
 #installing,#install_end{display:none;}
 #error_info{position:relative;left:300px;top:108px;display:none;width:60px;}
 .check_system{margin:20px 0 0;}
-.custom_install{border:none;cursor:pointer;position:relative;left:250px;top:85px;background:none;}
+.custom_install{border:none;cursor:pointer;position:relative;left:220px;top:65px;background:none;}
 #js-recheck{display:none;}
 .finish,.admin_info{font-size:14px;}
 .e_msg1{float:left;width:480px;height:20px;}

@@ -21,7 +21,7 @@ position:fixed;_position:absolute;top:50%;left:50%;width:120px;height:120px;over
 <div style="width:660px;height:245px;background:#fff;text-align:left;">
 <a href="http://www.seevia.cn/" target="_blank"><img src="<?php echo $web_base; ?>/img/seevia.png"  style="float:left;margin:55px 0 0 90px;"/></a>
 <div style="float:left;margin:45px 0 0 43px;width:325px;">
-	<div style="font-size:25px;font-weight:bold;margin:20px 0;">实玮网络开源展示版 <?php echo Version;?></div>
+	<div style="font-size:24px;font-weight:bold;margin:20px 0 10px 50px;color:">实玮网络系统 </div>
 	<div id="check_system">
 		<div style='margin-left:50px'>
 			<input id="system" style="float:left;background:#ccc;border-color:#ccc;" class="button" type="button"  value="正在检测系统..." />
@@ -39,7 +39,7 @@ position:fixed;_position:absolute;top:50%;left:50%;width:120px;height:120px;over
 		<input type="button" class="button" id="js-pre-step"  value="<?php echo $lang['prev_step'];?><?php echo $lang['welcome_page'];?>" style="display:none;"  />
 		<input type="button" class="agree button "  value="立即安装" style="display:block;background:#5eb95e;border-color:#5eb95e;color:#fff;" />
 		</div>
-		<input type="submit" id="custom_install" value=">自定义安装" class="custom_install" />
+		<input type="submit" id="custom_install" value="> 自定义安装" class="custom_install" />
 	</div>
 	<div id="js-monitor" style="display:none;">
 	    <h3 id="js-monitor-title" style="display:none;"><?php echo $lang['monitor_title'];?></h3>
@@ -67,7 +67,7 @@ position:fixed;_position:absolute;top:50%;left:50%;width:120px;height:120px;over
 <div style="clear:both;"></div>
 <div style="width:660px;height:30px;background:#E7F0FF;margin:0px 0 0;">
 	<p style="line-height:30px;text-align:center">
-   © 2016 上海实玮网络科技有限公司 版权所有 沪ICP20141125
+   © 2007-2018 上海实玮网络科技有限公司 版权所有 
     </p>
 </div>
 
@@ -141,7 +141,7 @@ position:fixed;_position:absolute;top:50%;left:50%;width:120px;height:120px;over
 		            </tbody></table>
 				</div>
 			</li>
-			<li>
+<!--			<li>
 				<div class="name" style="width:200px;">
 					        <input style="float:left;" type="checkbox" name="js-system-lang" id="js-system-lang-en_us" value="en_us" /><label style="float:left;"  for="js-system-lang-en_us">多语言 英语<?php //echo $lang['americanese'];?></label></div>
 				
@@ -153,7 +153,7 @@ position:fixed;_position:absolute;top:50%;left:50%;width:120px;height:120px;over
 			<li>
 				<div class="name" style="width:200px;"><label><input type="checkbox" class="p" name="js-install-demo" style="float:left;" /><span style="float:left;">安装测试数据<?php //echo $lang['install_demo'];?></span></label></div>
 				<div class="data"></div>
-			</li>
+			</li>-->
 		</ul>
 	</div>
 </div>
@@ -240,7 +240,7 @@ position:fixed;_position:absolute;top:50%;left:50%;width:120px;height:120px;over
 	</div>
 	<div>
 		<div class="popup_title" style="width:500px;margin:0 auto;text-align:center;padding:0px 0 20px;font-size:20px;">软件条款</div>
-		<textarea style="width:500px;height:250px;resize:none;padding:6px;font-size:14px;margin: 0 auto;border: 1px solid #ccc;line-height:21px;" readonly="true"><?php if(isset($agreement)){echo $agreement;}?></textarea>
+		<textarea style="width:450px;height:250px;resize:none;padding:6px;font-size:14px;margin: 0 auto;border: 1px solid #ccc;line-height:21px;" readonly="true"><?php if(isset($agreement)){echo $agreement;}?></textarea>
 		<div class="popup_btn" style="width:500px;margin:20px auto;text-align:center;">
 			<input style="width:80px;height:30px;color:#ffffff;background-color:#5eb95e;border-color:#5eb95e;" type="button" class="button" id="js-install-at-once" value="同意"  />
 			<input style="width:80px;height:30px;margin:0 0 0 40px;color:#ffffff;background-color: #dd514c;border-color: #dd514c;" type="button" class="button close" id="no_agree" value="不同意"  />

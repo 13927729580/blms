@@ -70,7 +70,7 @@ class installsController extends AppController{
 		}
 	    $this->set('disabled', $disabled);
 	    $this->set('userinterface', $ui);
-		$this->set("title_for_layout",'Seevia-O2O安装');
+		$this->set("title_for_layout",'SEEVIA系统安装');
 	}
 	
 	function welcome(){
@@ -277,13 +277,8 @@ class installsController extends AppController{
 		Configure::write('debug', 0);
 		$this->layout=null;
         	$sql_files = array(
-	        	WWW_ROOT . '/data/tools/o2o_CreateTable.sql',
-	        	WWW_ROOT . '/data/tools/o2o_DefaultData.sql'
+	        	WWW_ROOT . '/data/tools/tables.sql'
 		);
-		if(constant("Product")=="AllInOne"){
-			$sql_files[] = WWW_ROOT . '/data/tools/o2o-allinone.sql';
-	    	}
-        	$sql_files[] = WWW_ROOT . '/data/tools/o2o_dictionaries.sql';
         	$sql_content_data=array();
         	foreach($sql_files as $v){
         		$sql_content=$this->parse_sql_file($v);
@@ -385,10 +380,10 @@ class installsController extends AppController{
 		$install_lang = isset($_POST['install_lang'])   ? $_POST['install_lang'] : 0;
 		$sql_files=array();
 		if($install_demo){
-			$sql_files[]=WWW_ROOT . '/data/tools/o2o_DemoData.sql';
+		//	$sql_files[]=WWW_ROOT . '/data/tools/o2o_DemoData.sql';
 		}
 		if($install_lang){
-			$sql_files[]=WWW_ROOT . '/data/tools/lang.sql';
+		//	$sql_files[]=WWW_ROOT . '/data/tools/lang.sql';
 		}
 		if(!empty($sql_files)){
 			$sql_content_data=array();

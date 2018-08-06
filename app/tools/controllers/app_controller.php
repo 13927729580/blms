@@ -21,6 +21,7 @@ class AppController extends Controller {
 	*/
 	function beforeFilter(){
 		//当前域名
+		ini_set("max_execution_time", 1800);
 		$host = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
 		$this->server_host = "http://".$host;
 		$this->set('server_host',$this->server_host);
