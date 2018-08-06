@@ -7,17 +7,26 @@
 
 #### 软件架构
 ###### 开发语言：PHP v5.6
-###### 数据库：Mysql 5
+###### 数据库：Mysql 5.6
 ###### MVC框架： Cakephp 1.3
 ###### HTML组件：AmazeUI
 ###### 应用开发框架: SEEVIA - FrameWork
 
 #### 安装教程
 
+#####自动安装
 1. 将源码安装在WEB目录下面
 2. 访问http://{IP}:{Domian}/的访问地址，进入安装界面，按照操作提示
 3. 安装完成后，在此访问网址即可
-4. WEB服务器环境搭建请参考 http://blms.seevia.cc/courses/view/3 环境搭建
+
+#####手动安装
+1. 将源码安装在WEB目录下面
+2. 新建数据库，导入data/tools/install.sql 
+3. 复制 data/database.default.php 为 data/database.php，设置参数：数据库地址，端口，用户名和密码
+4. 后台账号初始值为，admin/password
+
+##### WEB服务器环境搭建请参考
+ http://blms.seevia.cc/courses/view/3 环境搭建
 
 #### 使用说明
 
