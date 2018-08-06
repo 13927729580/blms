@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-08-06 05:43:41
+-- Generation Time: 2018-08-06 08:28:24
 -- 服务器版本： 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- 表的结构 `svcms_activities`
 --
 
+DROP TABLE IF EXISTS `svcms_activities`;
 CREATE TABLE `svcms_activities` (
   `id` int(11) NOT NULL COMMENT '活动id',
   `channel` char(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '活动渠道(0:线上,1:线下,2:直播)',
@@ -65,6 +66,7 @@ INSERT INTO `svcms_activities` (`id`, `channel`, `type`, `type_id`, `publisher_t
 -- 表的结构 `svcms_activity_configs`
 --
 
+DROP TABLE IF EXISTS `svcms_activity_configs`;
 CREATE TABLE `svcms_activity_configs` (
   `id` int(11) NOT NULL COMMENT '活动配置Id',
   `activity_id` int(11) NOT NULL DEFAULT '0' COMMENT '活动Id',
@@ -98,6 +100,7 @@ INSERT INTO `svcms_activity_configs` (`id`, `activity_id`, `name`, `type`, `opti
 -- 表的结构 `svcms_activity_publishers`
 --
 
+DROP TABLE IF EXISTS `svcms_activity_publishers`;
 CREATE TABLE `svcms_activity_publishers` (
   `id` int(11) NOT NULL COMMENT '活动发布者描述Id',
   `activity_id` int(11) NOT NULL DEFAULT '0' COMMENT '活动Id',
@@ -124,6 +127,7 @@ INSERT INTO `svcms_activity_publishers` (`id`, `activity_id`, `name`, `logo`, `d
 -- 表的结构 `svcms_activity_tags`
 --
 
+DROP TABLE IF EXISTS `svcms_activity_tags`;
 CREATE TABLE `svcms_activity_tags` (
   `id` int(11) NOT NULL COMMENT '活动标签Id',
   `activity_id` int(11) NOT NULL DEFAULT '0' COMMENT '活动Id',
@@ -138,6 +142,7 @@ CREATE TABLE `svcms_activity_tags` (
 -- 表的结构 `svcms_activity_users`
 --
 
+DROP TABLE IF EXISTS `svcms_activity_users`;
 CREATE TABLE `svcms_activity_users` (
   `id` int(11) NOT NULL COMMENT '活动用户Id',
   `activity_id` int(11) NOT NULL DEFAULT '0' COMMENT '活动Id',
@@ -156,6 +161,7 @@ CREATE TABLE `svcms_activity_users` (
 -- 表的结构 `svcms_activity_user_configs`
 --
 
+DROP TABLE IF EXISTS `svcms_activity_user_configs`;
 CREATE TABLE `svcms_activity_user_configs` (
   `id` int(11) NOT NULL COMMENT '活动用户Id',
   `activity_id` int(11) NOT NULL DEFAULT '0' COMMENT '活动Id',
@@ -172,6 +178,7 @@ CREATE TABLE `svcms_activity_user_configs` (
 -- 表的结构 `svcms_activity_user_tags`
 --
 
+DROP TABLE IF EXISTS `svcms_activity_user_tags`;
 CREATE TABLE `svcms_activity_user_tags` (
   `id` int(11) NOT NULL COMMENT '活动用户标签Id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -187,6 +194,7 @@ CREATE TABLE `svcms_activity_user_tags` (
 -- 表的结构 `svcms_advertisements`
 --
 
+DROP TABLE IF EXISTS `svcms_advertisements`;
 CREATE TABLE `svcms_advertisements` (
   `id` int(11) NOT NULL COMMENT '自增ID号',
   `advertisement_position_id` int(11) NOT NULL DEFAULT '0' COMMENT '0站外广告 从1开始代表的是该广告所处的广告位 同表svcart_advertisement_positions 中的字段id的值',
@@ -208,6 +216,7 @@ CREATE TABLE `svcms_advertisements` (
 -- 表的结构 `svcms_advertisement_effects`
 --
 
+DROP TABLE IF EXISTS `svcms_advertisement_effects`;
 CREATE TABLE `svcms_advertisement_effects` (
   `id` int(11) NOT NULL COMMENT 'id',
   `advertisements_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级id',
@@ -226,6 +235,7 @@ CREATE TABLE `svcms_advertisement_effects` (
 -- 表的结构 `svcms_advertisement_effects_defaults`
 --
 
+DROP TABLE IF EXISTS `svcms_advertisement_effects_defaults`;
 CREATE TABLE `svcms_advertisement_effects_defaults` (
   `id` int(11) NOT NULL COMMENT 'id',
   `locale` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言',
@@ -244,6 +254,7 @@ CREATE TABLE `svcms_advertisement_effects_defaults` (
 -- 表的结构 `svcms_advertisement_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_advertisement_i18ns`;
 CREATE TABLE `svcms_advertisement_i18ns` (
   `id` int(11) NOT NULL COMMENT '自增ID号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -265,6 +276,7 @@ CREATE TABLE `svcms_advertisement_i18ns` (
 -- 表的结构 `svcms_advertisement_positions`
 --
 
+DROP TABLE IF EXISTS `svcms_advertisement_positions`;
 CREATE TABLE `svcms_advertisement_positions` (
   `id` int(11) NOT NULL COMMENT '广告位编号',
   `name` varchar(60) COLLATE utf8_unicode_ci NOT NULL COMMENT '广告位名称',
@@ -284,6 +296,7 @@ CREATE TABLE `svcms_advertisement_positions` (
 -- 表的结构 `svcms_articles`
 --
 
+DROP TABLE IF EXISTS `svcms_articles`;
 CREATE TABLE `svcms_articles` (
   `id` int(11) NOT NULL COMMENT '自增ID号',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '商店编号',
@@ -333,6 +346,7 @@ INSERT INTO `svcms_articles` (`id`, `store_id`, `category_id`, `upload_file_id`,
 -- 表的结构 `svcms_article_categories`
 --
 
+DROP TABLE IF EXISTS `svcms_article_categories`;
 CREATE TABLE `svcms_article_categories` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `category_id` int(11) NOT NULL DEFAULT '0' COMMENT '分类编号',
@@ -348,6 +362,7 @@ CREATE TABLE `svcms_article_categories` (
 -- 表的结构 `svcms_article_galleries`
 --
 
+DROP TABLE IF EXISTS `svcms_article_galleries`;
 CREATE TABLE `svcms_article_galleries` (
   `id` int(11) NOT NULL COMMENT '文章编号',
   `article_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章编号',
@@ -364,6 +379,7 @@ CREATE TABLE `svcms_article_galleries` (
 -- 表的结构 `svcms_article_gallery_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_article_gallery_i18ns`;
 CREATE TABLE `svcms_article_gallery_i18ns` (
   `id` int(11) NOT NULL COMMENT '文章相册多语言编号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -379,6 +395,7 @@ CREATE TABLE `svcms_article_gallery_i18ns` (
 -- 表的结构 `svcms_article_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_article_i18ns`;
 CREATE TABLE `svcms_article_i18ns` (
   `id` int(11) NOT NULL COMMENT '文章多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -416,6 +433,7 @@ INSERT INTO `svcms_article_i18ns` (`id`, `locale`, `article_id`, `title`, `subti
 -- 表的结构 `svcms_category_articles`
 --
 
+DROP TABLE IF EXISTS `svcms_category_articles`;
 CREATE TABLE `svcms_category_articles` (
   `id` int(11) NOT NULL COMMENT '分类编号',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '上级分类编号(0是根目录)',
@@ -457,6 +475,7 @@ INSERT INTO `svcms_category_articles` (`id`, `parent_id`, `type`, `sub_type`, `o
 -- 表的结构 `svcms_category_article_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_category_article_i18ns`;
 CREATE TABLE `svcms_category_article_i18ns` (
   `id` int(11) NOT NULL COMMENT '分类多语言编号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -487,6 +506,7 @@ INSERT INTO `svcms_category_article_i18ns` (`id`, `locale`, `category_id`, `name
 -- 表的结构 `svcms_contacts`
 --
 
+DROP TABLE IF EXISTS `svcms_contacts`;
 CREATE TABLE `svcms_contacts` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `type` varchar(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '留言类型',
@@ -523,6 +543,7 @@ CREATE TABLE `svcms_contacts` (
 -- 表的结构 `svcms_contact_configs`
 --
 
+DROP TABLE IF EXISTS `svcms_contact_configs`;
 CREATE TABLE `svcms_contact_configs` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `type` char(1) NOT NULL DEFAULT '0' COMMENT '留言类型',
@@ -543,6 +564,7 @@ CREATE TABLE `svcms_contact_configs` (
 -- 表的结构 `svcms_contact_config_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_contact_config_i18ns`;
 CREATE TABLE `svcms_contact_config_i18ns` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -560,6 +582,7 @@ CREATE TABLE `svcms_contact_config_i18ns` (
 -- 表的结构 `svcms_documents`
 --
 
+DROP TABLE IF EXISTS `svcms_documents`;
 CREATE TABLE `svcms_documents` (
   `id` int(11) NOT NULL COMMENT '文件编号',
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '文件名称',
@@ -578,6 +601,7 @@ CREATE TABLE `svcms_documents` (
 -- 表的结构 `svcms_flashes`
 --
 
+DROP TABLE IF EXISTS `svcms_flashes`;
 CREATE TABLE `svcms_flashes` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `page` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '页面[H:首页;PC:分类;B:品牌;AC:文章分类]',
@@ -627,6 +651,7 @@ INSERT INTO `svcms_flashes` (`id`, `page`, `page_id`, `type`, `roundcorner`, `au
 -- 表的结构 `svcms_flash_images`
 --
 
+DROP TABLE IF EXISTS `svcms_flash_images`;
 CREATE TABLE `svcms_flash_images` (
   `id` int(11) NOT NULL COMMENT '图片编号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言代码',
@@ -662,6 +687,7 @@ INSERT INTO `svcms_flash_images` (`id`, `locale`, `flash_id`, `orderby`, `image`
 -- 表的结构 `svcms_jobs`
 --
 
+DROP TABLE IF EXISTS `svcms_jobs`;
 CREATE TABLE `svcms_jobs` (
   `id` int(11) NOT NULL COMMENT '职位id',
   `type_id` int(11) NOT NULL COMMENT '类型',
@@ -681,6 +707,7 @@ CREATE TABLE `svcms_jobs` (
 -- 表的结构 `svcms_job_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_job_i18ns`;
 CREATE TABLE `svcms_job_i18ns` (
   `id` int(11) NOT NULL COMMENT 'id',
   `job_id` int(11) NOT NULL COMMENT 'job id',
@@ -698,6 +725,7 @@ CREATE TABLE `svcms_job_i18ns` (
 -- 表的结构 `svcms_links`
 --
 
+DROP TABLE IF EXISTS `svcms_links`;
 CREATE TABLE `svcms_links` (
   `id` int(11) NOT NULL COMMENT '友情链接编号',
   `type` smallint(1) NOT NULL DEFAULT '1' COMMENT '1.友情链接 2.赞助商 3.合作伙伴',
@@ -717,6 +745,7 @@ CREATE TABLE `svcms_links` (
 -- 表的结构 `svcms_link_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_link_i18ns`;
 CREATE TABLE `svcms_link_i18ns` (
   `id` int(11) NOT NULL COMMENT '友情链接编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -737,6 +766,7 @@ CREATE TABLE `svcms_link_i18ns` (
 -- 表的结构 `svcms_mobile_operator_tokens`
 --
 
+DROP TABLE IF EXISTS `svcms_mobile_operator_tokens`;
 CREATE TABLE `svcms_mobile_operator_tokens` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `operator_id` int(11) NOT NULL COMMENT '操作员ID',
@@ -758,6 +788,7 @@ CREATE TABLE `svcms_mobile_operator_tokens` (
 -- 表的结构 `svcms_navigations`
 --
 
+DROP TABLE IF EXISTS `svcms_navigations`;
 CREATE TABLE `svcms_navigations` (
   `id` int(11) NOT NULL COMMENT '导航编号',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '上级导航',
@@ -797,6 +828,7 @@ INSERT INTO `svcms_navigations` (`id`, `parent_id`, `type`, `orderby`, `status`,
 -- 表的结构 `svcms_navigation_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_navigation_i18ns`;
 CREATE TABLE `svcms_navigation_i18ns` (
   `id` int(11) NOT NULL COMMENT '导航多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -835,6 +867,7 @@ INSERT INTO `svcms_navigation_i18ns` (`id`, `locale`, `navigation_id`, `name`, `
 -- 表的结构 `svcms_newsletter_lists`
 --
 
+DROP TABLE IF EXISTS `svcms_newsletter_lists`;
 CREATE TABLE `svcms_newsletter_lists` (
   `id` int(11) NOT NULL COMMENT '邮件订阅编号',
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '邮件地址',
@@ -851,6 +884,7 @@ CREATE TABLE `svcms_newsletter_lists` (
 -- 表的结构 `svcms_pages`
 --
 
+DROP TABLE IF EXISTS `svcms_pages`;
 CREATE TABLE `svcms_pages` (
   `id` int(11) NOT NULL COMMENT '自增ID号',
   `orderby` tinyint(4) NOT NULL DEFAULT '50' COMMENT '排序',
@@ -878,6 +912,7 @@ INSERT INTO `svcms_pages` (`id`, `orderby`, `status`, `operator_id`, `showtime`,
 -- 表的结构 `svcms_page_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_page_i18ns`;
 CREATE TABLE `svcms_page_i18ns` (
   `id` int(11) NOT NULL COMMENT '页面多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -910,6 +945,7 @@ INSERT INTO `svcms_page_i18ns` (`id`, `locale`, `page_id`, `title`, `subtitle`, 
 -- 表的结构 `svcms_photo_categories`
 --
 
+DROP TABLE IF EXISTS `svcms_photo_categories`;
 CREATE TABLE `svcms_photo_categories` (
   `id` int(11) NOT NULL COMMENT '相册分类编号',
   `orderby` tinyint(4) NOT NULL DEFAULT '50' COMMENT '排序',
@@ -939,6 +975,7 @@ INSERT INTO `svcms_photo_categories` (`id`, `orderby`, `custom`, `cat_small_img_
 -- 表的结构 `svcms_photo_category_galleries`
 --
 
+DROP TABLE IF EXISTS `svcms_photo_category_galleries`;
 CREATE TABLE `svcms_photo_category_galleries` (
   `id` int(11) NOT NULL COMMENT '图片编号',
   `photo_category_id` int(11) NOT NULL DEFAULT '0' COMMENT '相册分类编号',
@@ -1013,6 +1050,7 @@ INSERT INTO `svcms_photo_category_galleries` (`id`, `photo_category_id`, `name`,
 -- 表的结构 `svcms_photo_category_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_photo_category_i18ns`;
 CREATE TABLE `svcms_photo_category_i18ns` (
   `id` int(11) NOT NULL COMMENT '相册分类多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -1035,6 +1073,7 @@ INSERT INTO `svcms_photo_category_i18ns` (`id`, `locale`, `photo_category_id`, `
 -- 表的结构 `svcms_resumes`
 --
 
+DROP TABLE IF EXISTS `svcms_resumes`;
 CREATE TABLE `svcms_resumes` (
   `id` int(11) NOT NULL COMMENT '简历ID',
   `job_id` int(11) NOT NULL COMMENT 'job表id',
@@ -1062,6 +1101,7 @@ CREATE TABLE `svcms_resumes` (
 -- 表的结构 `svcms_resume_educations`
 --
 
+DROP TABLE IF EXISTS `svcms_resume_educations`;
 CREATE TABLE `svcms_resume_educations` (
   `id` int(11) NOT NULL COMMENT '教育经历ID',
   `resume_id` int(11) NOT NULL COMMENT '简历ID',
@@ -1082,6 +1122,7 @@ CREATE TABLE `svcms_resume_educations` (
 -- 表的结构 `svcms_resume_experiences`
 --
 
+DROP TABLE IF EXISTS `svcms_resume_experiences`;
 CREATE TABLE `svcms_resume_experiences` (
   `id` int(11) NOT NULL COMMENT '工作经历ID',
   `resume_id` int(11) NOT NULL COMMENT '简历ID',
@@ -1102,6 +1143,7 @@ CREATE TABLE `svcms_resume_experiences` (
 -- 表的结构 `svcms_resume_languages`
 --
 
+DROP TABLE IF EXISTS `svcms_resume_languages`;
 CREATE TABLE `svcms_resume_languages` (
   `id` int(11) NOT NULL COMMENT '语言类型ID',
   `resume_id` int(11) NOT NULL COMMENT '简历ID',
@@ -1119,6 +1161,7 @@ CREATE TABLE `svcms_resume_languages` (
 -- 表的结构 `svcms_seo_keywords`
 --
 
+DROP TABLE IF EXISTS `svcms_seo_keywords`;
 CREATE TABLE `svcms_seo_keywords` (
   `id` int(11) NOT NULL COMMENT '主键',
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '关键字名称',
@@ -1138,6 +1181,7 @@ CREATE TABLE `svcms_seo_keywords` (
 -- 表的结构 `svcms_tags`
 --
 
+DROP TABLE IF EXISTS `svcms_tags`;
 CREATE TABLE `svcms_tags` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `type_id` int(11) NOT NULL COMMENT '相关id',
@@ -1154,6 +1198,7 @@ CREATE TABLE `svcms_tags` (
 -- 表的结构 `svcms_tag_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_tag_i18ns`;
 CREATE TABLE `svcms_tag_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '语言编码',
@@ -1169,6 +1214,7 @@ CREATE TABLE `svcms_tag_i18ns` (
 -- 表的结构 `svcms_templates`
 --
 
+DROP TABLE IF EXISTS `svcms_templates`;
 CREATE TABLE `svcms_templates` (
   `id` int(10) NOT NULL COMMENT '主键自增ID',
   `name` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '模板名',
@@ -1201,6 +1247,7 @@ INSERT INTO `svcms_templates` (`id`, `name`, `description`, `template_style`, `t
 -- 表的结构 `svcms_topics`
 --
 
+DROP TABLE IF EXISTS `svcms_topics`;
 CREATE TABLE `svcms_topics` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `start_time` datetime NOT NULL DEFAULT '2008-01-01 00:00:00' COMMENT '促销开始时间',
@@ -1221,6 +1268,7 @@ CREATE TABLE `svcms_topics` (
 -- 表的结构 `svcms_topic_articles`
 --
 
+DROP TABLE IF EXISTS `svcms_topic_articles`;
 CREATE TABLE `svcms_topic_articles` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `article_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章编号',
@@ -1236,6 +1284,7 @@ CREATE TABLE `svcms_topic_articles` (
 -- 表的结构 `svcms_topic_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_topic_i18ns`;
 CREATE TABLE `svcms_topic_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -1257,6 +1306,7 @@ CREATE TABLE `svcms_topic_i18ns` (
 -- 表的结构 `svcms_topic_products`
 --
 
+DROP TABLE IF EXISTS `svcms_topic_products`;
 CREATE TABLE `svcms_topic_products` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '商店编号',
@@ -1275,6 +1325,7 @@ CREATE TABLE `svcms_topic_products` (
 -- 表的结构 `svcms_upload_files`
 --
 
+DROP TABLE IF EXISTS `svcms_upload_files`;
 CREATE TABLE `svcms_upload_files` (
   `id` int(11) NOT NULL COMMENT '文件编号',
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '文件名称',
@@ -1293,6 +1344,7 @@ CREATE TABLE `svcms_upload_files` (
 -- 表的结构 `svcms_votes`
 --
 
+DROP TABLE IF EXISTS `svcms_votes`;
 CREATE TABLE `svcms_votes` (
   `id` int(11) NOT NULL COMMENT '在线调查自增id',
   `start_time` datetime NOT NULL DEFAULT '2008-01-01 00:00:00' COMMENT '在线调查开始时间',
@@ -1310,6 +1362,7 @@ CREATE TABLE `svcms_votes` (
 -- 表的结构 `svcms_vote_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_vote_i18ns`;
 CREATE TABLE `svcms_vote_i18ns` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT ' ' COMMENT '语言编码',
@@ -1326,6 +1379,7 @@ CREATE TABLE `svcms_vote_i18ns` (
 -- 表的结构 `svcms_vote_logs`
 --
 
+DROP TABLE IF EXISTS `svcms_vote_logs`;
 CREATE TABLE `svcms_vote_logs` (
   `id` int(11) NOT NULL COMMENT '投票记录自增id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID,0:匿名用户',
@@ -1346,6 +1400,7 @@ CREATE TABLE `svcms_vote_logs` (
 -- 表的结构 `svcms_vote_options`
 --
 
+DROP TABLE IF EXISTS `svcms_vote_options`;
 CREATE TABLE `svcms_vote_options` (
   `id` int(11) NOT NULL COMMENT '投票选项自增id',
   `vote_id` int(11) NOT NULL DEFAULT '0' COMMENT '关联的投票主题id，取值表svcms_votes',
@@ -1362,6 +1417,7 @@ CREATE TABLE `svcms_vote_options` (
 -- 表的结构 `svcms_vote_option_i18ns`
 --
 
+DROP TABLE IF EXISTS `svcms_vote_option_i18ns`;
 CREATE TABLE `svcms_vote_option_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT ' ' COMMENT '语言编码',
@@ -1378,6 +1434,7 @@ CREATE TABLE `svcms_vote_option_i18ns` (
 -- 表的结构 `svedi_api_categories`
 --
 
+DROP TABLE IF EXISTS `svedi_api_categories`;
 CREATE TABLE `svedi_api_categories` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1395,6 +1452,7 @@ CREATE TABLE `svedi_api_categories` (
 -- 表的结构 `svedi_api_error_code_interpretations`
 --
 
+DROP TABLE IF EXISTS `svedi_api_error_code_interpretations`;
 CREATE TABLE `svedi_api_error_code_interpretations` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1411,6 +1469,7 @@ CREATE TABLE `svedi_api_error_code_interpretations` (
 -- 表的结构 `svedi_api_methods`
 --
 
+DROP TABLE IF EXISTS `svedi_api_methods`;
 CREATE TABLE `svedi_api_methods` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1430,6 +1489,7 @@ CREATE TABLE `svedi_api_methods` (
 -- 表的结构 `svedi_api_method_error_codes`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_error_codes`;
 CREATE TABLE `svedi_api_method_error_codes` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1445,6 +1505,7 @@ CREATE TABLE `svedi_api_method_error_codes` (
 -- 表的结构 `svedi_api_method_faqs`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_faqs`;
 CREATE TABLE `svedi_api_method_faqs` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'API项目代码',
@@ -1462,6 +1523,7 @@ CREATE TABLE `svedi_api_method_faqs` (
 -- 表的结构 `svedi_api_method_requests`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_requests`;
 CREATE TABLE `svedi_api_method_requests` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1483,6 +1545,7 @@ CREATE TABLE `svedi_api_method_requests` (
 -- 表的结构 `svedi_api_method_request_examples`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_request_examples`;
 CREATE TABLE `svedi_api_method_request_examples` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1500,6 +1563,7 @@ CREATE TABLE `svedi_api_method_request_examples` (
 -- 表的结构 `svedi_api_method_responses`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_responses`;
 CREATE TABLE `svedi_api_method_responses` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1520,6 +1584,7 @@ CREATE TABLE `svedi_api_method_responses` (
 -- 表的结构 `svedi_api_method_response_examples`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_response_examples`;
 CREATE TABLE `svedi_api_method_response_examples` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1537,6 +1602,7 @@ CREATE TABLE `svedi_api_method_response_examples` (
 -- 表的结构 `svedi_api_method_response_exceptions`
 --
 
+DROP TABLE IF EXISTS `svedi_api_method_response_exceptions`;
 CREATE TABLE `svedi_api_method_response_exceptions` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1554,6 +1620,7 @@ CREATE TABLE `svedi_api_method_response_exceptions` (
 -- 表的结构 `svedi_api_objects`
 --
 
+DROP TABLE IF EXISTS `svedi_api_objects`;
 CREATE TABLE `svedi_api_objects` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1571,6 +1638,7 @@ CREATE TABLE `svedi_api_objects` (
 -- 表的结构 `svedi_api_object_fields`
 --
 
+DROP TABLE IF EXISTS `svedi_api_object_fields`;
 CREATE TABLE `svedi_api_object_fields` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1590,6 +1658,7 @@ CREATE TABLE `svedi_api_object_fields` (
 -- 表的结构 `svedi_api_projects`
 --
 
+DROP TABLE IF EXISTS `svedi_api_projects`;
 CREATE TABLE `svedi_api_projects` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1609,6 +1678,7 @@ CREATE TABLE `svedi_api_projects` (
 -- 表的结构 `svedi_api_project_apps`
 --
 
+DROP TABLE IF EXISTS `svedi_api_project_apps`;
 CREATE TABLE `svedi_api_project_apps` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1626,6 +1696,7 @@ CREATE TABLE `svedi_api_project_apps` (
 -- 表的结构 `svedi_api_project_app_authority_types`
 --
 
+DROP TABLE IF EXISTS `svedi_api_project_app_authority_types`;
 CREATE TABLE `svedi_api_project_app_authority_types` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_app_id` int(11) NOT NULL COMMENT 'API项目应用id',
@@ -1642,6 +1713,7 @@ CREATE TABLE `svedi_api_project_app_authority_types` (
 -- 表的结构 `svedi_api_project_common_parameters`
 --
 
+DROP TABLE IF EXISTS `svedi_api_project_common_parameters`;
 CREATE TABLE `svedi_api_project_common_parameters` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `api_project_code` varchar(50) NOT NULL COMMENT 'API项目代码',
@@ -1659,6 +1731,7 @@ CREATE TABLE `svedi_api_project_common_parameters` (
 -- 表的结构 `svedi_sms_words`
 --
 
+DROP TABLE IF EXISTS `svedi_sms_words`;
 CREATE TABLE `svedi_sms_words` (
   `id` int(11) NOT NULL COMMENT '主键',
   `word` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '敏感字',
@@ -1672,6 +1745,7 @@ CREATE TABLE `svedi_sms_words` (
 -- 表的结构 `svhr_abilities`
 --
 
+DROP TABLE IF EXISTS `svhr_abilities`;
 CREATE TABLE `svhr_abilities` (
   `id` int(11) NOT NULL COMMENT '能力ID',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '上级ID',
@@ -1689,6 +1763,7 @@ CREATE TABLE `svhr_abilities` (
 -- 表的结构 `svhr_ability_levels`
 --
 
+DROP TABLE IF EXISTS `svhr_ability_levels`;
 CREATE TABLE `svhr_ability_levels` (
   `id` int(11) NOT NULL COMMENT '能力ID',
   `ability_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '能力编码',
@@ -1706,6 +1781,7 @@ CREATE TABLE `svhr_ability_levels` (
 -- 表的结构 `svhr_bridge_courses`
 --
 
+DROP TABLE IF EXISTS `svhr_bridge_courses`;
 CREATE TABLE `svhr_bridge_courses` (
   `id` int(11) NOT NULL,
   `bridge_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1721,6 +1797,7 @@ CREATE TABLE `svhr_bridge_courses` (
 -- 表的结构 `svhr_bridge_course_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_bridge_course_logs`;
 CREATE TABLE `svhr_bridge_course_logs` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `bridge_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'B+视频id',
@@ -1739,6 +1816,7 @@ CREATE TABLE `svhr_bridge_course_logs` (
 -- 表的结构 `svhr_courses`
 --
 
+DROP TABLE IF EXISTS `svhr_courses`;
 CREATE TABLE `svhr_courses` (
   `id` int(11) NOT NULL COMMENT '课程ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -1787,6 +1865,7 @@ INSERT INTO `svhr_courses` (`id`, `user_id`, `course_type_code`, `course_categor
 -- 表的结构 `svhr_course_abilities`
 --
 
+DROP TABLE IF EXISTS `svhr_course_abilities`;
 CREATE TABLE `svhr_course_abilities` (
   `id` int(11) NOT NULL COMMENT '课程能力ID',
   `course_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '课程编码',
@@ -1801,6 +1880,7 @@ CREATE TABLE `svhr_course_abilities` (
 -- 表的结构 `svhr_course_assignments`
 --
 
+DROP TABLE IF EXISTS `svhr_course_assignments`;
 CREATE TABLE `svhr_course_assignments` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -1820,6 +1900,7 @@ CREATE TABLE `svhr_course_assignments` (
 -- 表的结构 `svhr_course_assignment_scores`
 --
 
+DROP TABLE IF EXISTS `svhr_course_assignment_scores`;
 CREATE TABLE `svhr_course_assignment_scores` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `course_assignment_id` int(11) NOT NULL DEFAULT '0' COMMENT '作业Id',
@@ -1845,6 +1926,7 @@ INSERT INTO `svhr_course_assignment_scores` (`id`, `course_assignment_id`, `repl
 -- 表的结构 `svhr_course_categories`
 --
 
+DROP TABLE IF EXISTS `svhr_course_categories`;
 CREATE TABLE `svhr_course_categories` (
   `id` int(11) NOT NULL COMMENT '分类编号',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -1889,6 +1971,7 @@ INSERT INTO `svhr_course_categories` (`id`, `user_id`, `parent_id`, `name`, `met
 -- 表的结构 `svhr_course_chapters`
 --
 
+DROP TABLE IF EXISTS `svhr_course_chapters`;
 CREATE TABLE `svhr_course_chapters` (
   `id` int(11) NOT NULL COMMENT '章节ID',
   `course_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '课程编码',
@@ -1937,6 +2020,7 @@ INSERT INTO `svhr_course_chapters` (`id`, `course_code`, `code`, `name`, `status
 -- 表的结构 `svhr_course_classes`
 --
 
+DROP TABLE IF EXISTS `svhr_course_classes`;
 CREATE TABLE `svhr_course_classes` (
   `id` int(11) NOT NULL COMMENT '章节课时ID',
   `course_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '课程编码',
@@ -2036,6 +2120,7 @@ INSERT INTO `svhr_course_classes` (`id`, `course_code`, `chapter_code`, `code`, 
 -- 表的结构 `svhr_course_class_wares`
 --
 
+DROP TABLE IF EXISTS `svhr_course_class_wares`;
 CREATE TABLE `svhr_course_class_wares` (
   `id` int(11) NOT NULL COMMENT '课件ID',
   `course_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '课程编码',
@@ -2112,6 +2197,7 @@ INSERT INTO `svhr_course_class_wares` (`id`, `course_code`, `chapter_code`, `cou
 -- 表的结构 `svhr_course_comments`
 --
 
+DROP TABLE IF EXISTS `svhr_course_comments`;
 CREATE TABLE `svhr_course_comments` (
   `id` int(11) NOT NULL COMMENT '自增Id',
   `course_id` int(11) NOT NULL DEFAULT '0' COMMENT '课程Id',
@@ -2132,6 +2218,7 @@ CREATE TABLE `svhr_course_comments` (
 -- 表的结构 `svhr_course_learning_plans`
 --
 
+DROP TABLE IF EXISTS `svhr_course_learning_plans`;
 CREATE TABLE `svhr_course_learning_plans` (
   `id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL COMMENT '关联courses表id',
@@ -2165,6 +2252,7 @@ INSERT INTO `svhr_course_learning_plans` (`id`, `course_id`, `week`, `course_cla
 -- 表的结构 `svhr_course_notes`
 --
 
+DROP TABLE IF EXISTS `svhr_course_notes`;
 CREATE TABLE `svhr_course_notes` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -2183,6 +2271,7 @@ CREATE TABLE `svhr_course_notes` (
 -- 表的结构 `svhr_course_note_replies`
 --
 
+DROP TABLE IF EXISTS `svhr_course_note_replies`;
 CREATE TABLE `svhr_course_note_replies` (
   `id` int(11) NOT NULL COMMENT '自增Id',
   `course_note_id` int(11) NOT NULL DEFAULT '0' COMMENT '课程笔记Id',
@@ -2207,6 +2296,7 @@ INSERT INTO `svhr_course_note_replies` (`id`, `course_note_id`, `reply_from`, `r
 -- 表的结构 `svhr_course_scorm_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_course_scorm_logs`;
 CREATE TABLE `svhr_course_scorm_logs` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `course_ware_id` int(11) NOT NULL DEFAULT '0' COMMENT '课件Id',
@@ -2222,6 +2312,7 @@ CREATE TABLE `svhr_course_scorm_logs` (
 -- 表的结构 `svhr_course_types`
 --
 
+DROP TABLE IF EXISTS `svhr_course_types`;
 CREATE TABLE `svhr_course_types` (
   `id` int(11) NOT NULL COMMENT '课程类型ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -2249,6 +2340,7 @@ INSERT INTO `svhr_course_types` (`id`, `user_id`, `code`, `name`, `status`, `des
 -- 表的结构 `svhr_evaluations`
 --
 
+DROP TABLE IF EXISTS `svhr_evaluations`;
 CREATE TABLE `svhr_evaluations` (
   `id` int(11) NOT NULL COMMENT '评测主题ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -2287,6 +2379,7 @@ INSERT INTO `svhr_evaluations` (`id`, `user_id`, `evaluation_type`, `evaluation_
 -- 表的结构 `svhr_evaluation_categories`
 --
 
+DROP TABLE IF EXISTS `svhr_evaluation_categories`;
 CREATE TABLE `svhr_evaluation_categories` (
   `id` int(11) NOT NULL COMMENT '评测分类ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -2310,6 +2403,7 @@ INSERT INTO `svhr_evaluation_categories` (`id`, `user_id`, `code`, `name`, `stat
 -- 表的结构 `svhr_evaluation_conditions`
 --
 
+DROP TABLE IF EXISTS `svhr_evaluation_conditions`;
 CREATE TABLE `svhr_evaluation_conditions` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `evaluation_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '评测主题编码',
@@ -2325,6 +2419,7 @@ CREATE TABLE `svhr_evaluation_conditions` (
 -- 表的结构 `svhr_evaluation_options`
 --
 
+DROP TABLE IF EXISTS `svhr_evaluation_options`;
 CREATE TABLE `svhr_evaluation_options` (
   `id` int(11) NOT NULL COMMENT '评测题库选项ID',
   `evaluation_question_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'evaluation_questions表code',
@@ -2524,6 +2619,7 @@ INSERT INTO `svhr_evaluation_options` (`id`, `evaluation_question_code`, `name`,
 -- 表的结构 `svhr_evaluation_questions`
 --
 
+DROP TABLE IF EXISTS `svhr_evaluation_questions`;
 CREATE TABLE `svhr_evaluation_questions` (
   `id` int(11) NOT NULL COMMENT '评测题库ID',
   `evaluation_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '评测编码',
@@ -2598,6 +2694,7 @@ INSERT INTO `svhr_evaluation_questions` (`id`, `evaluation_code`, `code`, `name`
 -- 表的结构 `svhr_evaluation_rules`
 --
 
+DROP TABLE IF EXISTS `svhr_evaluation_rules`;
 CREATE TABLE `svhr_evaluation_rules` (
   `id` int(11) NOT NULL COMMENT '评测规则ID',
   `evaluation_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '评测主题编码',
@@ -2616,6 +2713,7 @@ CREATE TABLE `svhr_evaluation_rules` (
 -- 表的结构 `svhr_organizations`
 --
 
+DROP TABLE IF EXISTS `svhr_organizations`;
 CREATE TABLE `svhr_organizations` (
   `id` int(11) NOT NULL COMMENT '组织Id',
   `manage_user` int(11) NOT NULL DEFAULT '0' COMMENT '组织管理员用户Id',
@@ -2642,6 +2740,7 @@ CREATE TABLE `svhr_organizations` (
 -- 表的结构 `svhr_organization_actions`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_actions`;
 CREATE TABLE `svhr_organization_actions` (
   `id` int(11) NOT NULL COMMENT '组织权限Id',
   `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '组织权限编码',
@@ -2657,6 +2756,7 @@ CREATE TABLE `svhr_organization_actions` (
 -- 表的结构 `svhr_organization_apps`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_apps`;
 CREATE TABLE `svhr_organization_apps` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2675,6 +2775,7 @@ CREATE TABLE `svhr_organization_apps` (
 -- 表的结构 `svhr_organization_app_configs`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_app_configs`;
 CREATE TABLE `svhr_organization_app_configs` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_app_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '组织同步Id',
@@ -2693,6 +2794,7 @@ CREATE TABLE `svhr_organization_app_configs` (
 -- 表的结构 `svhr_organization_app_config_values`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_app_config_values`;
 CREATE TABLE `svhr_organization_app_config_values` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_app_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织同步Id',
@@ -2708,6 +2810,7 @@ CREATE TABLE `svhr_organization_app_config_values` (
 -- 表的结构 `svhr_organization_app_medias`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_app_medias`;
 CREATE TABLE `svhr_organization_app_medias` (
   `id` int(11) NOT NULL COMMENT '组织媒体编号',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织编号',
@@ -2726,6 +2829,7 @@ CREATE TABLE `svhr_organization_app_medias` (
 -- 表的结构 `svhr_organization_app_relations`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_app_relations`;
 CREATE TABLE `svhr_organization_app_relations` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2743,6 +2847,7 @@ CREATE TABLE `svhr_organization_app_relations` (
 -- 表的结构 `svhr_organization_configs`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_configs`;
 CREATE TABLE `svhr_organization_configs` (
   `id` int(11) NOT NULL COMMENT '配置Id',
   `group_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '分组编码',
@@ -2764,6 +2869,7 @@ CREATE TABLE `svhr_organization_configs` (
 -- 表的结构 `svhr_organization_config_values`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_config_values`;
 CREATE TABLE `svhr_organization_config_values` (
   `id` int(11) NOT NULL COMMENT '配置信息Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2779,6 +2885,7 @@ CREATE TABLE `svhr_organization_config_values` (
 -- 表的结构 `svhr_organization_departments`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_departments`;
 CREATE TABLE `svhr_organization_departments` (
   `id` int(11) NOT NULL COMMENT '部门Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2797,6 +2904,7 @@ CREATE TABLE `svhr_organization_departments` (
 -- 表的结构 `svhr_organization_jobs`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_jobs`;
 CREATE TABLE `svhr_organization_jobs` (
   `id` int(11) NOT NULL COMMENT '职位Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2814,6 +2922,7 @@ CREATE TABLE `svhr_organization_jobs` (
 -- 表的结构 `svhr_organization_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_logs`;
 CREATE TABLE `svhr_organization_logs` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2829,6 +2938,7 @@ CREATE TABLE `svhr_organization_logs` (
 -- 表的结构 `svhr_organization_managers`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_managers`;
 CREATE TABLE `svhr_organization_managers` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2844,6 +2954,7 @@ CREATE TABLE `svhr_organization_managers` (
 -- 表的结构 `svhr_organization_members`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_members`;
 CREATE TABLE `svhr_organization_members` (
   `id` int(11) NOT NULL COMMENT '职位Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2865,6 +2976,7 @@ CREATE TABLE `svhr_organization_members` (
 -- 表的结构 `svhr_organization_member_jobs`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_member_jobs`;
 CREATE TABLE `svhr_organization_member_jobs` (
   `id` int(11) NOT NULL COMMENT '职位Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2881,6 +2993,7 @@ CREATE TABLE `svhr_organization_member_jobs` (
 -- 表的结构 `svhr_organization_relations`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_relations`;
 CREATE TABLE `svhr_organization_relations` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2896,6 +3009,7 @@ CREATE TABLE `svhr_organization_relations` (
 -- 表的结构 `svhr_organization_roles`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_roles`;
 CREATE TABLE `svhr_organization_roles` (
   `id` int(11) NOT NULL COMMENT '组织角色Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织编号',
@@ -2912,6 +3026,7 @@ CREATE TABLE `svhr_organization_roles` (
 -- 表的结构 `svhr_organization_rules`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_rules`;
 CREATE TABLE `svhr_organization_rules` (
   `id` int(11) NOT NULL COMMENT '规则编号',
   `rule_object` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '规则对象(0:用户,1:组织)',
@@ -2929,6 +3044,7 @@ CREATE TABLE `svhr_organization_rules` (
 -- 表的结构 `svhr_organization_shares`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_shares`;
 CREATE TABLE `svhr_organization_shares` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织Id',
@@ -2947,6 +3063,7 @@ CREATE TABLE `svhr_organization_shares` (
 -- 表的结构 `svhr_organization_users`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_users`;
 CREATE TABLE `svhr_organization_users` (
   `id` int(11) NOT NULL COMMENT '组织用户编号',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织编号',
@@ -2962,6 +3079,7 @@ CREATE TABLE `svhr_organization_users` (
 -- 表的结构 `svhr_organization_user_tags`
 --
 
+DROP TABLE IF EXISTS `svhr_organization_user_tags`;
 CREATE TABLE `svhr_organization_user_tags` (
   `id` int(11) NOT NULL COMMENT '组织用户标签Id',
   `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织编号',
@@ -2977,6 +3095,7 @@ CREATE TABLE `svhr_organization_user_tags` (
 -- 表的结构 `svhr_preconditions`
 --
 
+DROP TABLE IF EXISTS `svhr_preconditions`;
 CREATE TABLE `svhr_preconditions` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `object` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '条件对象',
@@ -3044,6 +3163,7 @@ INSERT INTO `svhr_preconditions` (`id`, `object`, `object_code`, `params`, `valu
 -- 表的结构 `svhr_user_abilities`
 --
 
+DROP TABLE IF EXISTS `svhr_user_abilities`;
 CREATE TABLE `svhr_user_abilities` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '能力ID',
@@ -3061,6 +3181,7 @@ CREATE TABLE `svhr_user_abilities` (
 -- 表的结构 `svhr_user_course_classes`
 --
 
+DROP TABLE IF EXISTS `svhr_user_course_classes`;
 CREATE TABLE `svhr_user_course_classes` (
   `id` int(11) NOT NULL COMMENT '用户课程ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3078,6 +3199,7 @@ CREATE TABLE `svhr_user_course_classes` (
 -- 表的结构 `svhr_user_course_class_details`
 --
 
+DROP TABLE IF EXISTS `svhr_user_course_class_details`;
 CREATE TABLE `svhr_user_course_class_details` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `user_course_class_id` int(11) NOT NULL DEFAULT '0' COMMENT '课程学习日志Id',
@@ -3094,6 +3216,7 @@ CREATE TABLE `svhr_user_course_class_details` (
 -- 表的结构 `svhr_user_educations`
 --
 
+DROP TABLE IF EXISTS `svhr_user_educations`;
 CREATE TABLE `svhr_user_educations` (
   `id` int(11) NOT NULL COMMENT '教育经历ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3115,6 +3238,7 @@ CREATE TABLE `svhr_user_educations` (
 -- 表的结构 `svhr_user_evaluation_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_user_evaluation_logs`;
 CREATE TABLE `svhr_user_evaluation_logs` (
   `id` int(11) NOT NULL COMMENT '用户评测记录ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3137,6 +3261,7 @@ CREATE TABLE `svhr_user_evaluation_logs` (
 -- 表的结构 `svhr_user_evaluation_log_details`
 --
 
+DROP TABLE IF EXISTS `svhr_user_evaluation_log_details`;
 CREATE TABLE `svhr_user_evaluation_log_details` (
   `id` int(11) NOT NULL COMMENT '评测题库选项ID',
   `user_evaluation_log_id` int(11) NOT NULL DEFAULT '0' COMMENT 'user_evaluation_logs表id',
@@ -3154,6 +3279,7 @@ CREATE TABLE `svhr_user_evaluation_log_details` (
 -- 表的结构 `svhr_user_experiences`
 --
 
+DROP TABLE IF EXISTS `svhr_user_experiences`;
 CREATE TABLE `svhr_user_experiences` (
   `id` int(11) NOT NULL COMMENT '工作经历ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3177,6 +3303,7 @@ CREATE TABLE `svhr_user_experiences` (
 -- 表的结构 `svhr_user_experience_value_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_user_experience_value_logs`;
 CREATE TABLE `svhr_user_experience_value_logs` (
   `id` int(11) NOT NULL COMMENT '用户经验值日志ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3193,6 +3320,7 @@ CREATE TABLE `svhr_user_experience_value_logs` (
 -- 表的结构 `svhr_user_group_relations`
 --
 
+DROP TABLE IF EXISTS `svhr_user_group_relations`;
 CREATE TABLE `svhr_user_group_relations` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `user_task_group_id` int(11) NOT NULL COMMENT '任务分组Id',
@@ -3208,6 +3336,7 @@ CREATE TABLE `svhr_user_group_relations` (
 -- 表的结构 `svhr_user_levels`
 --
 
+DROP TABLE IF EXISTS `svhr_user_levels`;
 CREATE TABLE `svhr_user_levels` (
   `id` int(11) NOT NULL COMMENT '用户等级ID',
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -3222,6 +3351,7 @@ CREATE TABLE `svhr_user_levels` (
 -- 表的结构 `svhr_user_level_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_user_level_logs`;
 CREATE TABLE `svhr_user_level_logs` (
   `id` int(11) NOT NULL COMMENT '用户等级日志ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3238,6 +3368,7 @@ CREATE TABLE `svhr_user_level_logs` (
 -- 表的结构 `svhr_user_level_rules`
 --
 
+DROP TABLE IF EXISTS `svhr_user_level_rules`;
 CREATE TABLE `svhr_user_level_rules` (
   `id` int(11) NOT NULL COMMENT '用户等级规则ID',
   `level_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '用户等级编码',
@@ -3254,6 +3385,7 @@ CREATE TABLE `svhr_user_level_rules` (
 -- 表的结构 `svhr_user_questions`
 --
 
+DROP TABLE IF EXISTS `svhr_user_questions`;
 CREATE TABLE `svhr_user_questions` (
   `id` int(11) NOT NULL COMMENT '用户题库ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -3273,6 +3405,7 @@ CREATE TABLE `svhr_user_questions` (
 -- 表的结构 `svhr_user_question_options`
 --
 
+DROP TABLE IF EXISTS `svhr_user_question_options`;
 CREATE TABLE `svhr_user_question_options` (
   `id` int(11) NOT NULL COMMENT '用户题库选项ID',
   `user_question_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'user_questions表id',
@@ -3290,6 +3423,7 @@ CREATE TABLE `svhr_user_question_options` (
 -- 表的结构 `svhr_user_sign_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_user_sign_logs`;
 CREATE TABLE `svhr_user_sign_logs` (
   `id` int(11) NOT NULL COMMENT '用户签到日志ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3304,6 +3438,7 @@ CREATE TABLE `svhr_user_sign_logs` (
 -- 表的结构 `svhr_user_tasks`
 --
 
+DROP TABLE IF EXISTS `svhr_user_tasks`;
 CREATE TABLE `svhr_user_tasks` (
   `id` int(11) NOT NULL COMMENT '用户任务ID',
   `user_task_group_id` int(11) NOT NULL DEFAULT '0' COMMENT '任务分组Id',
@@ -3325,6 +3460,7 @@ CREATE TABLE `svhr_user_tasks` (
 -- 表的结构 `svhr_user_task_conditions`
 --
 
+DROP TABLE IF EXISTS `svhr_user_task_conditions`;
 CREATE TABLE `svhr_user_task_conditions` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `task_group_id` int(11) NOT NULL DEFAULT '0' COMMENT '任务Id',
@@ -3340,6 +3476,7 @@ CREATE TABLE `svhr_user_task_conditions` (
 -- 表的结构 `svhr_user_task_groups`
 --
 
+DROP TABLE IF EXISTS `svhr_user_task_groups`;
 CREATE TABLE `svhr_user_task_groups` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '分组名称',
@@ -3357,6 +3494,7 @@ CREATE TABLE `svhr_user_task_groups` (
 -- 表的结构 `svhr_user_task_logs`
 --
 
+DROP TABLE IF EXISTS `svhr_user_task_logs`;
 CREATE TABLE `svhr_user_task_logs` (
   `id` int(11) NOT NULL COMMENT '用户任务日志ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3374,6 +3512,7 @@ CREATE TABLE `svhr_user_task_logs` (
 -- 表的结构 `svhr_user_type_levels`
 --
 
+DROP TABLE IF EXISTS `svhr_user_type_levels`;
 CREATE TABLE `svhr_user_type_levels` (
   `id` int(11) NOT NULL COMMENT '用户等级ID',
   `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '等级类型',
@@ -3392,6 +3531,7 @@ CREATE TABLE `svhr_user_type_levels` (
 -- 表的结构 `svhr_user_works`
 --
 
+DROP TABLE IF EXISTS `svhr_user_works`;
 CREATE TABLE `svhr_user_works` (
   `id` int(11) NOT NULL COMMENT '作品ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT 'users表id',
@@ -3411,6 +3551,7 @@ CREATE TABLE `svhr_user_works` (
 -- 表的结构 `svhr_user_works_annexes`
 --
 
+DROP TABLE IF EXISTS `svhr_user_works_annexes`;
 CREATE TABLE `svhr_user_works_annexes` (
   `id` int(11) NOT NULL COMMENT '附件ID',
   `works_id` int(11) NOT NULL COMMENT 'user_works表id',
@@ -3430,6 +3571,7 @@ CREATE TABLE `svhr_user_works_annexes` (
 -- 表的结构 `svisp_clients`
 --
 
+DROP TABLE IF EXISTS `svisp_clients`;
 CREATE TABLE `svisp_clients` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `type` char(1) NOT NULL DEFAULT '0' COMMENT '用户类型 0. 客户',
@@ -3476,6 +3618,7 @@ CREATE TABLE `svisp_clients` (
 -- 表的结构 `svisp_client_appointments`
 --
 
+DROP TABLE IF EXISTS `svisp_client_appointments`;
 CREATE TABLE `svisp_client_appointments` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `client_id` int(11) NOT NULL COMMENT '用户ID',
@@ -3494,6 +3637,7 @@ CREATE TABLE `svisp_client_appointments` (
 -- 表的结构 `svisp_client_diagnosis`
 --
 
+DROP TABLE IF EXISTS `svisp_client_diagnosis`;
 CREATE TABLE `svisp_client_diagnosis` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `client_id` int(11) NOT NULL COMMENT '用户ID',
@@ -3511,6 +3655,7 @@ CREATE TABLE `svisp_client_diagnosis` (
 -- 表的结构 `svisp_client_relations`
 --
 
+DROP TABLE IF EXISTS `svisp_client_relations`;
 CREATE TABLE `svisp_client_relations` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `superuser_id` int(11) NOT NULL COMMENT '超级用户id',
@@ -3529,6 +3674,7 @@ CREATE TABLE `svisp_client_relations` (
 -- 表的结构 `svisp_user_schedules`
 --
 
+DROP TABLE IF EXISTS `svisp_user_schedules`;
 CREATE TABLE `svisp_user_schedules` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `superuser_id` int(11) NOT NULL COMMENT '超级用户id',
@@ -3546,6 +3692,7 @@ CREATE TABLE `svisp_user_schedules` (
 -- 表的结构 `svisp_user_schedules_exceptions`
 --
 
+DROP TABLE IF EXISTS `svisp_user_schedules_exceptions`;
 CREATE TABLE `svisp_user_schedules_exceptions` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `superuser_id` int(11) NOT NULL COMMENT '超级用户id',
@@ -3563,6 +3710,7 @@ CREATE TABLE `svisp_user_schedules_exceptions` (
 -- 表的结构 `svmkt_automatics`
 --
 
+DROP TABLE IF EXISTS `svmkt_automatics`;
 CREATE TABLE `svmkt_automatics` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `wb_type` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '所属类型(0新品上架，1宝贝售出，2买家好评，3橱窗推荐)',
@@ -3584,6 +3732,7 @@ CREATE TABLE `svmkt_automatics` (
 -- 表的结构 `svmkt_contents`
 --
 
+DROP TABLE IF EXISTS `svmkt_contents`;
 CREATE TABLE `svmkt_contents` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `upload_type` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '0:定时发布，1：手动发布',
@@ -3605,6 +3754,7 @@ CREATE TABLE `svmkt_contents` (
 -- 表的结构 `svmkt_models`
 --
 
+DROP TABLE IF EXISTS `svmkt_models`;
 CREATE TABLE `svmkt_models` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `super_id` int(11) NOT NULL COMMENT '所属营销编号',
@@ -3619,6 +3769,7 @@ CREATE TABLE `svmkt_models` (
 -- 表的结构 `svmkt_pictorials`
 --
 
+DROP TABLE IF EXISTS `svmkt_pictorials`;
 CREATE TABLE `svmkt_pictorials` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
@@ -3636,6 +3787,7 @@ CREATE TABLE `svmkt_pictorials` (
 -- 表的结构 `svmkt_releasehistories`
 --
 
+DROP TABLE IF EXISTS `svmkt_releasehistories`;
 CREATE TABLE `svmkt_releasehistories` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `timing` datetime NOT NULL COMMENT '发布时间',
@@ -3653,6 +3805,7 @@ CREATE TABLE `svmkt_releasehistories` (
 -- 表的结构 `svmkt_releasequeues`
 --
 
+DROP TABLE IF EXISTS `svmkt_releasequeues`;
 CREATE TABLE `svmkt_releasequeues` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `timing` datetime NOT NULL COMMENT '发布时间',
@@ -3670,6 +3823,7 @@ CREATE TABLE `svmkt_releasequeues` (
 -- 表的结构 `svmkt_resoureces`
 --
 
+DROP TABLE IF EXISTS `svmkt_resoureces`;
 CREATE TABLE `svmkt_resoureces` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `wb_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '所属分类',
@@ -3685,6 +3839,7 @@ CREATE TABLE `svmkt_resoureces` (
 -- 表的结构 `svmkt_supers`
 --
 
+DROP TABLE IF EXISTS `svmkt_supers`;
 CREATE TABLE `svmkt_supers` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `title` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '标题',
@@ -3712,6 +3867,7 @@ CREATE TABLE `svmkt_supers` (
 -- 表的结构 `svmkt_treasures`
 --
 
+DROP TABLE IF EXISTS `svmkt_treasures`;
 CREATE TABLE `svmkt_treasures` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
@@ -3733,6 +3889,7 @@ CREATE TABLE `svmkt_treasures` (
 -- 表的结构 `svmkt_userinfos`
 --
 
+DROP TABLE IF EXISTS `svmkt_userinfos`;
 CREATE TABLE `svmkt_userinfos` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
@@ -3751,6 +3908,7 @@ CREATE TABLE `svmkt_userinfos` (
 -- 表的结构 `svoms_account_informations`
 --
 
+DROP TABLE IF EXISTS `svoms_account_informations`;
 CREATE TABLE `svoms_account_informations` (
   `id` int(11) NOT NULL COMMENT '账目Id',
   `account_category` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '财务类目',
@@ -3778,6 +3936,7 @@ CREATE TABLE `svoms_account_informations` (
 -- 表的结构 `svoms_affiliate_access_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_affiliate_access_logs`;
 CREATE TABLE `svoms_affiliate_access_logs` (
   `id` int(11) NOT NULL COMMENT '渠道Id',
   `affiliate_channel_id` int(11) NOT NULL DEFAULT '0' COMMENT '渠道Id',
@@ -3796,6 +3955,7 @@ CREATE TABLE `svoms_affiliate_access_logs` (
 -- 表的结构 `svoms_affiliate_channels`
 --
 
+DROP TABLE IF EXISTS `svoms_affiliate_channels`;
 CREATE TABLE `svoms_affiliate_channels` (
   `id` int(11) NOT NULL COMMENT '渠道Id',
   `name` varchar(250) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '渠道名称',
@@ -3812,6 +3972,7 @@ CREATE TABLE `svoms_affiliate_channels` (
 -- 表的结构 `svoms_affiliate_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_affiliate_logs`;
 CREATE TABLE `svoms_affiliate_logs` (
   `id` int(11) NOT NULL COMMENT '主键',
   `order_id` int(11) NOT NULL COMMENT '订单ID',
@@ -3830,6 +3991,7 @@ CREATE TABLE `svoms_affiliate_logs` (
 -- 表的结构 `svoms_attributes`
 --
 
+DROP TABLE IF EXISTS `svoms_attributes`;
 CREATE TABLE `svoms_attributes` (
   `id` int(11) NOT NULL COMMENT '属性编号',
   `code` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '编码',
@@ -3857,6 +4019,7 @@ INSERT INTO `svoms_attributes` (`id`, `code`, `type`, `status`, `show_status`, `
 -- 表的结构 `svoms_attribute_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_attribute_i18ns`;
 CREATE TABLE `svoms_attribute_i18ns` (
   `id` int(11) NOT NULL COMMENT '属性多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -3882,6 +4045,7 @@ INSERT INTO `svoms_attribute_i18ns` (`id`, `locale`, `attribute_id`, `name`, `de
 -- 表的结构 `svoms_attribute_options`
 --
 
+DROP TABLE IF EXISTS `svoms_attribute_options`;
 CREATE TABLE `svoms_attribute_options` (
   `id` int(11) NOT NULL COMMENT '主键',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '语言编码',
@@ -3903,6 +4067,7 @@ CREATE TABLE `svoms_attribute_options` (
 -- 表的结构 `svoms_brands`
 --
 
+DROP TABLE IF EXISTS `svoms_brands`;
 CREATE TABLE `svoms_brands` (
   `id` int(11) NOT NULL COMMENT '品牌编号',
   `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '品牌code',
@@ -3931,6 +4096,7 @@ INSERT INTO `svoms_brands` (`id`, `code`, `category_type_id`, `orderby`, `img01`
 -- 表的结构 `svoms_brand_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_brand_i18ns`;
 CREATE TABLE `svoms_brand_i18ns` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -3959,6 +4125,7 @@ INSERT INTO `svoms_brand_i18ns` (`id`, `locale`, `brand_id`, `name`, `descriptio
 -- 表的结构 `svoms_cards`
 --
 
+DROP TABLE IF EXISTS `svoms_cards`;
 CREATE TABLE `svoms_cards` (
   `id` int(11) NOT NULL COMMENT '贺卡编号',
   `orderby` tinyint(4) NOT NULL DEFAULT '50' COMMENT '排序',
@@ -3977,6 +4144,7 @@ CREATE TABLE `svoms_cards` (
 -- 表的结构 `svoms_card_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_card_i18ns`;
 CREATE TABLE `svoms_card_i18ns` (
   `id` int(11) NOT NULL COMMENT '贺卡多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -3993,6 +4161,7 @@ CREATE TABLE `svoms_card_i18ns` (
 -- 表的结构 `svoms_carts`
 --
 
+DROP TABLE IF EXISTS `svoms_carts`;
 CREATE TABLE `svoms_carts` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'ID',
   `session_id` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '进程编号',
@@ -4030,6 +4199,7 @@ INSERT INTO `svoms_carts` (`id`, `session_id`, `user_id`, `store_id`, `type`, `u
 -- 表的结构 `svoms_cart_product_values`
 --
 
+DROP TABLE IF EXISTS `svoms_cart_product_values`;
 CREATE TABLE `svoms_cart_product_values` (
   `id` int(11) NOT NULL COMMENT '购物车商品属性id',
   `cart_id` int(11) DEFAULT NULL COMMENT '订单商品id',
@@ -4046,6 +4216,7 @@ CREATE TABLE `svoms_cart_product_values` (
 -- 表的结构 `svoms_category_filters`
 --
 
+DROP TABLE IF EXISTS `svoms_category_filters`;
 CREATE TABLE `svoms_category_filters` (
   `id` int(11) NOT NULL COMMENT '分类筛选',
   `category_id` int(11) NOT NULL COMMENT '分类ID',
@@ -4062,6 +4233,7 @@ CREATE TABLE `svoms_category_filters` (
 -- 表的结构 `svoms_category_products`
 --
 
+DROP TABLE IF EXISTS `svoms_category_products`;
 CREATE TABLE `svoms_category_products` (
   `id` int(11) NOT NULL COMMENT '分类编号',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '上级分类编号(0是根目录)',
@@ -4093,6 +4265,7 @@ CREATE TABLE `svoms_category_products` (
 -- 表的结构 `svoms_category_product_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_category_product_i18ns`;
 CREATE TABLE `svoms_category_product_i18ns` (
   `id` int(11) NOT NULL COMMENT '分类多语言编号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -4114,6 +4287,7 @@ CREATE TABLE `svoms_category_product_i18ns` (
 -- 表的结构 `svoms_category_types`
 --
 
+DROP TABLE IF EXISTS `svoms_category_types`;
 CREATE TABLE `svoms_category_types` (
   `id` int(11) NOT NULL COMMENT '类目ID',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级ID',
@@ -4130,6 +4304,7 @@ CREATE TABLE `svoms_category_types` (
 -- 表的结构 `svoms_category_type_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_category_type_i18ns`;
 CREATE TABLE `svoms_category_type_i18ns` (
   `id` int(11) NOT NULL COMMENT '类目多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -4146,6 +4321,7 @@ CREATE TABLE `svoms_category_type_i18ns` (
 -- 表的结构 `svoms_category_type_relations`
 --
 
+DROP TABLE IF EXISTS `svoms_category_type_relations`;
 CREATE TABLE `svoms_category_type_relations` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `category_type_id` int(11) NOT NULL DEFAULT '0' COMMENT '类目编号',
@@ -4162,6 +4338,7 @@ CREATE TABLE `svoms_category_type_relations` (
 -- 表的结构 `svoms_certificates`
 --
 
+DROP TABLE IF EXISTS `svoms_certificates`;
 CREATE TABLE `svoms_certificates` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名',
@@ -4179,6 +4356,7 @@ CREATE TABLE `svoms_certificates` (
 -- 表的结构 `svoms_channels`
 --
 
+DROP TABLE IF EXISTS `svoms_channels`;
 CREATE TABLE `svoms_channels` (
   `id` int(11) NOT NULL COMMENT '活动渠道id',
   `channel_active_sn` varchar(60) DEFAULT NULL COMMENT '渠道活动编号',
@@ -4204,6 +4382,7 @@ CREATE TABLE `svoms_channels` (
 -- 表的结构 `svoms_channel_actives`
 --
 
+DROP TABLE IF EXISTS `svoms_channel_actives`;
 CREATE TABLE `svoms_channel_actives` (
   `id` int(11) NOT NULL COMMENT '活动id',
   `active_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '活动名称',
@@ -4227,6 +4406,7 @@ CREATE TABLE `svoms_channel_actives` (
 -- 表的结构 `svoms_comments`
 --
 
+DROP TABLE IF EXISTS `svoms_comments`;
 CREATE TABLE `svoms_comments` (
   `id` int(11) NOT NULL COMMENT '评论编号',
   `type` char(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '评论类型[商品(P),商品分类(CP),品牌(B),文章(A),专题(T)]',
@@ -4252,6 +4432,7 @@ CREATE TABLE `svoms_comments` (
 -- 表的结构 `svoms_coupons`
 --
 
+DROP TABLE IF EXISTS `svoms_coupons`;
 CREATE TABLE `svoms_coupons` (
   `id` mediumint(8) UNSIGNED NOT NULL,
   `coupon_type_id` int(11) NOT NULL DEFAULT '0' COMMENT '优惠券类型编号',
@@ -4273,6 +4454,7 @@ CREATE TABLE `svoms_coupons` (
 -- 表的结构 `svoms_coupon_products`
 --
 
+DROP TABLE IF EXISTS `svoms_coupon_products`;
 CREATE TABLE `svoms_coupon_products` (
   `id` int(11) NOT NULL COMMENT '关联ID',
   `coupon_type_id` int(11) NOT NULL COMMENT '关联优惠券ID',
@@ -4287,6 +4469,7 @@ CREATE TABLE `svoms_coupon_products` (
 -- 表的结构 `svoms_coupon_types`
 --
 
+DROP TABLE IF EXISTS `svoms_coupon_types`;
 CREATE TABLE `svoms_coupon_types` (
   `id` int(11) NOT NULL COMMENT '优惠券类型编号',
   `type` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '优惠类型',
@@ -4310,6 +4493,7 @@ CREATE TABLE `svoms_coupon_types` (
 -- 表的结构 `svoms_coupon_type_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_coupon_type_i18ns`;
 CREATE TABLE `svoms_coupon_type_i18ns` (
   `id` int(11) NOT NULL COMMENT '优惠券多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -4326,6 +4510,7 @@ CREATE TABLE `svoms_coupon_type_i18ns` (
 -- 表的结构 `svoms_currencies`
 --
 
+DROP TABLE IF EXISTS `svoms_currencies`;
 CREATE TABLE `svoms_currencies` (
   `id` int(11) NOT NULL COMMENT '主键',
   `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '货币代码',
@@ -4342,6 +4527,7 @@ CREATE TABLE `svoms_currencies` (
 -- 表的结构 `svoms_currency_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_currency_i18ns`;
 CREATE TABLE `svoms_currency_i18ns` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `currency_id` int(11) NOT NULL COMMENT '货币ID',
@@ -4359,6 +4545,7 @@ CREATE TABLE `svoms_currency_i18ns` (
 -- 表的结构 `svoms_invoices`
 --
 
+DROP TABLE IF EXISTS `svoms_invoices`;
 CREATE TABLE `svoms_invoices` (
   `id` int(11) NOT NULL COMMENT '账目Id',
   `invoice_type` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '发票类型(0:普通发票,1:增值税普通发票,2:增值税专用发票)',
@@ -4386,6 +4573,7 @@ CREATE TABLE `svoms_invoices` (
 -- 表的结构 `svoms_invoice_types`
 --
 
+DROP TABLE IF EXISTS `svoms_invoice_types`;
 CREATE TABLE `svoms_invoice_types` (
   `id` int(11) NOT NULL COMMENT '主键',
   `tax_point` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '发票税点',
@@ -4400,6 +4588,7 @@ CREATE TABLE `svoms_invoice_types` (
 -- 表的结构 `svoms_invoice_type_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_invoice_type_i18ns`;
 CREATE TABLE `svoms_invoice_type_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键',
   `invoice_type_id` int(11) NOT NULL COMMENT '类型ID',
@@ -4416,6 +4605,7 @@ CREATE TABLE `svoms_invoice_type_i18ns` (
 -- 表的结构 `svoms_logistics_companies`
 --
 
+DROP TABLE IF EXISTS `svoms_logistics_companies`;
 CREATE TABLE `svoms_logistics_companies` (
   `id` int(11) NOT NULL COMMENT '物流公司标识',
   `code` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '物流公司代码',
@@ -4462,6 +4652,7 @@ INSERT INTO `svoms_logistics_companies` (`id`, `code`, `express_code`, `ecflag_c
 -- 表的结构 `svoms_logistics_mappings`
 --
 
+DROP TABLE IF EXISTS `svoms_logistics_mappings`;
 CREATE TABLE `svoms_logistics_mappings` (
   `id` int(11) NOT NULL COMMENT '主键ID',
   `logistics_company_id` int(11) NOT NULL DEFAULT '0' COMMENT '快递公司ID',
@@ -4477,6 +4668,7 @@ CREATE TABLE `svoms_logistics_mappings` (
 -- 表的结构 `svoms_materials`
 --
 
+DROP TABLE IF EXISTS `svoms_materials`;
 CREATE TABLE `svoms_materials` (
   `id` int(11) NOT NULL COMMENT '主键',
   `code` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '材料编号',
@@ -4495,6 +4687,7 @@ CREATE TABLE `svoms_materials` (
 -- 表的结构 `svoms_material_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_material_i18ns`;
 CREATE TABLE `svoms_material_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '语言编码',
@@ -4511,6 +4704,7 @@ CREATE TABLE `svoms_material_i18ns` (
 -- 表的结构 `svoms_orders`
 --
 
+DROP TABLE IF EXISTS `svoms_orders`;
 CREATE TABLE `svoms_orders` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '订单详细信息自增id',
   `order_code` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '订单号，唯一',
@@ -4609,6 +4803,7 @@ CREATE TABLE `svoms_orders` (
 -- 表的结构 `svoms_order_actions`
 --
 
+DROP TABLE IF EXISTS `svoms_order_actions`;
 CREATE TABLE `svoms_order_actions` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `order_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '被操作的交易号svoms_orders的ＩＤ',
@@ -4629,6 +4824,7 @@ CREATE TABLE `svoms_order_actions` (
 -- 表的结构 `svoms_order_cards`
 --
 
+DROP TABLE IF EXISTS `svoms_order_cards`;
 CREATE TABLE `svoms_order_cards` (
   `id` int(11) NOT NULL,
   `order_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '订单ID',
@@ -4648,6 +4844,7 @@ CREATE TABLE `svoms_order_cards` (
 -- 表的结构 `svoms_order_items`
 --
 
+DROP TABLE IF EXISTS `svoms_order_items`;
 CREATE TABLE `svoms_order_items` (
   `id` int(11) NOT NULL COMMENT '订单商品Id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4666,6 +4863,7 @@ CREATE TABLE `svoms_order_items` (
 -- 表的结构 `svoms_order_material_products`
 --
 
+DROP TABLE IF EXISTS `svoms_order_material_products`;
 CREATE TABLE `svoms_order_material_products` (
   `id` int(11) NOT NULL COMMENT '订单商品材料id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4683,6 +4881,7 @@ CREATE TABLE `svoms_order_material_products` (
 -- 表的结构 `svoms_order_packagings`
 --
 
+DROP TABLE IF EXISTS `svoms_order_packagings`;
 CREATE TABLE `svoms_order_packagings` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `order_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '订单ID',
@@ -4702,6 +4901,7 @@ CREATE TABLE `svoms_order_packagings` (
 -- 表的结构 `svoms_order_products`
 --
 
+DROP TABLE IF EXISTS `svoms_order_products`;
 CREATE TABLE `svoms_order_products` (
   `id` int(11) NOT NULL COMMENT '订单商品信息自增id',
   `order_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '订单商品信息对应的详细信息id，取值svoms_orders的order_id',
@@ -4753,6 +4953,7 @@ CREATE TABLE `svoms_order_products` (
 -- 表的结构 `svoms_order_product_actions`
 --
 
+DROP TABLE IF EXISTS `svoms_order_product_actions`;
 CREATE TABLE `svoms_order_product_actions` (
   `id` int(11) NOT NULL COMMENT '订单商品日志Id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4777,6 +4978,7 @@ INSERT INTO `svoms_order_product_actions` (`id`, `order_id`, `order_product_id`,
 -- 表的结构 `svoms_order_product_additionals`
 --
 
+DROP TABLE IF EXISTS `svoms_order_product_additionals`;
 CREATE TABLE `svoms_order_product_additionals` (
   `id` int(11) NOT NULL COMMENT '订单商品日志Id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4792,6 +4994,7 @@ CREATE TABLE `svoms_order_product_additionals` (
 -- 表的结构 `svoms_order_product_medias`
 --
 
+DROP TABLE IF EXISTS `svoms_order_product_medias`;
 CREATE TABLE `svoms_order_product_medias` (
   `id` int(11) NOT NULL COMMENT '订单商品日志Id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4813,6 +5016,7 @@ CREATE TABLE `svoms_order_product_medias` (
 -- 表的结构 `svoms_order_product_values`
 --
 
+DROP TABLE IF EXISTS `svoms_order_product_values`;
 CREATE TABLE `svoms_order_product_values` (
   `id` int(11) NOT NULL COMMENT '订单商品属性id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4830,6 +5034,7 @@ CREATE TABLE `svoms_order_product_values` (
 -- 表的结构 `svoms_order_shipments`
 --
 
+DROP TABLE IF EXISTS `svoms_order_shipments`;
 CREATE TABLE `svoms_order_shipments` (
   `id` int(11) NOT NULL COMMENT '订单商品日志Id',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单Id',
@@ -4864,6 +5069,7 @@ INSERT INTO `svoms_order_shipments` (`id`, `order_id`, `logistics_company_id`, `
 -- 表的结构 `svoms_order_shipment_products`
 --
 
+DROP TABLE IF EXISTS `svoms_order_shipment_products`;
 CREATE TABLE `svoms_order_shipment_products` (
   `id` int(11) NOT NULL COMMENT '订单商品日志Id',
   `order_shipment_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单发货信息Id',
@@ -4886,6 +5092,7 @@ INSERT INTO `svoms_order_shipment_products` (`id`, `order_shipment_id`, `order_p
 -- 表的结构 `svoms_package_products`
 --
 
+DROP TABLE IF EXISTS `svoms_package_products`;
 CREATE TABLE `svoms_package_products` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `package_product_id` int(11) NOT NULL COMMENT '套装子商品id',
@@ -4905,6 +5112,7 @@ CREATE TABLE `svoms_package_products` (
 -- 表的结构 `svoms_packagings`
 --
 
+DROP TABLE IF EXISTS `svoms_packagings`;
 CREATE TABLE `svoms_packagings` (
   `id` int(11) NOT NULL COMMENT '包装编号',
   `orderby` tinyint(4) NOT NULL DEFAULT '50' COMMENT '排序',
@@ -4923,6 +5131,7 @@ CREATE TABLE `svoms_packagings` (
 -- 表的结构 `svoms_packaging_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_packaging_i18ns`;
 CREATE TABLE `svoms_packaging_i18ns` (
   `id` int(11) NOT NULL COMMENT '包装多语言编号自增id',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -4939,6 +5148,7 @@ CREATE TABLE `svoms_packaging_i18ns` (
 -- 表的结构 `svoms_payments`
 --
 
+DROP TABLE IF EXISTS `svoms_payments`;
 CREATE TABLE `svoms_payments` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '已安装的支付方式自增id',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '上级支付方式',
@@ -4983,6 +5193,7 @@ INSERT INTO `svoms_payments` (`id`, `parent_id`, `store_id`, `code`, `fee`, `ord
 -- 表的结构 `svoms_payment_api_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_payment_api_logs`;
 CREATE TABLE `svoms_payment_api_logs` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '支付记录自增id',
   `payment_code` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '支付代码',
@@ -5000,6 +5211,7 @@ CREATE TABLE `svoms_payment_api_logs` (
 -- 表的结构 `svoms_payment_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_payment_i18ns`;
 CREATE TABLE `svoms_payment_i18ns` (
   `id` int(11) NOT NULL COMMENT '支付方式多语言编号',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '语言编码',
@@ -5039,6 +5251,7 @@ INSERT INTO `svoms_payment_i18ns` (`id`, `locale`, `payment_id`, `name`, `paymen
 -- 表的结构 `svoms_payment_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_payment_logs`;
 CREATE TABLE `svoms_payment_logs` (
   `id` int(11) NOT NULL COMMENT '主键',
   `order_code` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '订单号',
@@ -5057,6 +5270,7 @@ CREATE TABLE `svoms_payment_logs` (
 -- 表的结构 `svoms_products`
 --
 
+DROP TABLE IF EXISTS `svoms_products`;
 CREATE TABLE `svoms_products` (
   `id` int(11) NOT NULL COMMENT '商品编号',
   `coupon_type_id` int(11) NOT NULL DEFAULT '0' COMMENT '优惠券关联',
@@ -5131,6 +5345,7 @@ CREATE TABLE `svoms_products` (
 -- 表的结构 `svoms_products_categories`
 --
 
+DROP TABLE IF EXISTS `svoms_products_categories`;
 CREATE TABLE `svoms_products_categories` (
   `id` int(11) NOT NULL COMMENT '自增长编号',
   `category_id` int(11) NOT NULL DEFAULT '0' COMMENT '类型编号',
@@ -5146,6 +5361,7 @@ CREATE TABLE `svoms_products_categories` (
 -- 表的结构 `svoms_product_actions`
 --
 
+DROP TABLE IF EXISTS `svoms_product_actions`;
 CREATE TABLE `svoms_product_actions` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品Id',
@@ -5162,6 +5378,7 @@ CREATE TABLE `svoms_product_actions` (
 -- 表的结构 `svoms_product_alsoboughts`
 --
 
+DROP TABLE IF EXISTS `svoms_product_alsoboughts`;
 CREATE TABLE `svoms_product_alsoboughts` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品ID',
@@ -5176,6 +5393,7 @@ CREATE TABLE `svoms_product_alsoboughts` (
 -- 表的结构 `svoms_product_articles`
 --
 
+DROP TABLE IF EXISTS `svoms_product_articles`;
 CREATE TABLE `svoms_product_articles` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `article_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章编号',
@@ -5192,6 +5410,7 @@ CREATE TABLE `svoms_product_articles` (
 -- 表的结构 `svoms_product_attributes`
 --
 
+DROP TABLE IF EXISTS `svoms_product_attributes`;
 CREATE TABLE `svoms_product_attributes` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '商品ID',
@@ -5216,6 +5435,7 @@ CREATE TABLE `svoms_product_attributes` (
 -- 表的结构 `svoms_product_bookings`
 --
 
+DROP TABLE IF EXISTS `svoms_product_bookings`;
 CREATE TABLE `svoms_product_bookings` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增Ｉｄ',
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '登记该缺货记录的用户的id存svoms_users用户表自增ID',
@@ -5240,6 +5460,7 @@ CREATE TABLE `svoms_product_bookings` (
 -- 表的结构 `svoms_product_downloads`
 --
 
+DROP TABLE IF EXISTS `svoms_product_downloads`;
 CREATE TABLE `svoms_product_downloads` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `start_time` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '开始时间',
@@ -5260,6 +5481,7 @@ CREATE TABLE `svoms_product_downloads` (
 -- 表的结构 `svoms_product_download_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_product_download_logs`;
 CREATE TABLE `svoms_product_download_logs` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品ID',
@@ -5276,6 +5498,7 @@ CREATE TABLE `svoms_product_download_logs` (
 -- 表的结构 `svoms_product_galleries`
 --
 
+DROP TABLE IF EXISTS `svoms_product_galleries`;
 CREATE TABLE `svoms_product_galleries` (
   `id` int(11) NOT NULL COMMENT '图片编号',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品编号',
@@ -5295,6 +5518,7 @@ CREATE TABLE `svoms_product_galleries` (
 -- 表的结构 `svoms_product_gallery_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_product_gallery_i18ns`;
 CREATE TABLE `svoms_product_gallery_i18ns` (
   `id` int(11) NOT NULL COMMENT '商品相册多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -5310,6 +5534,7 @@ CREATE TABLE `svoms_product_gallery_i18ns` (
 -- 表的结构 `svoms_product_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_product_i18ns`;
 CREATE TABLE `svoms_product_i18ns` (
   `id` int(11) NOT NULL COMMENT '商品多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -5336,6 +5561,7 @@ CREATE TABLE `svoms_product_i18ns` (
 -- 表的结构 `svoms_product_leases`
 --
 
+DROP TABLE IF EXISTS `svoms_product_leases`;
 CREATE TABLE `svoms_product_leases` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '自增id',
   `product_code` varchar(45) COLLATE utf8_unicode_ci NOT NULL COMMENT '货号',
@@ -5353,6 +5579,7 @@ CREATE TABLE `svoms_product_leases` (
 -- 表的结构 `svoms_product_lease_prices`
 --
 
+DROP TABLE IF EXISTS `svoms_product_lease_prices`;
 CREATE TABLE `svoms_product_lease_prices` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '自增id',
   `price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '价格',
@@ -5370,6 +5597,7 @@ CREATE TABLE `svoms_product_lease_prices` (
 -- 表的结构 `svoms_product_locale_prices`
 --
 
+DROP TABLE IF EXISTS `svoms_product_locale_prices`;
 CREATE TABLE `svoms_product_locale_prices` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL COMMENT '商品id',
@@ -5391,6 +5619,7 @@ CREATE TABLE `svoms_product_locale_prices` (
 -- 表的结构 `svoms_product_materials`
 --
 
+DROP TABLE IF EXISTS `svoms_product_materials`;
 CREATE TABLE `svoms_product_materials` (
   `id` int(11) NOT NULL COMMENT '主键',
   `product_material_code` varchar(60) NOT NULL COMMENT '材料编号',
@@ -5407,6 +5636,7 @@ CREATE TABLE `svoms_product_materials` (
 -- 表的结构 `svoms_product_public_templates`
 --
 
+DROP TABLE IF EXISTS `svoms_product_public_templates`;
 CREATE TABLE `svoms_product_public_templates` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '公用模板编号',
@@ -5422,6 +5652,7 @@ CREATE TABLE `svoms_product_public_templates` (
 -- 表的结构 `svoms_product_public_template_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_product_public_template_i18ns`;
 CREATE TABLE `svoms_product_public_template_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '语言',
@@ -5439,6 +5670,7 @@ CREATE TABLE `svoms_product_public_template_i18ns` (
 -- 表的结构 `svoms_product_ranks`
 --
 
+DROP TABLE IF EXISTS `svoms_product_ranks`;
 CREATE TABLE `svoms_product_ranks` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品ID',
@@ -5455,6 +5687,7 @@ CREATE TABLE `svoms_product_ranks` (
 -- 表的结构 `svoms_product_relations`
 --
 
+DROP TABLE IF EXISTS `svoms_product_relations`;
 CREATE TABLE `svoms_product_relations` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品编号',
@@ -5471,6 +5704,7 @@ CREATE TABLE `svoms_product_relations` (
 -- 表的结构 `svoms_product_services`
 --
 
+DROP TABLE IF EXISTS `svoms_product_services`;
 CREATE TABLE `svoms_product_services` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `start_time` datetime DEFAULT NULL COMMENT '开始时间',
@@ -5490,6 +5724,7 @@ CREATE TABLE `svoms_product_services` (
 -- 表的结构 `svoms_product_service_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_product_service_logs`;
 CREATE TABLE `svoms_product_service_logs` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL COMMENT '商品ID',
@@ -5506,6 +5741,7 @@ CREATE TABLE `svoms_product_service_logs` (
 -- 表的结构 `svoms_product_shipping_fees`
 --
 
+DROP TABLE IF EXISTS `svoms_product_shipping_fees`;
 CREATE TABLE `svoms_product_shipping_fees` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT ' ' COMMENT '语言',
@@ -5523,6 +5759,7 @@ CREATE TABLE `svoms_product_shipping_fees` (
 -- 表的结构 `svoms_product_styles`
 --
 
+DROP TABLE IF EXISTS `svoms_product_styles`;
 CREATE TABLE `svoms_product_styles` (
   `id` int(11) NOT NULL COMMENT '版型id',
   `orderby` tinyint(4) NOT NULL DEFAULT '50' COMMENT '排序',
@@ -5537,6 +5774,7 @@ CREATE TABLE `svoms_product_styles` (
 -- 表的结构 `svoms_product_style_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_product_style_i18ns`;
 CREATE TABLE `svoms_product_style_i18ns` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `style_id` int(11) NOT NULL COMMENT '版型ID',
@@ -5552,6 +5790,7 @@ CREATE TABLE `svoms_product_style_i18ns` (
 -- 表的结构 `svoms_product_types`
 --
 
+DROP TABLE IF EXISTS `svoms_product_types`;
 CREATE TABLE `svoms_product_types` (
   `id` int(11) NOT NULL COMMENT '分类编号',
   `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '编码',
@@ -5576,6 +5815,7 @@ INSERT INTO `svoms_product_types` (`id`, `code`, `group_code`, `customize`, `sta
 -- 表的结构 `svoms_product_type_attributes`
 --
 
+DROP TABLE IF EXISTS `svoms_product_type_attributes`;
 CREATE TABLE `svoms_product_type_attributes` (
   `id` int(11) NOT NULL COMMENT '关联记录Id',
   `product_type_id` int(11) NOT NULL DEFAULT '0',
@@ -5591,6 +5831,7 @@ CREATE TABLE `svoms_product_type_attributes` (
 -- 表的结构 `svoms_product_type_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_product_type_i18ns`;
 CREATE TABLE `svoms_product_type_i18ns` (
   `id` int(11) NOT NULL COMMENT '类型多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -5613,6 +5854,7 @@ INSERT INTO `svoms_product_type_i18ns` (`id`, `locale`, `type_id`, `name`, `crea
 -- 表的结构 `svoms_product_volumes`
 --
 
+DROP TABLE IF EXISTS `svoms_product_volumes`;
 CREATE TABLE `svoms_product_volumes` (
   `id` int(11) NOT NULL COMMENT '商品数量优惠ID',
   `product_id` int(11) NOT NULL COMMENT '分类ID',
@@ -5628,6 +5870,7 @@ CREATE TABLE `svoms_product_volumes` (
 -- 表的结构 `svoms_product_warn_items`
 --
 
+DROP TABLE IF EXISTS `svoms_product_warn_items`;
 CREATE TABLE `svoms_product_warn_items` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `product_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '商品code',
@@ -5645,6 +5888,7 @@ CREATE TABLE `svoms_product_warn_items` (
 -- 表的结构 `svoms_promotions`
 --
 
+DROP TABLE IF EXISTS `svoms_promotions`;
 CREATE TABLE `svoms_promotions` (
   `id` int(11) NOT NULL COMMENT '促销编号',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '商店编号',
@@ -5669,6 +5913,7 @@ CREATE TABLE `svoms_promotions` (
 -- 表的结构 `svoms_promotion_activity_products`
 --
 
+DROP TABLE IF EXISTS `svoms_promotion_activity_products`;
 CREATE TABLE `svoms_promotion_activity_products` (
   `id` int(11) NOT NULL COMMENT '编号',
   `promotion_id` int(11) NOT NULL DEFAULT '0' COMMENT '促销编号',
@@ -5686,6 +5931,7 @@ CREATE TABLE `svoms_promotion_activity_products` (
 -- 表的结构 `svoms_promotion_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_promotion_i18ns`;
 CREATE TABLE `svoms_promotion_i18ns` (
   `id` int(11) NOT NULL COMMENT '促销多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -5704,6 +5950,7 @@ CREATE TABLE `svoms_promotion_i18ns` (
 -- 表的结构 `svoms_promotion_products`
 --
 
+DROP TABLE IF EXISTS `svoms_promotion_products`;
 CREATE TABLE `svoms_promotion_products` (
   `id` int(11) NOT NULL COMMENT '编号',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '商店编号',
@@ -5724,6 +5971,7 @@ CREATE TABLE `svoms_promotion_products` (
 -- 表的结构 `svoms_providers`
 --
 
+DROP TABLE IF EXISTS `svoms_providers`;
 CREATE TABLE `svoms_providers` (
   `id` int(11) NOT NULL COMMENT '供应商编号',
   `provider_sn` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商编号',
@@ -5752,6 +6000,7 @@ CREATE TABLE `svoms_providers` (
 -- 表的结构 `svoms_provider_products`
 --
 
+DROP TABLE IF EXISTS `svoms_provider_products`;
 CREATE TABLE `svoms_provider_products` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `provider_id` int(11) NOT NULL DEFAULT '0' COMMENT '供应商编号',
@@ -5770,6 +6019,7 @@ CREATE TABLE `svoms_provider_products` (
 -- 表的结构 `svoms_purchase_orders`
 --
 
+DROP TABLE IF EXISTS `svoms_purchase_orders`;
 CREATE TABLE `svoms_purchase_orders` (
   `id` int(11) NOT NULL COMMENT 'id',
   `order_code` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '订单号',
@@ -5787,6 +6037,7 @@ CREATE TABLE `svoms_purchase_orders` (
 -- 表的结构 `svoms_quotes`
 --
 
+DROP TABLE IF EXISTS `svoms_quotes`;
 CREATE TABLE `svoms_quotes` (
   `id` int(11) NOT NULL,
   `enquiry_id` int(11) NOT NULL COMMENT '询价id',
@@ -5811,6 +6062,7 @@ CREATE TABLE `svoms_quotes` (
 -- 表的结构 `svoms_quote_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_quote_logs`;
 CREATE TABLE `svoms_quote_logs` (
   `id` int(11) NOT NULL,
   `quote_id` int(11) NOT NULL DEFAULT '0' COMMENT '报价Id',
@@ -5827,6 +6079,7 @@ CREATE TABLE `svoms_quote_logs` (
 -- 表的结构 `svoms_quote_products`
 --
 
+DROP TABLE IF EXISTS `svoms_quote_products`;
 CREATE TABLE `svoms_quote_products` (
   `id` int(11) NOT NULL,
   `quote_id` int(11) NOT NULL,
@@ -5851,6 +6104,7 @@ CREATE TABLE `svoms_quote_products` (
 -- 表的结构 `svoms_refunds`
 --
 
+DROP TABLE IF EXISTS `svoms_refunds`;
 CREATE TABLE `svoms_refunds` (
   `id` int(11) NOT NULL COMMENT '主键 自增',
   `source_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '商家名称',
@@ -5885,6 +6139,7 @@ CREATE TABLE `svoms_refunds` (
 -- 表的结构 `svoms_regions`
 --
 
+DROP TABLE IF EXISTS `svoms_regions`;
 CREATE TABLE `svoms_regions` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `parent_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '父地区ID',
@@ -6442,6 +6697,7 @@ INSERT INTO `svoms_regions` (`id`, `parent_id`, `level`, `agency_id`, `abbreviat
 -- 表的结构 `svoms_region_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_region_i18ns`;
 CREATE TABLE `svoms_region_i18ns` (
   `id` int(11) NOT NULL COMMENT '区域多语言编号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -7908,6 +8164,7 @@ INSERT INTO `svoms_region_i18ns` (`id`, `locale`, `region_id`, `name`, `descript
 -- 表的结构 `svoms_scores`
 --
 
+DROP TABLE IF EXISTS `svoms_scores`;
 CREATE TABLE `svoms_scores` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '评分类型',
@@ -7922,6 +8179,7 @@ CREATE TABLE `svoms_scores` (
 -- 表的结构 `svoms_score_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_score_i18ns`;
 CREATE TABLE `svoms_score_i18ns` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '语言类型',
@@ -7938,6 +8196,7 @@ CREATE TABLE `svoms_score_i18ns` (
 -- 表的结构 `svoms_score_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_score_logs`;
 CREATE TABLE `svoms_score_logs` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '类型',
@@ -7955,6 +8214,7 @@ CREATE TABLE `svoms_score_logs` (
 -- 表的结构 `svoms_share_affiliate_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_share_affiliate_logs`;
 CREATE TABLE `svoms_share_affiliate_logs` (
   `id` int(11) NOT NULL COMMENT '记录自增id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '来源用户ID',
@@ -7972,6 +8232,7 @@ CREATE TABLE `svoms_share_affiliate_logs` (
 -- 表的结构 `svoms_shippings`
 --
 
+DROP TABLE IF EXISTS `svoms_shippings`;
 CREATE TABLE `svoms_shippings` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '商店编号',
@@ -8005,6 +8266,7 @@ INSERT INTO `svoms_shippings` (`id`, `store_id`, `code`, `insure`, `support_cod`
 -- 表的结构 `svoms_shipping_areas`
 --
 
+DROP TABLE IF EXISTS `svoms_shipping_areas`;
 CREATE TABLE `svoms_shipping_areas` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '商店编号',
@@ -8044,6 +8306,7 @@ INSERT INTO `svoms_shipping_areas` (`id`, `store_id`, `shipping_id`, `orderby`, 
 -- 表的结构 `svoms_shipping_area_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_shipping_area_i18ns`;
 CREATE TABLE `svoms_shipping_area_i18ns` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '语言',
@@ -8091,6 +8354,7 @@ INSERT INTO `svoms_shipping_area_i18ns` (`id`, `locale`, `shipping_area_id`, `na
 -- 表的结构 `svoms_shipping_area_regions`
 --
 
+DROP TABLE IF EXISTS `svoms_shipping_area_regions`;
 CREATE TABLE `svoms_shipping_area_regions` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `shipping_area_id` int(11) NOT NULL DEFAULT '0' COMMENT '配送区域ID',
@@ -8153,6 +8417,7 @@ INSERT INTO `svoms_shipping_area_regions` (`id`, `shipping_area_id`, `region_id`
 -- 表的结构 `svoms_shipping_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_shipping_i18ns`;
 CREATE TABLE `svoms_shipping_i18ns` (
   `id` int(11) NOT NULL COMMENT '配送方式多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -8187,6 +8452,7 @@ INSERT INTO `svoms_shipping_i18ns` (`id`, `locale`, `shipping_id`, `name`, `desc
 -- 表的结构 `svoms_shops`
 --
 
+DROP TABLE IF EXISTS `svoms_shops`;
 CREATE TABLE `svoms_shops` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `type` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '0虚拟店1实体店2淘宝3京东4拍拍5微信小店6口袋通',
@@ -8205,6 +8471,7 @@ CREATE TABLE `svoms_shops` (
 -- 表的结构 `svoms_sku_products`
 --
 
+DROP TABLE IF EXISTS `svoms_sku_products`;
 CREATE TABLE `svoms_sku_products` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `sku_product_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '销售属性货号',
@@ -8220,6 +8487,7 @@ CREATE TABLE `svoms_sku_products` (
 -- 表的结构 `svoms_stocks`
 --
 
+DROP TABLE IF EXISTS `svoms_stocks`;
 CREATE TABLE `svoms_stocks` (
   `id` int(11) NOT NULL COMMENT '库存主键',
   `product_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '商品code',
@@ -8242,6 +8510,7 @@ CREATE TABLE `svoms_stocks` (
 -- 表的结构 `svoms_stock_checkes`
 --
 
+DROP TABLE IF EXISTS `svoms_stock_checkes`;
 CREATE TABLE `svoms_stock_checkes` (
   `id` int(11) NOT NULL,
   `batch_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '批次',
@@ -8260,6 +8529,7 @@ CREATE TABLE `svoms_stock_checkes` (
 -- 表的结构 `svoms_stock_check_products`
 --
 
+DROP TABLE IF EXISTS `svoms_stock_check_products`;
 CREATE TABLE `svoms_stock_check_products` (
   `id` int(11) NOT NULL,
   `check_stock_id` int(11) NOT NULL,
@@ -8277,6 +8547,7 @@ CREATE TABLE `svoms_stock_check_products` (
 -- 表的结构 `svoms_stores`
 --
 
+DROP TABLE IF EXISTS `svoms_stores`;
 CREATE TABLE `svoms_stores` (
   `id` int(11) NOT NULL COMMENT '店铺编号',
   `store_sn` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '店铺编号',
@@ -8305,6 +8576,7 @@ CREATE TABLE `svoms_stores` (
 -- 表的结构 `svoms_store_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_store_i18ns`;
 CREATE TABLE `svoms_store_i18ns` (
   `id` int(11) NOT NULL COMMENT '店铺多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -8329,6 +8601,7 @@ CREATE TABLE `svoms_store_i18ns` (
 -- 表的结构 `svoms_store_operators`
 --
 
+DROP TABLE IF EXISTS `svoms_store_operators`;
 CREATE TABLE `svoms_store_operators` (
   `id` int(11) NOT NULL COMMENT '主键',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '代理商ID',
@@ -8344,6 +8617,7 @@ CREATE TABLE `svoms_store_operators` (
 -- 表的结构 `svoms_store_products`
 --
 
+DROP TABLE IF EXISTS `svoms_store_products`;
 CREATE TABLE `svoms_store_products` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '店铺编号',
@@ -8363,6 +8637,7 @@ CREATE TABLE `svoms_store_products` (
 -- 表的结构 `svoms_style_type_groups`
 --
 
+DROP TABLE IF EXISTS `svoms_style_type_groups`;
 CREATE TABLE `svoms_style_type_groups` (
   `id` int(11) NOT NULL COMMENT '规格id',
   `style_id` int(11) DEFAULT NULL COMMENT '关联版型id',
@@ -8381,6 +8656,7 @@ CREATE TABLE `svoms_style_type_groups` (
 -- 表的结构 `svoms_style_type_group_attribute_values`
 --
 
+DROP TABLE IF EXISTS `svoms_style_type_group_attribute_values`;
 CREATE TABLE `svoms_style_type_group_attribute_values` (
   `id` int(11) NOT NULL COMMENT '商品版型规格尺寸id',
   `style_id` int(11) DEFAULT NULL COMMENT '关联版型id',
@@ -8400,6 +8676,7 @@ CREATE TABLE `svoms_style_type_group_attribute_values` (
 -- 表的结构 `svoms_users`
 --
 
+DROP TABLE IF EXISTS `svoms_users`;
 CREATE TABLE `svoms_users` (
   `id` int(11) NOT NULL COMMENT '会员资料自增id',
   `type` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '用户类型 0. 普通会员 1.分销商',
@@ -8462,6 +8739,7 @@ CREATE TABLE `svoms_users` (
 -- 表的结构 `svoms_user_accounts`
 --
 
+DROP TABLE IF EXISTS `svoms_user_accounts`;
 CREATE TABLE `svoms_user_accounts` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户登录后保存在session中的id号，跟users表中的user_id对应',
@@ -8483,6 +8761,7 @@ CREATE TABLE `svoms_user_accounts` (
 -- 表的结构 `svoms_user_action_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_user_action_logs`;
 CREATE TABLE `svoms_user_action_logs` (
   `id` int(11) NOT NULL COMMENT '日志Id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -8498,6 +8777,7 @@ CREATE TABLE `svoms_user_action_logs` (
 -- 表的结构 `svoms_user_addresses`
 --
 
+DROP TABLE IF EXISTS `svoms_user_addresses`;
 CREATE TABLE `svoms_user_addresses` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名称',
@@ -8530,6 +8810,7 @@ CREATE TABLE `svoms_user_addresses` (
 -- 表的结构 `svoms_user_apps`
 --
 
+DROP TABLE IF EXISTS `svoms_user_apps`;
 CREATE TABLE `svoms_user_apps` (
   `id` int(11) NOT NULL,
   `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -8549,6 +8830,7 @@ CREATE TABLE `svoms_user_apps` (
 -- 表的结构 `svoms_user_balance_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_user_balance_logs`;
 CREATE TABLE `svoms_user_balance_logs` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户ID',
@@ -8568,6 +8850,7 @@ CREATE TABLE `svoms_user_balance_logs` (
 -- 表的结构 `svoms_user_categories`
 --
 
+DROP TABLE IF EXISTS `svoms_user_categories`;
 CREATE TABLE `svoms_user_categories` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '分类编码',
@@ -8585,6 +8868,7 @@ CREATE TABLE `svoms_user_categories` (
 -- 表的结构 `svoms_user_configs`
 --
 
+DROP TABLE IF EXISTS `svoms_user_configs`;
 CREATE TABLE `svoms_user_configs` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户ID',
@@ -8606,6 +8890,7 @@ CREATE TABLE `svoms_user_configs` (
 -- 表的结构 `svoms_user_config_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_user_config_i18ns`;
 CREATE TABLE `svoms_user_config_i18ns` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -8624,6 +8909,7 @@ CREATE TABLE `svoms_user_config_i18ns` (
 -- 表的结构 `svoms_user_contacts`
 --
 
+DROP TABLE IF EXISTS `svoms_user_contacts`;
 CREATE TABLE `svoms_user_contacts` (
   `id` int(11) NOT NULL COMMENT '联系记录Id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -8641,6 +8927,7 @@ CREATE TABLE `svoms_user_contacts` (
 -- 表的结构 `svoms_user_favorites`
 --
 
+DROP TABLE IF EXISTS `svoms_user_favorites`;
 CREATE TABLE `svoms_user_favorites` (
   `id` int(11) NOT NULL COMMENT '收藏编号',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户编号',
@@ -8658,6 +8945,7 @@ CREATE TABLE `svoms_user_favorites` (
 -- 表的结构 `svoms_user_friends`
 --
 
+DROP TABLE IF EXISTS `svoms_user_friends`;
 CREATE TABLE `svoms_user_friends` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
@@ -8685,6 +8973,7 @@ CREATE TABLE `svoms_user_friends` (
 -- 表的结构 `svoms_user_friend_cats`
 --
 
+DROP TABLE IF EXISTS `svoms_user_friend_cats`;
 CREATE TABLE `svoms_user_friend_cats` (
   `id` mediumint(9) NOT NULL COMMENT '主键自增ID',
   `cat_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '好友分组名称',
@@ -8701,6 +8990,7 @@ CREATE TABLE `svoms_user_friend_cats` (
 -- 表的结构 `svoms_user_groups`
 --
 
+DROP TABLE IF EXISTS `svoms_user_groups`;
 CREATE TABLE `svoms_user_groups` (
   `id` int(11) NOT NULL COMMENT '自增ID号',
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '分组名称',
@@ -8716,6 +9006,7 @@ CREATE TABLE `svoms_user_groups` (
 -- 表的结构 `svoms_user_infos`
 --
 
+DROP TABLE IF EXISTS `svoms_user_infos`;
 CREATE TABLE `svoms_user_infos` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'html类型',
@@ -8734,6 +9025,7 @@ CREATE TABLE `svoms_user_infos` (
 -- 表的结构 `svoms_user_info_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_user_info_i18ns`;
 CREATE TABLE `svoms_user_info_i18ns` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -8752,6 +9044,7 @@ CREATE TABLE `svoms_user_info_i18ns` (
 -- 表的结构 `svoms_user_info_values`
 --
 
+DROP TABLE IF EXISTS `svoms_user_info_values`;
 CREATE TABLE `svoms_user_info_values` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户编号',
@@ -8767,6 +9060,7 @@ CREATE TABLE `svoms_user_info_values` (
 -- 表的结构 `svoms_user_messages`
 --
 
+DROP TABLE IF EXISTS `svoms_user_messages`;
 CREATE TABLE `svoms_user_messages` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `parent_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '回复ID 0为留言',
@@ -8793,6 +9087,7 @@ CREATE TABLE `svoms_user_messages` (
 -- 表的结构 `svoms_user_oauths`
 --
 
+DROP TABLE IF EXISTS `svoms_user_oauths`;
 CREATE TABLE `svoms_user_oauths` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '关联users表',
@@ -8811,6 +9106,7 @@ CREATE TABLE `svoms_user_oauths` (
 -- 表的结构 `svoms_user_point_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_user_point_logs`;
 CREATE TABLE `svoms_user_point_logs` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户ID',
@@ -8831,6 +9127,7 @@ CREATE TABLE `svoms_user_point_logs` (
 -- 表的结构 `svoms_user_product_galleries`
 --
 
+DROP TABLE IF EXISTS `svoms_user_product_galleries`;
 CREATE TABLE `svoms_user_product_galleries` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品id',
@@ -8847,6 +9144,7 @@ CREATE TABLE `svoms_user_product_galleries` (
 -- 表的结构 `svoms_user_product_subscriptions`
 --
 
+DROP TABLE IF EXISTS `svoms_user_product_subscriptions`;
 CREATE TABLE `svoms_user_product_subscriptions` (
   `id` int(11) NOT NULL COMMENT '订阅编号',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
@@ -8868,6 +9166,7 @@ CREATE TABLE `svoms_user_product_subscriptions` (
 -- 表的结构 `svoms_user_ranks`
 --
 
+DROP TABLE IF EXISTS `svoms_user_ranks`;
 CREATE TABLE `svoms_user_ranks` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '会员等级编号，其中0是非会员',
   `code` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '等级Code',
@@ -8888,6 +9187,7 @@ CREATE TABLE `svoms_user_ranks` (
 -- 表的结构 `svoms_user_rank_i18ns`
 --
 
+DROP TABLE IF EXISTS `svoms_user_rank_i18ns`;
 CREATE TABLE `svoms_user_rank_i18ns` (
   `id` int(10) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '语言编码',
@@ -8905,6 +9205,7 @@ CREATE TABLE `svoms_user_rank_i18ns` (
 -- 表的结构 `svoms_user_rank_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_user_rank_logs`;
 CREATE TABLE `svoms_user_rank_logs` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `user_id` int(11) NOT NULL COMMENT '用户id',
@@ -8924,6 +9225,7 @@ CREATE TABLE `svoms_user_rank_logs` (
 -- 表的结构 `svoms_user_relationships`
 --
 
+DROP TABLE IF EXISTS `svoms_user_relationships`;
 CREATE TABLE `svoms_user_relationships` (
   `id` int(11) NOT NULL COMMENT '自增Id',
   `initiator` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '发起人:0:子级;1:父级',
@@ -8940,6 +9242,7 @@ CREATE TABLE `svoms_user_relationships` (
 -- 表的结构 `svoms_user_share_logs`
 --
 
+DROP TABLE IF EXISTS `svoms_user_share_logs`;
 CREATE TABLE `svoms_user_share_logs` (
   `id` int(11) NOT NULL COMMENT '记录自增id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
@@ -8956,6 +9259,7 @@ CREATE TABLE `svoms_user_share_logs` (
 -- 表的结构 `svoms_user_styles`
 --
 
+DROP TABLE IF EXISTS `svoms_user_styles`;
 CREATE TABLE `svoms_user_styles` (
   `id` int(11) NOT NULL COMMENT '用户选择模板id',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户Id',
@@ -8975,6 +9279,7 @@ CREATE TABLE `svoms_user_styles` (
 -- 表的结构 `svoms_user_style_values`
 --
 
+DROP TABLE IF EXISTS `svoms_user_style_values`;
 CREATE TABLE `svoms_user_style_values` (
   `id` int(11) NOT NULL COMMENT '用户属性值id',
   `user_style_id` int(11) DEFAULT NULL COMMENT '用户选择模板id',
@@ -8990,6 +9295,7 @@ CREATE TABLE `svoms_user_style_values` (
 -- 表的结构 `svoms_virtual_cards`
 --
 
+DROP TABLE IF EXISTS `svoms_virtual_cards`;
 CREATE TABLE `svoms_virtual_cards` (
   `id` int(11) NOT NULL COMMENT '虚拟卡卡号自增id',
   `product_id` int(11) NOT NULL DEFAULT '0' COMMENT '该虚拟卡对应的商品id，取值于表svoms_products',
@@ -9009,6 +9315,7 @@ CREATE TABLE `svoms_virtual_cards` (
 -- 表的结构 `svoms_vouchers`
 --
 
+DROP TABLE IF EXISTS `svoms_vouchers`;
 CREATE TABLE `svoms_vouchers` (
   `id` int(11) NOT NULL,
   `batch_sn` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -9029,6 +9336,7 @@ CREATE TABLE `svoms_vouchers` (
 -- 表的结构 `svoms_voucher_entity_cards`
 --
 
+DROP TABLE IF EXISTS `svoms_voucher_entity_cards`;
 CREATE TABLE `svoms_voucher_entity_cards` (
   `id` int(11) NOT NULL COMMENT '主键',
   `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '代理商ID',
@@ -9056,6 +9364,7 @@ CREATE TABLE `svoms_voucher_entity_cards` (
 -- 表的结构 `svoms_voucher_operations`
 --
 
+DROP TABLE IF EXISTS `svoms_voucher_operations`;
 CREATE TABLE `svoms_voucher_operations` (
   `id` int(11) NOT NULL COMMENT '主键',
   `batch_sn` varchar(30) NOT NULL,
@@ -9074,6 +9383,7 @@ CREATE TABLE `svoms_voucher_operations` (
 -- 表的结构 `svoms_warehouses`
 --
 
+DROP TABLE IF EXISTS `svoms_warehouses`;
 CREATE TABLE `svoms_warehouses` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `code` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '仓库代码',
@@ -9104,6 +9414,7 @@ CREATE TABLE `svoms_warehouses` (
 -- 表的结构 `svoms_warehouse_warn_items`
 --
 
+DROP TABLE IF EXISTS `svoms_warehouse_warn_items`;
 CREATE TABLE `svoms_warehouse_warn_items` (
   `id` int(11) NOT NULL COMMENT '主健  自增',
   `product_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '商品货号',
@@ -9120,6 +9431,7 @@ CREATE TABLE `svoms_warehouse_warn_items` (
 -- 表的结构 `svsns_blogs`
 --
 
+DROP TABLE IF EXISTS `svsns_blogs`;
 CREATE TABLE `svsns_blogs` (
   `id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -9137,6 +9449,7 @@ CREATE TABLE `svsns_blogs` (
 -- 表的结构 `svsns_oauth_logs`
 --
 
+DROP TABLE IF EXISTS `svsns_oauth_logs`;
 CREATE TABLE `svsns_oauth_logs` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -9153,6 +9466,7 @@ CREATE TABLE `svsns_oauth_logs` (
 -- 表的结构 `svsns_open_configs`
 --
 
+DROP TABLE IF EXISTS `svsns_open_configs`;
 CREATE TABLE `svsns_open_configs` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '公众平台类型',
@@ -9180,6 +9494,7 @@ INSERT INTO `svsns_open_configs` (`id`, `open_type`, `open_type_id`, `code`, `st
 -- 表的结构 `svsns_open_configs_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsns_open_configs_i18ns`;
 CREATE TABLE `svsns_open_configs_i18ns` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_config_id` int(11) NOT NULL COMMENT 'open_config表id',
@@ -9207,6 +9522,7 @@ INSERT INTO `svsns_open_configs_i18ns` (`id`, `open_config_id`, `locale`, `name`
 -- 表的结构 `svsns_open_elements`
 --
 
+DROP TABLE IF EXISTS `svsns_open_elements`;
 CREATE TABLE `svsns_open_elements` (
   `id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -9231,6 +9547,7 @@ CREATE TABLE `svsns_open_elements` (
 -- 表的结构 `svsns_open_keywords`
 --
 
+DROP TABLE IF EXISTS `svsns_open_keywords`;
 CREATE TABLE `svsns_open_keywords` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '公众平台类型(微信 易信等等)',
@@ -9248,6 +9565,7 @@ CREATE TABLE `svsns_open_keywords` (
 -- 表的结构 `svsns_open_keyword_answers`
 --
 
+DROP TABLE IF EXISTS `svsns_open_keyword_answers`;
 CREATE TABLE `svsns_open_keyword_answers` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `keyword_id` int(11) NOT NULL DEFAULT '0' COMMENT '关键字id',
@@ -9265,6 +9583,7 @@ CREATE TABLE `svsns_open_keyword_answers` (
 -- 表的结构 `svsns_open_keyword_errors`
 --
 
+DROP TABLE IF EXISTS `svsns_open_keyword_errors`;
 CREATE TABLE `svsns_open_keyword_errors` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_user_id` int(11) NOT NULL COMMENT '关注用户',
@@ -9281,6 +9600,7 @@ CREATE TABLE `svsns_open_keyword_errors` (
 -- 表的结构 `svsns_open_medias`
 --
 
+DROP TABLE IF EXISTS `svsns_open_medias`;
 CREATE TABLE `svsns_open_medias` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `media_type` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '媒体类型(news,image,voice,video)',
@@ -9301,6 +9621,7 @@ CREATE TABLE `svsns_open_medias` (
 -- 表的结构 `svsns_open_menus`
 --
 
+DROP TABLE IF EXISTS `svsns_open_menus`;
 CREATE TABLE `svsns_open_menus` (
   `id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -9320,6 +9641,7 @@ CREATE TABLE `svsns_open_menus` (
 -- 表的结构 `svsns_open_models`
 --
 
+DROP TABLE IF EXISTS `svsns_open_models`;
 CREATE TABLE `svsns_open_models` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_type` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '公众平台类型(微信 易信等等)',
@@ -9350,6 +9672,7 @@ INSERT INTO `svsns_open_models` (`id`, `open_type`, `open_type_id`, `app_id`, `a
 -- 表的结构 `svsns_open_relations`
 --
 
+DROP TABLE IF EXISTS `svsns_open_relations`;
 CREATE TABLE `svsns_open_relations` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '公众平台类型(微信 易信等等)',
@@ -9367,6 +9690,7 @@ CREATE TABLE `svsns_open_relations` (
 -- 表的结构 `svsns_open_users`
 --
 
+DROP TABLE IF EXISTS `svsns_open_users`;
 CREATE TABLE `svsns_open_users` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '公众平台类型(微信 易信等等)',
@@ -9391,6 +9715,7 @@ CREATE TABLE `svsns_open_users` (
 -- 表的结构 `svsns_open_user_messages`
 --
 
+DROP TABLE IF EXISTS `svsns_open_user_messages`;
 CREATE TABLE `svsns_open_user_messages` (
   `id` int(11) NOT NULL COMMENT '自增id',
   `open_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '公众平台类型(微信 易信等等)',
@@ -9411,6 +9736,7 @@ CREATE TABLE `svsns_open_user_messages` (
 -- 表的结构 `svsns_synchro_users`
 --
 
+DROP TABLE IF EXISTS `svsns_synchro_users`;
 CREATE TABLE `svsns_synchro_users` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '关联users表',
@@ -9430,6 +9756,7 @@ CREATE TABLE `svsns_synchro_users` (
 -- 表的结构 `svsns_user_actions`
 --
 
+DROP TABLE IF EXISTS `svsns_user_actions`;
 CREATE TABLE `svsns_user_actions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -9447,6 +9774,7 @@ CREATE TABLE `svsns_user_actions` (
 -- 表的结构 `svsns_user_chats`
 --
 
+DROP TABLE IF EXISTS `svsns_user_chats`;
 CREATE TABLE `svsns_user_chats` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -9465,6 +9793,7 @@ CREATE TABLE `svsns_user_chats` (
 -- 表的结构 `svsns_user_fans`
 --
 
+DROP TABLE IF EXISTS `svsns_user_fans`;
 CREATE TABLE `svsns_user_fans` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -9479,6 +9808,7 @@ CREATE TABLE `svsns_user_fans` (
 -- 表的结构 `svsns_user_likes`
 --
 
+DROP TABLE IF EXISTS `svsns_user_likes`;
 CREATE TABLE `svsns_user_likes` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -9495,6 +9825,7 @@ CREATE TABLE `svsns_user_likes` (
 -- 表的结构 `svsns_user_visitors`
 --
 
+DROP TABLE IF EXISTS `svsns_user_visitors`;
 CREATE TABLE `svsns_user_visitors` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -9511,6 +9842,7 @@ CREATE TABLE `svsns_user_visitors` (
 -- 表的结构 `svsys_actions`
 --
 
+DROP TABLE IF EXISTS `svsys_actions`;
 CREATE TABLE `svsys_actions` (
   `id` int(11) NOT NULL COMMENT '功能编号',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -9962,6 +10294,7 @@ INSERT INTO `svsys_actions` (`id`, `system_code`, `module_code`, `level`, `paren
 -- 表的结构 `svsys_action_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_action_i18ns`;
 CREATE TABLE `svsys_action_i18ns` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -10991,6 +11324,7 @@ INSERT INTO `svsys_action_i18ns` (`id`, `locale`, `action_id`, `name`, `action_v
 -- 表的结构 `svsys_applications`
 --
 
+DROP TABLE IF EXISTS `svsys_applications`;
 CREATE TABLE `svsys_applications` (
   `id` int(10) NOT NULL COMMENT '应用id',
   `groupby` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '应用类别',
@@ -11022,6 +11356,7 @@ INSERT INTO `svsys_applications` (`id`, `groupby`, `orderby`, `code`, `status`, 
 -- 表的结构 `svsys_application_configs`
 --
 
+DROP TABLE IF EXISTS `svsys_application_configs`;
 CREATE TABLE `svsys_application_configs` (
   `id` int(11) NOT NULL COMMENT 'id',
   `app_id` int(11) NOT NULL COMMENT '应用ID',
@@ -11114,6 +11449,7 @@ INSERT INTO `svsys_application_configs` (`id`, `app_id`, `type`, `code`, `group_
 -- 表的结构 `svsys_application_config_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_application_config_i18ns`;
 CREATE TABLE `svsys_application_config_i18ns` (
   `id` int(11) NOT NULL COMMENT 'id',
   `app_id` int(11) NOT NULL COMMENT '应用ID',
@@ -11271,6 +11607,7 @@ INSERT INTO `svsys_application_config_i18ns` (`id`, `app_id`, `app_config_id`, `
 -- 表的结构 `svsys_application_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_application_i18ns`;
 CREATE TABLE `svsys_application_i18ns` (
   `id` int(10) NOT NULL COMMENT '应用id',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -11615,6 +11952,7 @@ INSERT INTO `svsys_application_i18ns` (`id`, `locale`, `app_id`, `name`, `unit_n
 -- 表的结构 `svsys_attitudes`
 --
 
+DROP TABLE IF EXISTS `svsys_attitudes`;
 CREATE TABLE `svsys_attitudes` (
   `id` int(11) NOT NULL COMMENT '评论编号',
   `type` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '评论类型[商品P，分类C，品牌B，文章A，商店]',
@@ -11631,6 +11969,7 @@ CREATE TABLE `svsys_attitudes` (
 -- 表的结构 `svsys_block_words`
 --
 
+DROP TABLE IF EXISTS `svsys_block_words`;
 CREATE TABLE `svsys_block_words` (
   `id` int(11) NOT NULL,
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -11645,6 +11984,7 @@ CREATE TABLE `svsys_block_words` (
 -- 表的结构 `svsys_configs`
 --
 
+DROP TABLE IF EXISTS `svsys_configs`;
 CREATE TABLE `svsys_configs` (
   `id` smallint(5) UNSIGNED NOT NULL COMMENT '参数ID',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -11870,6 +12210,7 @@ INSERT INTO `svsys_configs` (`id`, `system_code`, `module_code`, `store_id`, `gr
 -- 表的结构 `svsys_config_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_config_i18ns`;
 CREATE TABLE `svsys_config_i18ns` (
   `id` int(11) NOT NULL COMMENT '配置多语言编号',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -12287,6 +12628,7 @@ INSERT INTO `svsys_config_i18ns` (`id`, `locale`, `config_id`, `config_code`, `n
 -- 表的结构 `svsys_cronjobs`
 --
 
+DROP TABLE IF EXISTS `svsys_cronjobs`;
 CREATE TABLE `svsys_cronjobs` (
   `id` int(11) NOT NULL,
   `task_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '任务名称',
@@ -12311,6 +12653,7 @@ CREATE TABLE `svsys_cronjobs` (
 -- 表的结构 `svsys_departments`
 --
 
+DROP TABLE IF EXISTS `svsys_departments`;
 CREATE TABLE `svsys_departments` (
   `id` int(11) NOT NULL COMMENT '部门Id',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级Id',
@@ -12328,6 +12671,7 @@ CREATE TABLE `svsys_departments` (
 -- 表的结构 `svsys_department_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_department_i18ns`;
 CREATE TABLE `svsys_department_i18ns` (
   `id` int(11) NOT NULL COMMENT '分类多语言编号',
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -12344,6 +12688,7 @@ CREATE TABLE `svsys_department_i18ns` (
 -- 表的结构 `svsys_dictionaries`
 --
 
+DROP TABLE IF EXISTS `svsys_dictionaries`;
 CREATE TABLE `svsys_dictionaries` (
   `id` int(11) NOT NULL COMMENT 'id',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -25147,6 +25492,7 @@ INSERT INTO `svsys_dictionaries` (`id`, `system_code`, `module_code`, `locale`, 
 -- 表的结构 `svsys_disupdate_lists`
 --
 
+DROP TABLE IF EXISTS `svsys_disupdate_lists`;
 CREATE TABLE `svsys_disupdate_lists` (
   `id` int(11) NOT NULL,
   `product_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -25160,6 +25506,7 @@ CREATE TABLE `svsys_disupdate_lists` (
 -- 表的结构 `svsys_enquiries`
 --
 
+DROP TABLE IF EXISTS `svsys_enquiries`;
 CREATE TABLE `svsys_enquiries` (
   `id` int(11) NOT NULL,
   `part_num` text COLLATE utf8_unicode_ci NOT NULL,
@@ -25195,6 +25542,7 @@ CREATE TABLE `svsys_enquiries` (
 -- 表的结构 `svsys_information_resources`
 --
 
+DROP TABLE IF EXISTS `svsys_information_resources`;
 CREATE TABLE `svsys_information_resources` (
   `id` int(11) NOT NULL COMMENT '资源ID',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -25404,6 +25752,7 @@ INSERT INTO `svsys_information_resources` (`id`, `system_code`, `module_code`, `
 -- 表的结构 `svsys_information_resource_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_information_resource_i18ns`;
 CREATE TABLE `svsys_information_resource_i18ns` (
   `id` int(11) NOT NULL COMMENT '资源多语言编号',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '语言编码',
@@ -25680,6 +26029,7 @@ INSERT INTO `svsys_information_resource_i18ns` (`id`, `locale`, `information_res
 -- 表的结构 `svsys_languages`
 --
 
+DROP TABLE IF EXISTS `svsys_languages`;
 CREATE TABLE `svsys_languages` (
   `id` int(11) NOT NULL COMMENT '语言编号',
   `system_code` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -25712,6 +26062,7 @@ INSERT INTO `svsys_languages` (`id`, `system_code`, `module_code`, `locale`, `na
 -- 表的结构 `svsys_mail_send_histories`
 --
 
+DROP TABLE IF EXISTS `svsys_mail_send_histories`;
 CREATE TABLE `svsys_mail_send_histories` (
   `id` int(11) NOT NULL COMMENT '主键',
   `sender_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '发送人姓名',
@@ -25737,6 +26088,7 @@ CREATE TABLE `svsys_mail_send_histories` (
 -- 表的结构 `svsys_mail_send_queues`
 --
 
+DROP TABLE IF EXISTS `svsys_mail_send_queues`;
 CREATE TABLE `svsys_mail_send_queues` (
   `id` int(11) NOT NULL COMMENT '主键',
   `sender_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '发送人姓名',
@@ -25762,6 +26114,7 @@ CREATE TABLE `svsys_mail_send_queues` (
 -- 表的结构 `svsys_mail_statistics`
 --
 
+DROP TABLE IF EXISTS `svsys_mail_statistics`;
 CREATE TABLE `svsys_mail_statistics` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `mail_date` datetime NOT NULL DEFAULT '2008-01-01 00:00:00' COMMENT '产生日期',
@@ -25778,6 +26131,7 @@ CREATE TABLE `svsys_mail_statistics` (
 -- 表的结构 `svsys_mail_templates`
 --
 
+DROP TABLE IF EXISTS `svsys_mail_templates`;
 CREATE TABLE `svsys_mail_templates` (
   `id` int(11) NOT NULL COMMENT '邮件模板编号',
   `code` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '编号',
@@ -25795,6 +26149,7 @@ CREATE TABLE `svsys_mail_templates` (
 -- 表的结构 `svsys_mail_template_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_mail_template_i18ns`;
 CREATE TABLE `svsys_mail_template_i18ns` (
   `id` int(11) NOT NULL COMMENT '邮件模板多语言编号',
   `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -25814,6 +26169,7 @@ CREATE TABLE `svsys_mail_template_i18ns` (
 -- 表的结构 `svsys_menus`
 --
 
+DROP TABLE IF EXISTS `svsys_menus`;
 CREATE TABLE `svsys_menus` (
   `id` int(11) NOT NULL COMMENT '菜单编号',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -25938,6 +26294,7 @@ INSERT INTO `svsys_menus` (`id`, `system_code`, `module_code`, `parent_id`, `act
 -- 表的结构 `svsys_menu_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_menu_i18ns`;
 CREATE TABLE `svsys_menu_i18ns` (
   `id` int(11) NOT NULL COMMENT '菜单多语言编号',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -26085,6 +26442,7 @@ INSERT INTO `svsys_menu_i18ns` (`id`, `locale`, `menu_id`, `name`, `created`, `m
 -- 表的结构 `svsys_notify_templates`
 --
 
+DROP TABLE IF EXISTS `svsys_notify_templates`;
 CREATE TABLE `svsys_notify_templates` (
   `id` int(11) NOT NULL,
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -26132,6 +26490,7 @@ INSERT INTO `svsys_notify_templates` (`id`, `system_code`, `module_code`, `code`
 -- 表的结构 `svsys_notify_template_types`
 --
 
+DROP TABLE IF EXISTS `svsys_notify_template_types`;
 CREATE TABLE `svsys_notify_template_types` (
   `id` int(11) NOT NULL,
   `notify_template_code` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '模板编码',
@@ -26182,6 +26541,7 @@ INSERT INTO `svsys_notify_template_types` (`id`, `notify_template_code`, `type`,
 -- 表的结构 `svsys_notify_template_type_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_notify_template_type_i18ns`;
 CREATE TABLE `svsys_notify_template_type_i18ns` (
   `id` int(11) NOT NULL,
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '语言编码',
@@ -26262,6 +26622,7 @@ INSERT INTO `svsys_notify_template_type_i18ns` (`id`, `locale`, `notify_template
 -- 表的结构 `svsys_operators`
 --
 
+DROP TABLE IF EXISTS `svsys_operators`;
 CREATE TABLE `svsys_operators` (
   `id` int(11) NOT NULL COMMENT '管理员编号',
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员名称',
@@ -26302,6 +26663,7 @@ INSERT INTO `svsys_operators` (`id`, `name`, `password`, `session`, `email`, `mo
 -- 表的结构 `svsys_operator_channels`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_channels`;
 CREATE TABLE `svsys_operator_channels` (
   `id` int(11) NOT NULL COMMENT '渠道Id',
   `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '渠道编码',
@@ -26318,6 +26680,7 @@ CREATE TABLE `svsys_operator_channels` (
 -- 表的结构 `svsys_operator_channel_configs`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_channel_configs`;
 CREATE TABLE `svsys_operator_channel_configs` (
   `id` int(11) NOT NULL COMMENT '渠道渠道配置Id',
   `operator_channel_id` int(11) NOT NULL DEFAULT '0' COMMENT '渠道Id',
@@ -26336,6 +26699,7 @@ CREATE TABLE `svsys_operator_channel_configs` (
 -- 表的结构 `svsys_operator_channel_config_values`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_channel_config_values`;
 CREATE TABLE `svsys_operator_channel_config_values` (
   `id` int(11) NOT NULL COMMENT '渠道渠道配置Id',
   `operator_channel_id` int(11) NOT NULL DEFAULT '0' COMMENT '渠道Id',
@@ -26351,6 +26715,7 @@ CREATE TABLE `svsys_operator_channel_config_values` (
 -- 表的结构 `svsys_operator_channel_relations`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_channel_relations`;
 CREATE TABLE `svsys_operator_channel_relations` (
   `id` int(11) NOT NULL COMMENT '操作员渠道关联Id',
   `operator_channel_id` int(11) NOT NULL DEFAULT '0' COMMENT '渠道Id',
@@ -26367,6 +26732,7 @@ CREATE TABLE `svsys_operator_channel_relations` (
 -- 表的结构 `svsys_operator_departments`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_departments`;
 CREATE TABLE `svsys_operator_departments` (
   `id` int(11) NOT NULL COMMENT '关联Id',
   `department_id` int(11) NOT NULL DEFAULT '0' COMMENT '部门Id',
@@ -26381,6 +26747,7 @@ CREATE TABLE `svsys_operator_departments` (
 -- 表的结构 `svsys_operator_logs`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_logs`;
 CREATE TABLE `svsys_operator_logs` (
   `id` int(11) NOT NULL COMMENT '日志编号',
   `operator_id` int(11) NOT NULL DEFAULT '0' COMMENT '管理员编号',
@@ -26401,6 +26768,7 @@ CREATE TABLE `svsys_operator_logs` (
 -- 表的结构 `svsys_operator_oauths`
 --
 
+DROP TABLE IF EXISTS `svsys_operator_oauths`;
 CREATE TABLE `svsys_operator_oauths` (
   `id` int(11) NOT NULL,
   `operator_id` int(11) NOT NULL COMMENT '关联operators表',
@@ -26425,6 +26793,7 @@ CREATE TABLE `svsys_operator_oauths` (
 -- 表的结构 `svsys_page_actions`
 --
 
+DROP TABLE IF EXISTS `svsys_page_actions`;
 CREATE TABLE `svsys_page_actions` (
   `id` int(11) NOT NULL,
   `controller` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -26469,6 +26838,7 @@ INSERT INTO `svsys_page_actions` (`id`, `controller`, `action`, `name`, `page_ty
 -- 表的结构 `svsys_page_modules`
 --
 
+DROP TABLE IF EXISTS `svsys_page_modules`;
 CREATE TABLE `svsys_page_modules` (
   `id` int(11) NOT NULL COMMENT '模块ID',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父编号',
@@ -26563,6 +26933,7 @@ INSERT INTO `svsys_page_modules` (`id`, `parent_id`, `code`, `page_action_id`, `
 -- 表的结构 `svsys_page_module_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_page_module_i18ns`;
 CREATE TABLE `svsys_page_module_i18ns` (
   `id` int(11) NOT NULL COMMENT 'ID',
   `module_id` int(11) NOT NULL COMMENT '模块ID',
@@ -26685,6 +27056,7 @@ INSERT INTO `svsys_page_module_i18ns` (`id`, `module_id`, `locale`, `name`, `tit
 -- 表的结构 `svsys_page_types`
 --
 
+DROP TABLE IF EXISTS `svsys_page_types`;
 CREATE TABLE `svsys_page_types` (
   `id` int(11) NOT NULL,
   `code` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -26710,6 +27082,7 @@ INSERT INTO `svsys_page_types` (`id`, `code`, `name`, `page_type`, `css`, `statu
 -- 表的结构 `svsys_portals`
 --
 
+DROP TABLE IF EXISTS `svsys_portals`;
 CREATE TABLE `svsys_portals` (
   `id` int(11) NOT NULL,
   `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -26737,6 +27110,7 @@ INSERT INTO `svsys_portals` (`id`, `type`, `name`, `url`, `img`, `default_min`, 
 -- 表的结构 `svsys_profiles`
 --
 
+DROP TABLE IF EXISTS `svsys_profiles`;
 CREATE TABLE `svsys_profiles` (
   `id` int(11) NOT NULL COMMENT '编号',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -26805,6 +27179,7 @@ INSERT INTO `svsys_profiles` (`id`, `system_code`, `module_code`, `code`, `group
 -- 表的结构 `svsys_profiles_fields`
 --
 
+DROP TABLE IF EXISTS `svsys_profiles_fields`;
 CREATE TABLE `svsys_profiles_fields` (
   `id` int(11) NOT NULL COMMENT '商品编号',
   `profile_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品编号',
@@ -27248,6 +27623,7 @@ INSERT INTO `svsys_profiles_fields` (`id`, `profile_id`, `code`, `currency_forma
 -- 表的结构 `svsys_profiles_field_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_profiles_field_i18ns`;
 CREATE TABLE `svsys_profiles_field_i18ns` (
   `id` int(11) NOT NULL COMMENT '档案配置字段多语言编号',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -28114,6 +28490,7 @@ INSERT INTO `svsys_profiles_field_i18ns` (`id`, `locale`, `profiles_field_id`, `
 -- 表的结构 `svsys_profile_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_profile_i18ns`;
 CREATE TABLE `svsys_profile_i18ns` (
   `id` int(11) NOT NULL COMMENT '档案配置多语言编号',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -28220,6 +28597,7 @@ INSERT INTO `svsys_profile_i18ns` (`id`, `locale`, `profile_id`, `name`, `descri
 -- 表的结构 `svsys_resources`
 --
 
+DROP TABLE IF EXISTS `svsys_resources`;
 CREATE TABLE `svsys_resources` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -28536,6 +28914,7 @@ INSERT INTO `svsys_resources` (`id`, `system_code`, `module_code`, `parent_id`, 
 -- 表的结构 `svsys_resource_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_resource_i18ns`;
 CREATE TABLE `svsys_resource_i18ns` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '语言编码',
@@ -29129,6 +29508,7 @@ INSERT INTO `svsys_resource_i18ns` (`id`, `locale`, `resource_id`, `name`, `desc
 -- 表的结构 `svsys_roles`
 --
 
+DROP TABLE IF EXISTS `svsys_roles`;
 CREATE TABLE `svsys_roles` (
   `id` int(11) NOT NULL COMMENT '管理员角色编号',
   `system_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -29154,6 +29534,7 @@ INSERT INTO `svsys_roles` (`id`, `system_code`, `module_code`, `store_id`, `acti
 -- 表的结构 `svsys_role_i18ns`
 --
 
+DROP TABLE IF EXISTS `svsys_role_i18ns`;
 CREATE TABLE `svsys_role_i18ns` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '主键自增ID',
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '语言编码',
@@ -29176,6 +29557,7 @@ INSERT INTO `svsys_role_i18ns` (`id`, `locale`, `role_id`, `name`, `created`, `m
 -- 表的结构 `svsys_routes`
 --
 
+DROP TABLE IF EXISTS `svsys_routes`;
 CREATE TABLE `svsys_routes` (
   `id` int(11) NOT NULL COMMENT '自增ID',
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -29201,6 +29583,7 @@ INSERT INTO `svsys_routes` (`id`, `url`, `controller`, `action`, `model_id`, `op
 -- 表的结构 `svsys_sessions`
 --
 
+DROP TABLE IF EXISTS `svsys_sessions`;
 CREATE TABLE `svsys_sessions` (
   `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '序列化后的sessionid',
   `data` text CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT '序列化后的session数据',
@@ -29213,6 +29596,7 @@ CREATE TABLE `svsys_sessions` (
 -- 表的结构 `svsys_short_links`
 --
 
+DROP TABLE IF EXISTS `svsys_short_links`;
 CREATE TABLE `svsys_short_links` (
   `id` int(11) NOT NULL COMMENT 'Id',
   `link_source` varchar(250) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '原链接',
@@ -29227,6 +29611,7 @@ CREATE TABLE `svsys_short_links` (
 -- 表的结构 `svsys_sitemaps`
 --
 
+DROP TABLE IF EXISTS `svsys_sitemaps`;
 CREATE TABLE `svsys_sitemaps` (
   `id` int(11) NOT NULL COMMENT '主键自增ID',
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '名称',
@@ -29246,6 +29631,7 @@ CREATE TABLE `svsys_sitemaps` (
 -- 表的结构 `svsys_sms_send_histories`
 --
 
+DROP TABLE IF EXISTS `svsys_sms_send_histories`;
 CREATE TABLE `svsys_sms_send_histories` (
   `id` int(11) NOT NULL COMMENT '主键',
   `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT '手机号码',
@@ -29262,6 +29648,7 @@ CREATE TABLE `svsys_sms_send_histories` (
 -- 表的结构 `svsys_sms_send_queues`
 --
 
+DROP TABLE IF EXISTS `svsys_sms_send_queues`;
 CREATE TABLE `svsys_sms_send_queues` (
   `id` int(11) NOT NULL COMMENT '主键',
   `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT '手机号码',
@@ -29278,6 +29665,7 @@ CREATE TABLE `svsys_sms_send_queues` (
 -- 表的结构 `svsys_sms_words`
 --
 
+DROP TABLE IF EXISTS `svsys_sms_words`;
 CREATE TABLE `svsys_sms_words` (
   `id` int(11) NOT NULL COMMENT '主键',
   `word` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '敏感字',
@@ -29291,6 +29679,7 @@ CREATE TABLE `svsys_sms_words` (
 -- 表的结构 `svsys_systems`
 --
 
+DROP TABLE IF EXISTS `svsys_systems`;
 CREATE TABLE `svsys_systems` (
   `id` int(11) NOT NULL,
   `code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -29315,6 +29704,7 @@ INSERT INTO `svsys_systems` (`id`, `code`, `version`, `status`, `created`, `modi
 -- 表的结构 `svsys_system_logs`
 --
 
+DROP TABLE IF EXISTS `svsys_system_logs`;
 CREATE TABLE `svsys_system_logs` (
   `id` int(11) NOT NULL COMMENT '系统日志Id',
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'error' COMMENT '类型',
@@ -29331,6 +29721,7 @@ CREATE TABLE `svsys_system_logs` (
 -- 表的结构 `svsys_system_modules`
 --
 
+DROP TABLE IF EXISTS `svsys_system_modules`;
 CREATE TABLE `svsys_system_modules` (
   `id` int(11) NOT NULL,
   `system_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -32473,7 +32864,7 @@ ALTER TABLE `svhr_course_abilities`
 -- 使用表AUTO_INCREMENT `svhr_course_assignments`
 --
 ALTER TABLE `svhr_course_assignments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id';
 
 --
 -- 使用表AUTO_INCREMENT `svhr_course_assignment_scores`
@@ -33139,7 +33530,7 @@ ALTER TABLE `svoms_logistics_companies`
 -- 使用表AUTO_INCREMENT `svoms_logistics_mappings`
 --
 ALTER TABLE `svoms_logistics_mappings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID', AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID';
 
 --
 -- 使用表AUTO_INCREMENT `svoms_materials`
