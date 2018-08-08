@@ -28,13 +28,11 @@
 ?>
 <script type="text/javascript" src="<?php echo $admin_webroot;?>js/selectlang/<?php echo $backend_locale;?>"></script>
 <link href="<?php echo $webroot.'plugins/AmazeUI/css/amazeui.min.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
-<link href="<?php echo $webroot.'plugins/AmazeUI/css/admin.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
-<link href="<?php echo $webroot.'plugins/AmazeUI/css/app.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/jquery.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/jquery.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <script src="<?php echo $webroot.'plugins/AmazeUI/js/amazeui.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/listtable.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/utils.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/common.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/listtable.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/utils.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/common.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <?php
 	if(Configure::read('debug')==0&&$configs['is_cache']){
 		

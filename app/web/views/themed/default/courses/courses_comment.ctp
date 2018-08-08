@@ -1,4 +1,3 @@
-<?php if(constant("Product")=="AllInOne"){?>
 <?php echo $htmlSeevia->css(array('embed.default')); ?>
 <!--屏蔽的关键字-->
 <?php $wordarr=""; if(isset($sm['word'])&&$sm['word']!=""){
@@ -7,52 +6,53 @@
 	}
 }?>
 <style type='text/css'>
-#Commodity_review{width:100%;margin:0 auto;}
 .icon_sw_face{top:2px;}
 .icon_sw_img{top:2px;}
+#CourseMedia video{max-width:100%;max-height:100%;}
+#Commodity_review{width: 98%;margin:0 auto;}
 #page_comment #ds-thread #ds-reset .ds-textarea-wrapper{border-bottom:1px solid #ccc;-webkit-border-bottom-left-radius:3px;-webkit-border-bottom-right-radius:3px;}
 #page_comment #ds-thread #PreviewCourseMedia{display:none;color:#d82b2b;}
 #page_comment #ds-thread .ds-post-toolbar div[class*=am-u-]{padding-left:0px;padding-right:0px;}
 #page_comment #ds-thread .ds-post-toolbar label.am-radio{margin-left: 10px;margin-top: 1px;display: inline-block;}
 #page_comment .am-close.am-text-danger,#page_comment .am-close.am-text-danger:hover{color:#dd514c;opacity: inherit;float:right;margin-top:-8px;}
-#PreviewCourseMedia{display:none;}
-#CourseMedia video{max-width:100%;max-height:100%;}
-#CourseMedia img{max-width:100%;}
-#page_comment .am-close.am-text-danger,#page_comment .am-close.am-text-danger:hover{color:#dd514c;opacity: inherit;float:right;}
+#CourseClassComplete .am-modal-hd{padding:2.4rem;}
+#CourseClassComplete .am-modal-bd{padding:2.4rem;padding-top:0px;}
+#CourseClassComplete .am-modal-bd a:nth-child(1){margin-bottom:2.4rem;}
+#CourseClassComplete .am-modal-bd a:nth-child(2),#CourseClassComplete .am-modal-bd a:nth-child(2):hover{color:#666;display:block;}
+#ForcedCompleteCourse .am-modal-hd{font-size:3rem;padding-top:3rem;padding-bottom:3rem;}
+#ForcedCompleteCourse .am-modal-bd{margin-bottom:3rem;padding-bottom:3rem;}
 @media only screen and (max-width: 640px){
 	#page_comment .ds-post-toolbar div[class*=am-u-]:first-child div:nth-child(2){width:68%;}
 	#page_comment .ds-post-toolbar input[type='file']{max-width:100%}
 	#CourseClassComplete .am-modal-hd,#CourseClassComplete .am-modal-bd{padding-left:0px;padding-right:0px;}
 	#CourseClassComplete .am-modal-bd a:nth-child(1){display:block;word-wrap:break-word;white-space:initial;width:91%;}
-	
-	div.ds-post-toolbar>div[class*=am-u-] div[class*=am-u-]:nth-child(3),div.ds-post-toolbar>div[class*=am-u-] div[class*=am-u-]:nth-child(4){text-align:right!important;}
 }
 </style>
 <script src="<?php echo $webroot.'plugins/AmazeUI/js/handlebars.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <div id="page_comment">
 <input type="hidden" id="word" value="<?php echo $wordarr;?>">
 <div class="am-g am-g-fixed" id="Commodity_review">
-  <div class="am-panel am-panel-default" style="margin-top:10px;">
+  <div class="am-panel am-panel-default am-margin-top-sm">
 	<div class="am-panel-hd my-head">笔记记录</div>
 	<div  class="am-panel-bd">
-	  <div class="listbox am-padding-horizontal-sm">
+	  <div class="listbox">
       <!--商品评论-->
     	<div class="comment" style="width:100%;margin:0 auto 16px;">
     		<?php if(!empty($_SESSION['User']['User']['id'])){?>
 			<form id="comment_form" name="comment_form" enctype="multipart/form-data" method="POST">
 			<input type="hidden" name="data[CourseNote][course_id]" value="<?php echo isset($course_id)?$course_id:''; ?>">
 			<input type="hidden" name="data[CourseNote][course_class_id]" value="<?php echo isset($course_class_id)?$course_class_id:''; ?>">
-			<div id="ds-thread" class="am-cf" style="margin-top: 5px;">
-			  <div id="ds-reset">
-				<div class="ds-textarea-wrapper ds-rounded-top" >
-				  <textarea  style="resize:none;font-size:1.3rem;" onkeyup="strLenCalc($(this),'checklen',280);" class="am-input-sm" id="contenttext"  title="" <?php if(empty($_SESSION['User']['User']['id'])){echo " disabled='disabled'";}?>></textarea>
-				  <input type="hidden" name="data[CourseNote][note]" id="hid" value="" />
-				  <input type="hidden" name="data[CourseNote][user_id]" value="<?php if(!empty($_SESSION['User']['User']['id'])){echo $_SESSION['User']['User']['id'];}?>">
+			<div id="ds-thread" class="am-cf am-margin-top-sm">
+				<div id="ds-reset">
+					<div class="ds-textarea-wrapper ds-rounded-top" >
+						<textarea  style="resize:none;font-size:1.3rem;" onkeyup="strLenCalc($(this),'checklen',280);" class="am-input-sm" id="contenttext"  title="" <?php if(empty($_SESSION['User']['User']['id'])){echo " disabled='disabled'";}?>></textarea>
+						<input type="hidden" name="data[CourseNote][note]" id="hid" value="" />
+						<input type="hidden" name="data[CourseNote][user_id]" value="<?php if(!empty($_SESSION['User']['User']['id'])){echo $_SESSION['User']['User']['id'];}?>">
+					</div>
 				</div>
-			   </div>
 				<div class='ds-post-toolbar am-padding-top-xs'>
 					<div class='am-u-lg-6 am-u-md-6 am-u-sm-12'>
-						<div class="am-fl am-text-left am-margin-right-xs">提交文件:</span></div>
+						<div class="am-fl am-text-left">提交文件:</span></div>
 						<div class="am-fl am-text-left"><input type='file' id='CourseNote_media' name="data[CourseNote][media]" onchange='loadCourseMedia(this)' accept="audio/*,video/*" /></div>
 						<div class="am-fl am-text-left"><a href='javascript:void(0);' id='PreviewCourseMedia' data-am-modal="{target: '#CourseMedia', closeViaDimmer: 0}">预览</a></div>
 						<div class='am-cf'></div>
@@ -78,11 +78,11 @@
 						</div>
 						<?php } ?>
 						<div class='am-fr am-padding-top-xs am-u-lg-3 am-u-md-4 am-u-sm-12'>
-		    					<label class="am-radio">
+		    					<label class="am-radio am-danger">
 								<input type="radio" name="data[CourseNote][is_public]" value="0" data-am-ucheck checked>
 								<span><?php echo $ld['public'];?></span>
 							</label>
-		    					<label class="am-radio">
+		    					<label class="am-radio am-danger">
 								<input type="radio" name="data[CourseNote][is_public]" value="1" data-am-ucheck>
 								<span><?php echo $ld['privacy'];?></span>
 							</label>
@@ -96,8 +96,8 @@
 						<div class='am-cf'></div>
 					</div>
 					<div class='am-cf'></div>
+				</div>
 			</div>
-			
 			</form>
 			<?php }else{?>
 			  <?php if(empty($_SESSION['User']['User']['id'])){echo $ld['please_login']." <a href='javascript:void(0)' onclick='ajax_login_show();'>".$ld['login']."</a> ".$ld['perhaps']." <a href='javascript:void(0)' onclick='ajax_login_show();'>".$ld['register']."</a>";}else{?>
@@ -111,26 +111,29 @@
             <div class="am-list-news-bd">
                 <ul id="maodian" class="am-comments-list am-comments-list-flip events-list">
 	                <?php if(isset($course_note)&&sizeof($course_note)>0){ foreach($course_note as $v){
-	                		$user_note_name=isset($user_note_list[$v['CourseNote']['user_id']]['name'])?$user_note_list[$v['CourseNote']['user_id']]['name']:'';
-	                		if(!(isset($_SESSION['User']['User']['id'])&&$_SESSION['User']['User']['id']==$v['CourseNote']['user_id']))$user_note_name=mb_substr($user_note_name, 0, 1, 'utf-8').'***'. mb_substr($user_note_name, -1, 1, 'utf-8');
+	                			$user_note_name=isset($user_note_list[$v['CourseNote']['user_id']]['name'])?$user_note_list[$v['CourseNote']['user_id']]['name']:'';
+	                			if(!(isset($_SESSION['User']['User']['id'])&&$_SESSION['User']['User']['id']==$v['CourseNote']['user_id'])){
+	                				$user_note_name=mb_substr($user_note_name, 0, 1, 'utf-8').'***'.(mb_strlen($user_note_name,'utf-8')>2?mb_substr($user_note_name, -1, 1, 'utf-8'):'');
+	                			}
 	            	   ?>
 				<li class="am-comment" style="margin-bottom: 50px;">
-					<a style="cursor: default;" href="javascript:void(0);">
-					  <img id="photo" title="<?php echo $user_note_name; ?>" src="<?php echo isset($user_note_list[$v['CourseNote']['user_id']]['img01'])?$user_note_list[$v['CourseNote']['user_id']]['img01']:''; ?>" class="am-comment-avatar" width="48" height="48"/>
-					</a>
+					<a style="cursor: default;" href="javascript:void(0);"><img id="photo" title="<?php echo $user_note_name; ?>" src="<?php echo isset($user_note_list[$v['CourseNote']['user_id']]['img01'])?$user_note_list[$v['CourseNote']['user_id']]['img01']:''; ?>" class="am-comment-avatar" width="48" height="48"/></a>
 					<div class="am-comment-main">
-				      <header class="am-comment-hd">
-				    	<div class="am-comment-meta">
-				          <a style="cursor: default;" href="javascript:void(0);" class="am-comment-author"><?php echo $user_note_name; ?></a>
-				          记录于 <time><?php echo $v['CourseNote']['created'] ?></time>
-				          <?php if(isset($_SESSION['User']['User']['id'])&&$_SESSION['User']['User']['id']==$v['CourseNote']['user_id']){ ?>
-				          <a href="javascript: void(0)" class="am-close am-close-spin am-text-danger" data-am-modal-close onclick="ajax_remove_course_note(<?php echo $v['CourseNote']['id']; ?>)">&times;</a>
-				          <?php } ?>
-				    	</div>
-				      </header>
-				      <div class="am-comment-bd">
-						<?php echo $v['CourseNote']['note'];echo trim($v['CourseNote']['media'])!=''&&file_exists(WWW_ROOT.trim($v['CourseNote']['media']))&&is_file(WWW_ROOT.trim($v['CourseNote']['media']))?"&nbsp;&nbsp;<a href='javascript:void(0);' onclick=\"PreviewCourseMedia('".trim($v['CourseNote']['media'])."','".(mime_content_type(WWW_ROOT.trim($v['CourseNote']['media'])))."')\"><i class='am-icon am-icon-youtube-play'></i></a>":''; ?>
-					  </div>
+						<header class="am-comment-hd">
+							<div class="am-comment-meta am-u-sm-9">
+								<a href="javascript:void(0);" class="am-comment-author"><?php echo $user_note_name; ?></a>
+								记录于 <time><?php echo $v['CourseNote']['created'] ?></time>
+							</div>
+							<div class="am-comment-meta am-u-sm-3 am-text-center">
+								<?php if(isset($_SESSION['User']['User']['id'])&&$_SESSION['User']['User']['id']==$v['CourseNote']['user_id']){ ?>
+								<a href="javascript: void(0);" class="am-close am-close-spin am-text-danger" data-am-modal-close onclick="ajax_remove_course_note(<?php echo $v['CourseNote']['id']; ?>)">&times;</a>
+								<?php } ?>
+							</div>
+							<div class='am-cf'></div>
+						</header>
+						<div class="am-comment-bd">
+							<?php echo $v['CourseNote']['note'];echo trim($v['CourseNote']['media'])!=''&&file_exists(WWW_ROOT.trim($v['CourseNote']['media']))?"&nbsp;&nbsp;<a href='javascript:void(0);' onclick=\"PreviewCourseMedia('".trim($v['CourseNote']['media'])."')\"><i class='am-icon am-icon-youtube-play am-text-danger'></i></a>":''; ?>
+						</div>
 				  	</div>
 				</li>
 			<?php }}?>
@@ -151,25 +154,90 @@
     </div>
     <div class="am-modal-bd">
     		<video controls="controls">你当前的浏览器不支持!</video>
-    		<img src="" />
     </div>
   </div>
 </div>
 
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="CourseClassComplete">
+	<div class="am-modal-dialog">
+		<div class="am-modal-hd">恭喜您完成了[<?php echo isset($course_class_detail['CourseClass'])?$course_class_detail['CourseClass']['name']:'';  ?>]&nbsp;
+			<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+		</div>
+		<div class="am-modal-bd am-text-center">
+			<a href="javascript:void(0);" class='am-btn am-btn-success am-radius am-margin-left-sm'>继续学习下一节</a>
+			<a href="<?php echo $html->url('/courses/view/'.(isset($course_id)?$course_id:0)); ?>">返回目录</a>
+		</div>
+	</div>
+</div>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="ForcedCompleteCourse">
+	<div class="am-modal-dialog">
+		<div class="am-modal-hd">你点击的太快了,确定要完成当前课程?
+			<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+		</div>
+		<div class="am-modal-bd am-text-center">
+			<button type='button' class='am-btn am-btn-danger am-radius am-margin-left-sm' onclick="ajax_forced_complete(this,'<?php echo $user_course_class['UserCourseClass']['course_id']; ?>','<?php echo $user_course_class['UserCourseClassDetail']['course_class_id']; ?>');">确认完成</button>
+			<button type='button' class='am-btn am-btn-default am-radius am-margin-left-sm' onclick="$('#ForcedCompleteCourse').modal('close');">我再看看</button>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
 function complete_course_class(btn,course_id,course_class_id){
+	$(btn).button('loading');
 	$.ajax({
 		url:web_base+"/courses/ajax_complete_course_class",
 		type:'POST',
 		data:{'course_id':course_id,'course_class_id':course_class_id},
 		dataType:'json',
 		success:function(data){
+			$(btn).button('reset');
 			if(data.code=='1'){
-				$(btn).remove();
-				$('#ds-reset div.authentication').css('marginRight','105px');
-				$('#ds-reset #res_btn').css('marginRight','0px');
+				var next_course_class=typeof(data.next_course_class)!='undefined'?parseInt(data.next_course_class.id):0;
+				if(next_course_class>0){
+					$("#CourseClassComplete .am-modal-bd a:first-child").show();
+					$("#CourseClassComplete .am-modal-bd a:first-child").attr('href',web_base+'/courses/detail/'+course_id+'/'+next_course_class);
+					var defaultHtml=$("#CourseClassComplete .am-modal-bd a:first-child").text();
+					$("#CourseClassComplete .am-modal-bd a:first-child").html(defaultHtml+"<br class='am-show-sm-only'>["+data.next_course_class.name+"]&nbsp;&nbsp;<i class='am-icon am-icon-angle-double-right'></i>");
+				}else{
+					$("#CourseClassComplete .am-modal-bd a:first-child").hide();
+					$("#CourseClassComplete .am-modal-bd a:first-child").attr('href','javascript:void(0);');
+				}
+				$("#CourseClassComplete").modal({closeViaDimmer:0});
+				$(btn).hide().remove();
+			}else if(data.code=='2'){
+				$('#ForcedCompleteCourse').modal({closeViaDimmer:0});
 			}else{
-				alert(data.message);
+				seevia_alert(data.message);
+			}
+		}
+	});
+}
+
+function ajax_forced_complete(btn,course_id,course_class_id){
+	$(btn).button('loading');
+	$.ajax({
+		url:web_base+"/courses/ajax_complete_course_class",
+		type:'POST',
+		data:{'course_id':course_id,'course_class_id':course_class_id,'forcible_operation':'1'},
+		dataType:'json',
+		success:function(data){
+			$(btn).button('reset');
+			$('#ForcedCompleteCourse').modal('close');
+			if(data.code=='1'){
+				var next_course_class=typeof(data.next_course_class)!='undefined'?parseInt(data.next_course_class.id):0;
+				if(next_course_class>0){
+					$("#CourseClassComplete .am-modal-bd a:first-child").show();
+					$("#CourseClassComplete .am-modal-bd a:first-child").attr('href',web_base+'/courses/detail/'+course_id+'/'+next_course_class);
+					var defaultHtml=$("#CourseClassComplete .am-modal-bd a:first-child").text();
+					$("#CourseClassComplete .am-modal-bd a:first-child").html(defaultHtml+"<br class='am-show-sm-only'>["+data.next_course_class.name+"]&nbsp;&nbsp;<i class='am-icon am-icon-angle-double-right'></i>");
+				}else{
+					$("#CourseClassComplete .am-modal-bd a:first-child").hide();
+					$("#CourseClassComplete .am-modal-bd a:first-child").attr('href','javascript:void(0);');
+				}
+				$("#CourseClassComplete").modal({closeViaDimmer:0});
+			}else{
+				seevia_alert(data.message);
 			}
 		}
 	});
@@ -316,45 +384,48 @@ function lastname(obj){
 }
 function add_comment(btn,operator_flag){
 	$(btn).button($.AMUI.utils.parseOptions($(btn).data('amLoading')));
-	if(operator_flag=='1'&&$("#contenttext").val()==""){
-		seevia_alert("<?php echo $ld['comment_content_empty']?>");
+	if(operator_flag=='1'&&($("#contenttext").val()==""&&$('#CourseNote_media').val()=='')){
+		seevia_alert("请填写笔记内容");
 		return false;
-	}else if($("#contenttext").val()!=""){
+	}else if($("#contenttext").val()!=""||$('#CourseNote_media').val()!=''){
 		//判断是否含有屏蔽的词
 		var word=$("#word").val();
 		var con=CheckKeyword(word,$("#contenttext").val());
 		con=replace_content(con);
 		$("#hid").val(con);
 		if(img_size1){
-			var authnum_msg="Error";
-			//var authnum_msg_div=$("#authnums_Comment").parent().parent().parent().find(".authnum_msg");
-			var authnum_val=$("#authnums_Comment").val().trim();
-			var ck_auth_num=$("#authnums_Comment").parent().parent().find("input[id=ck_authnum]").length;
-			
-			if(authnum_val.length==0){
-				$("#authnums_Comment").parent().removeClass("am-form-success");
-				$("#authnums_Comment").parent().removeClass("am-form-error");
-				$("#authnums_Comment").parent().addClass("am-form-warning");
-				$("#authnums_Comment").parent().find("span").removeClass("am-icon-times").removeClass("am-icon-check");
-				$("#authnums_Comment").parent().find("span").addClass("am-icon-warning").css("display","block");
-			}else if(ck_auth_num>0){
-				var ck_auth=$("#authnums_Comment").parent().parent().find("input[id=ck_authnum]").val();
-				if(ck_auth.trim().length>0){
-					if(authnum_val.toLowerCase()!=ck_auth){
-		    			$("#authnums_Comment").parent().removeClass("am-form-success");
-		    			$("#authnums_Comment").parent().removeClass("am-form-warning");
-		    			$("#authnums_Comment").parent().addClass("am-form-error");
-		    			$("#authnums_Comment").parent().find("span").removeClass("am-icon-warning").removeClass("am-icon-check");
-		    			$("#authnums_Comment").parent().find("span").addClass("am-icon-times").css("display","block");
-					}else{
-		    			$("#authnums_Comment").parent().removeClass("am-form-error");
-		    			$("#authnums_Comment").parent().removeClass("am-form-warning");
-		    			$("#authnums_Comment").parent().addClass("am-form-success");
-		    			$("#authnums_Comment").parent().find("span").removeClass("am-icon-warning").removeClass("am-icon-times");
-		    			$("#authnums_Comment").parent().find("span").addClass("am-icon-check").css("display","block");
-						authnum_msg="";
+			if(document.getElementById('authnums_Comment')){
+				var authnum_msg="Error";
+				var authnum_val=$("#authnums_Comment").val().trim();
+				var ck_auth_num=$("#authnums_Comment").parent().parent().find("input[id=ck_authnum]").length;
+				
+				if(authnum_val.length==0){
+					$("#authnums_Comment").parent().removeClass("am-form-success");
+					$("#authnums_Comment").parent().removeClass("am-form-error");
+					$("#authnums_Comment").parent().addClass("am-form-warning");
+					$("#authnums_Comment").parent().find("span").removeClass("am-icon-times").removeClass("am-icon-check");
+					$("#authnums_Comment").parent().find("span").addClass("am-icon-warning").css("display","block");
+				}else if(ck_auth_num>0){
+					var ck_auth=$("#authnums_Comment").parent().parent().find("input[id=ck_authnum]").val();
+					if(ck_auth.trim().length>0){
+						if(authnum_val.toLowerCase()!=ck_auth){
+				    			$("#authnums_Comment").parent().removeClass("am-form-success");
+				    			$("#authnums_Comment").parent().removeClass("am-form-warning");
+				    			$("#authnums_Comment").parent().addClass("am-form-error");
+				    			$("#authnums_Comment").parent().find("span").removeClass("am-icon-warning").removeClass("am-icon-check");
+				    			$("#authnums_Comment").parent().find("span").addClass("am-icon-times").css("display","block");
+						}else{
+				    			$("#authnums_Comment").parent().removeClass("am-form-error");
+				    			$("#authnums_Comment").parent().removeClass("am-form-warning");
+				    			$("#authnums_Comment").parent().addClass("am-form-success");
+				    			$("#authnums_Comment").parent().find("span").removeClass("am-icon-warning").removeClass("am-icon-times");
+				    			$("#authnums_Comment").parent().find("span").addClass("am-icon-check").css("display","block");
+							authnum_msg="";
+						}
 					}
 				}
+			}else{
+				var authnum_msg='';
 			}
 			if(authnum_msg==""){
 				ajax_add_activity_comment(btn);
@@ -383,14 +454,14 @@ function ajax_add_activity_comment(addBtn){
 		}
 	}
 	xhr.onreadystatechange = function(){
-            if (xhr.readyState == 4 && xhr.status == 200){
-			eval("var result="+xhr.responseText);
-			if(result.code=='1'){
-				courses_comment();
-				change_captcha('authnum_comment');
-			}
-			$(addBtn).button('reset');
-            }
+	            if (xhr.readyState == 4 && xhr.status == 200){
+				eval("var result="+xhr.responseText);
+				if(result.code=='1'){
+					courses_comment();
+					if(document.getElementById('authnums_Comment'))change_captcha('authnum_comment');
+				}
+				$(addBtn).button('reset');
+	            }
         };
         xhr.onerror=function(evt){
             console.log(j_object_transform_failed);
@@ -400,10 +471,9 @@ function ajax_add_activity_comment(addBtn){
         xhr.send(formData);
 }
 //评论验证码
-change_captcha('authnum_comment',true);
+if(document.getElementById('authnum_comment'))change_captcha('authnum_comment',true);
 $("#authnums_Comment").blur(function(){
 	var authnum_msg="Error";
-	//var authnum_msg_div=$("#authnums_Comment").parent().parent().parent().find(".authnum_msg");
 	var authnum_val=$("#authnums_Comment").val().trim();
 	var ck_auth_num=$("#authnums_Comment").parent().parent().find("input[id=ck_authnum]").length;
 	if(authnum_val.length==0){
@@ -443,62 +513,40 @@ for(var i = 0;i<img.length;i++){
 function loadCourseMedia(fileBox){
 	$('#PreviewCourseMedia').hide();
 	var uploadfile=fileBox.files[0];
-	var uploadfileType=uploadfile.type;
 	var reader = new FileReader();
 	reader.readAsText(uploadfile, 'UTF-8');
 	reader.onload = function (e) {
 		if(reader.readyState==2){//加载完成
-			var fileSize=Math.round(e.total/1024/1024/1024);
+			var fileSize=Math.round(e.total/1024/1024);
 			if(fileSize>10){
-                        	alert('最大文件限制为10M,当前为'+fileSize+'M');
+                        	seevia_alert('最大文件限制为10M,当前为'+fileSize+'M');
+                        	$(fileBox).val('');
                         	return false;
-                      }
-                      $("#CourseMedia div.am-modal-bd *").hide();
-                      $("#CourseMedia div.am-modal-bd video,#CourseMedia div.am-modal-bd img").attr('src','');
-                      if (/(audio|video)\/(.*)$/.test(uploadfileType)){
-				var fileResult = reader.result;
-				$('#PreviewCourseMedia i').removeClass('am-icon-image').addClass('am-icon-youtube-play');
-				$('#PreviewCourseMedia').show();
-				$("#CourseMedia div.am-modal-bd video").attr("src", window.URL.createObjectURL(uploadfile)).show();
-		  	}else if(/(image|IMAGE)\/(.*)$/.test(uploadfileType)){
-		  		$('#PreviewCourseMedia i').removeClass('am-icon-youtube-play').addClass('am-icon-image');
-                    	$('#PreviewCourseMedia').show();
-                    	$("#CourseMedia div.am-modal-bd img").attr("src", window.URL.createObjectURL(uploadfile)).show();
-			}
+                    }
+			var fileResult = reader.result;
+			$('#PreviewCourseMedia').show();
+			$("#CourseMedia video").attr("src", window.URL.createObjectURL(uploadfile));
 		}
 	}
 }
 
 $("#CourseMedia").on('opened.modal.amui', function(){
 	var MediaAudio = $("#CourseMedia video")[0];
-	if(MediaAudio.src!=''){
-		if (MediaAudio.paused){
-			MediaAudio.play();
-		}else {
-			MediaAudio.pause();
-		}
+	if (MediaAudio.paused){
+		MediaAudio.play();
+	}else {
+		MediaAudio.pause();
 	}
 }).on('close.modal.amui', function(){
 	var MediaAudio = $("#CourseMedia video")[0];
-	if(MediaAudio.src!=''){
-		if(!MediaAudio.paused){
-			MediaAudio.pause();
-		}
+	if(!MediaAudio.paused){
+		MediaAudio.pause();
 	}
 });
 
-function PreviewCourseMedia(mediaPath,mediaMimeType){
-	$("#CourseMedia div.am-modal-bd *").hide();
-	$("#CourseMedia div.am-modal-bd video,#CourseMedia div.am-modal-bd img").attr('src','');
-	if (typeof(mediaMimeType)!='undefined'&&/(audio|video)\/(.*)$/.test(mediaMimeType)){
-		$("#CourseMedia div.am-modal-bd video").attr("src",mediaPath).show();
-		$("#CourseMedia").modal();
-	}else if(typeof(mediaMimeType)!='undefined'&&/(image|IMAGE)\/(.*)$/.test(mediaMimeType)){
-		$("#CourseMedia div.am-modal-bd img").attr("src",mediaPath).show();
-		$("#CourseMedia").modal();
-	}else{
-		window.open(mediaPath);
-	}
+function PreviewCourseMedia(mediaPath){
+	$("#CourseMedia video").attr("src", mediaPath);
+	$("#CourseMedia").modal();
 }
 
 function ajax_remove_course_note(course_note_id){
@@ -522,4 +570,3 @@ function ajax_remove_course_note(course_note_id){
 	},'确认删除?');
 }
 </script>
-<?php }?>

@@ -132,26 +132,6 @@ $(document).ready(function(){
 	});
 });
 
-$(window).load(function(){
-	$("div:not(.auto_zoom) img").each(function(){
-		$(this).attr("onerror",function(e){
-			var error = false;
-			if (!this.complete) {
-				error = true;
-			}
-			if (typeof this.naturalWidth != "undefined" && this.naturalWidth == 0) {
-				error = true;
-			}
-			if(error){
-				$(this).bind('error.replaceSrc',function(){
-					this.src = web_base+"/theme/default/images/default.png";
-					$(this).unbind('error.replaceSrc');
-				}).trigger('load');
-			} 
-		});
-	});
-})
-
 /*
 	Pop positioning
 */

@@ -75,7 +75,7 @@ function checkwechatpay(){
 <style type="text/css">
 body{display:none;}
 </style>
-<script src="<?php echo $webroot; ?>plugins/AmazeUI/js/jquery.min.js" type="text/javascript"></script>
+<script src="<?php echo $webroot; ?>plugins/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#payform input[type=submit]").click();

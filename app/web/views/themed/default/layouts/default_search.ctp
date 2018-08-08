@@ -29,9 +29,7 @@
 ?>
 <script type="text/javascript" src="<?php echo $html->url('/js/selectlang/'.LOCALE);?>"></script>
 <link href="<?php echo $webroot.'plugins/AmazeUI/css/amazeui.min.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
-<link href="<?php echo $webroot.'plugins/AmazeUI/css/app.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
-<link href="<?php echo $webroot.'plugins/AmazeUI/css/admin.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/jquery.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/jquery.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <script src="<?php echo $webroot.'plugins/AmazeUI/js/amazeui.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <script src="<?php echo $webroot.'plugins/AmazeUI/js/amazeui.lazyload.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <?php
@@ -67,6 +65,6 @@
     echo $this->element('alert_message');
 ?>
 
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/utils.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/utils.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 </body>
 </html>

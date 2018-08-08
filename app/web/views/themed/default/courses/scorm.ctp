@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title><?php echo isset($couse_ware_detail['CourseClassWare']['name'])?$server_host.$couse_ware_detail['CourseClassWare']['name']:'Scorm Player'; ?></title>
-	<script src="<?php echo $webroot.'plugins/AmazeUI/js/jquery.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+	<script src="<?php echo $webroot.'plugins/jquery.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 	<link href="<?php echo $webroot.'plugins/Scorm/Ext/qunit/qunit.css?ProjectVersion='.ProjectVersion; ?>" type="text/css" rel="stylesheet">
 	<script src="<?php echo $webroot.'plugins/Scorm/sscompat.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 	<script src="<?php echo $webroot.'plugins/Scorm/sscorlib.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
