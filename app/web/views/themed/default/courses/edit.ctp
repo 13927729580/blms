@@ -18,9 +18,6 @@
     .am-radio-inline{padding-top: 0!important;}
     .am-u-lg-2.am-u-md-2.am-u-sm-12{margin-bottom: 10px;text-align: left;}
     .am-u-lg-3.am-u-md-3.am-u-sm-12{margin-bottom: 10px;}
-    @media screen and (max-width: 400px) {
-        .am-modal{min-width: 310px!important;left: 44%;}
-    }
     <?php if($organizations_id!=''){ ?>
     .am-u-lg-3.am-u-md-3.am-u-sm-12.am-user-menu.am-hide-sm-only.am-padding-right-0{display: none!important;}
     .am-u-lg-9.am-u-md-8.am-u-sm-12{width:100%;}

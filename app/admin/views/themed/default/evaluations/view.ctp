@@ -5,7 +5,6 @@
 [data-am-widget=tabs] .am-tabs-nav{width:20%}
 .am-tabs-default .am-tabs-nav > .am-active a {background-color: #5eb95e;border-color: #5eb95e;color: #fff;}
 .am-radio-inline{padding-top: 0!important;}
-.am-modal{width:60%;margin-left:-30%;}
 #Question_pancel table.am-table td pre{padding:0px;border:none;margin:0 auto;color:#333;background:none;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;font-family:inherit;}
 #Question_pancel table.am-table td pre *{margin:0px;padding:0px;white-space: normal!important;}
 #Question_pancel table.am-table td pre p ,#Question_pancel table.am-table td pre p>*{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;white-space: normal!important;}

@@ -7,7 +7,6 @@ form.am-form .am-form-label{text-align: left;}
 #class form .am-nav > li > a:hover,#class form .am-nav > li > a:focus{background:none;}
 #class form .am-tab-panel{min-height:400px;}
 #class form .am-active .am-btn-default.am-dropdown-toggle,#class form .am-btn-default.am-active,#class form  .am-btn-default:active{background:none;}
-.am-modal{width:60%;margin-left:-30%;top:50%;}
 #inivate_user{width: 540px;margin-left: -270px;}
 #chapter form,#class form,#ware form{max-height:500px;overflow-y:scroll;}
 #ware .am-btn-group label.am-btn{text-align:left;}

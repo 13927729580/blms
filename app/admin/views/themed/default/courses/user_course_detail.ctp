@@ -125,7 +125,6 @@
 </div>
 <style type='text/css'>
 #SearchForm ul li{margin-bottom:10px;}
-#course_class_detail.am-modal{width:70%;margin-left:-35%;}
 #course_class_detail.am-modal .am-modal-bd{max-height:450px;overflow-y: scroll;}
 #course_class_detail.am-modal .am-modal-bd::-webkit-scrollbar{width:2px;}
 #course_class_detail.am-modal .am-modal-bd::-webkit-scrollbar-track{background:#fff;}

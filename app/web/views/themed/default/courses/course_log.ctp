@@ -130,7 +130,6 @@ padding-top:5%;
 #com_chose li a{color:#aaa;}
 #csv a{color:#0e90d2;}
 a{color:#ccc;}
-#user_course_detail{width:50%;margin-left:-25%;}
 #user_course_detail table>thead>tr>th{font-weight:normal;}
 .am-nav-tabs>li>a,.am-tabs-nav,.am-tabs-bd,.am-tabs-bd .am-tab-panel,.am-tabs-bd,.am-tabs-bd .am-tab-panel.am-active{border:none;}
 .am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{border:none;}

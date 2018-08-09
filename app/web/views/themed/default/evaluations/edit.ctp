@@ -24,9 +24,6 @@
     .am-form-field{padding: 0!important;}
     .am-radio-inline{padding-top: 0!important;}
     .am-u-lg-3.am-u-md-3.am-u-sm-12{margin-bottom: 5px;text-align: left;}
-    @media screen and (max-width: 400px) {
-        .am-modal{min-width: 310px!important;left: 44%;}
-    }
 </style>
 <script src="<?php echo $webroot.'plugins/kindeditor/kindeditor-min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <script src="<?php echo $webroot.'plugins/ajaxfileupload.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
