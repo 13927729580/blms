@@ -1,6 +1,5 @@
 <style type='text/css'>
 .am-form-horizontal .am-form-label{text-align:left;}
-#view_question,#add_condtion{top:50%;}
 #view_question form,#add_condtion form{max-height:500px;overflow-y:scroll;}
 [data-am-widget=tabs] .am-tabs-nav{width:20%}
 .am-tabs-default .am-tabs-nav > .am-active a {background-color: #5eb95e;border-color: #5eb95e;color: #fff;}
@@ -419,7 +418,7 @@
 </div>
 
 <div class="am-modal am-modal-no-btn" id="view_question">
-	<div class="am-modal-dialog">
+	<div class="am-modal-dialog" style="width:800px;">
         <div class="am-modal-hd">
 		<h4 class="am-popup-title">题目</h4>
 		<span data-am-modal-close class="am-close">&times;</span>
@@ -431,7 +430,7 @@
 </div>
 
 <div class="am-modal am-modal-no-btn" id="view_question_option">
-	<div class="am-modal-dialog">
+	<div class="am-modal-dialog"  style="width:800px;">
         <div class="am-modal-hd">
 		<h4 class="am-popup-title">题目选项</h4>
 		<span data-am-modal-close class="am-close">&times;</span>
