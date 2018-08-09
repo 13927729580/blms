@@ -63,7 +63,7 @@
                 <div class="listtable_div_top" >
                     <div style="margin:10px auto;" class="am-g">
 				<div class="am-u-lg-3 am-u-md-3 am-u-sm-3"><?php echo $v['Course']['name']."&nbsp;<br >";echo $v['CourseChapter']['name'].'&nbsp;/&nbsp;'.$v['CourseClass']['name']; ?></div>
-				<div class="am-u-lg-2 am-u-md-2 am-u-sm-2"><?php echo isset($course_note_user_list[$v['CourseNote']['user_id']])?($course_note_user_list[$v['CourseNote']['user_id']]['first_name']!=''?$course_note_user_list[$v['CourseNote']['user_id']]['first_name']:$course_note_user_list[$v['CourseNote']['user_id']]['name']):''; ?></div>
+				<div class="am-u-lg-2 am-u-md-2 am-u-sm-2"><?php echo isset($course_note_user_list[$v['CourseNote']['user_id']])?($course_note_user_list[$v['CourseNote']['user_id']]['first_name']!=''?$course_note_user_list[$v['CourseNote']['user_id']]['first_name']:$course_note_user_list[$v['CourseNote']['user_id']]['name']):''; ?>&nbsp;</div>
 				<div class="am-u-lg-3 am-u-md-3 am-u-sm-6"><?php echo $v['CourseNote']['note']!=''?(mb_strlen($v['CourseNote']['note'],'utf-8')>50?mb_substr($v['CourseNote']['note'],0,50,'utf-8').'...':$v['CourseNote']['note']):($v['CourseNote']['media']!=''?"<a href='javascript:void(0);' onclick=\"PreviewCourseMedia('".trim($v['CourseNote']['media'])."')\"><i class='am-icon am-icon-youtube-play'></i></a>":''); ?>&nbsp;</div>
 				<div class="am-u-lg-1 am-u-md-1 am-hide-sm-only"><?php echo isset($course_note_reply_list[$v['CourseNote']['id']])?$course_note_reply_list[$v['CourseNote']['id']]:0; ?></div>
 				<div class="am-u-lg-2 am-u-md-2 am-hide-sm-only"><?php echo $v['CourseNote']['created']; ?></div>

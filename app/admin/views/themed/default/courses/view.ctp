@@ -7,7 +7,6 @@ form.am-form .am-form-label{text-align: left;}
 #class form .am-nav > li > a:hover,#class form .am-nav > li > a:focus{background:none;}
 #class form .am-tab-panel{min-height:400px;}
 #class form .am-active .am-btn-default.am-dropdown-toggle,#class form .am-btn-default.am-active,#class form  .am-btn-default:active{background:none;}
-#inivate_user{width: 540px;margin-left: -270px;}
 #chapter form,#class form,#ware form{max-height:500px;overflow-y:scroll;}
 #ware .am-btn-group label.am-btn{text-align:left;}
 </style>
@@ -524,7 +523,7 @@ form.am-form .am-form-label{text-align: left;}
 </div>
 
 <div class="am-modal am-modal-no-btn" id="ware">
-    <div class="am-modal-dialog">
+    <div class="am-modal-dialog" style="width:800px;">
         <div class="am-modal-hd" style=" z-index: 11;">
             <h4 class="am-popup-title" id="ware_title">添加课件</h4>
             <span data-am-modal-close class="am-close">&times;</span>
@@ -533,7 +532,7 @@ form.am-form .am-form-label{text-align: left;}
             <form method='POST' class='am-form am-form-horizontal'>
                 <input type="hidden" name="data[CourseClassWare][id]" id="ware_id" value="">
                 <div class="am-panel-bd">
-    				<div class="am-u-lg-3 am-padding-left-0 am-padding-right-0">
+    				<div class="am-u-lg-3 am-u-md-3  am-padding-left-0 am-padding-right-0">
     					<div class="am-btn-group am-btn-group-stacked" data-am-button>
                     		<?php if(isset($resource_info['courseware_type'])&&sizeof($resource_info['courseware_type'])>0){foreach($resource_info['courseware_type'] as $k=>$v){ ?>
 						<label class="am-btn am-btn-secondary am-margin-bottom-xs" data-ware-type="<?php echo $k; ?>" onclick="select_courseware_type('<?php echo $k; ?>')">
@@ -545,7 +544,7 @@ form.am-form .am-form-label{text-align: left;}
 						</label>
                     		</div>
     				</div>
-    				<div class="am-u-lg-9 am-padding-left-0 am-padding-right-0">
+    				<div class="am-u-lg-9 am-u-md-9 am-padding-left-0 am-padding-right-0">
     					<div class="am-form-group">
     						<label class="am-u-lg-2 am-u-md-3 am-u-sm-3 am-form-label">&nbsp;</label>
     						<div class="am-u-lg-8 am-u-md-8 am-u-sm-8" style="display:none;">

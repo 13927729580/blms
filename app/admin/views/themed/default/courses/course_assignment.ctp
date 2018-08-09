@@ -61,8 +61,8 @@
             <div class="am-g">
                 <div class="listtable_div_top" >
                     <div style="margin:10px auto;" class="am-g">
-				<div class="am-u-lg-3 am-u-md-3 am-u-sm-3"><?php echo $v['Course']['name']."&nbsp;<br >";echo $v['CourseChapter']['name'].'&nbsp;/&nbsp;'.$v['CourseClass']['name'];?></div>
-				<div class="am-u-lg-2 am-u-md-2 am-u-sm-2"><?php echo isset($course_assignment_user_list[$v['CourseAssignment']['user_id']])?($course_assignment_user_list[$v['CourseAssignment']['user_id']]['first_name']!=''?$course_assignment_user_list[$v['CourseAssignment']['user_id']]['first_name']:$course_assignment_user_list[$v['CourseAssignment']['user_id']]['name']):''; ?></div>
+				<div class="am-u-lg-3 am-u-md-3 am-u-sm-3"><?php echo $v['Course']['name']."&nbsp;<br >";echo $v['CourseChapter']['name'].'&nbsp;/&nbsp;'.$v['CourseClass']['name'];?>&nbsp;</div>
+				<div class="am-u-lg-2 am-u-md-2 am-u-sm-2"><?php echo isset($course_assignment_user_list[$v['CourseAssignment']['user_id']])?($course_assignment_user_list[$v['CourseAssignment']['user_id']]['first_name']!=''?$course_assignment_user_list[$v['CourseAssignment']['user_id']]['first_name']:$course_assignment_user_list[$v['CourseAssignment']['user_id']]['name']):''; ?>&nbsp;</div>
 				<div class="am-u-lg-4 am-u-md-4 am-u-sm-4"><?php echo $v['CourseAssignment']['content']!=''?(mb_strlen($v['CourseAssignment']['content'],'utf-8')>50?mb_substr($v['CourseAssignment']['content'],0,50,'utf-8').'...':$v['CourseAssignment']['content']):($v['CourseAssignment']['media']!=''?"<a href='javascript:void(0);' onclick=\"PreviewCourseMedia('".trim($v['CourseAssignment']['media'])."','".mime_content_type(WWW_ROOT.$v['CourseAssignment']['media'])."')\"><i class='am-icon am-icon-youtube-play'></i></a>":''); ?>&nbsp;</div>
 				<div class="am-u-lg-2 am-u-md-2 am-hide-sm-only"><?php echo $v['CourseAssignment']['modified']; ?></div>
 				<div class="am-u-lg-1 am-u-md-1 am-u-sm-1">
