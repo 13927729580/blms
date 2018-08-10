@@ -28,7 +28,7 @@
 	#CourseClassComplete .am-modal-bd a:nth-child(1){display:block;word-wrap:break-word;white-space:initial;width:91%;}
 }
 </style>
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/handlebars.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/handlebars.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <div id="page_comment">
 <input type="hidden" id="word" value="<?php echo $wordarr;?>">
 <div class="am-g am-g-fixed" id="Commodity_review">

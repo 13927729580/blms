@@ -12,7 +12,7 @@
 #ds-thread #ds-reset .ds-post-options{border-right:1px solid #ccc;margin-right: 0;}
 .no_comments{color:#ccc;}
 </style>
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/handlebars.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/handlebars.min.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <input type="hidden" id="word" value="<?php echo $wordarr;?>">
 <div class="am-g am-g-fixed" id="Commodity_review">
   <div class="am-panel am-panel-default" style="margin-top:10px;">
