@@ -1,4 +1,4 @@
-<script src="<?php echo $webroot.'plugins/AmazeUI/js/md5.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
+<script src="<?php echo $webroot.'plugins/md5.js?ProjectVersion='.ProjectVersion; ?>" type="text/javascript"></script>
 <div class="am-login ">
 	<h2 style="color:#5eb95e;text-align:center;"><?php 
 			if($configs['admin_logo'] ==""){
