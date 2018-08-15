@@ -287,7 +287,7 @@ class EvaluationsController extends AppController
 			$order_cond['Order.payment_status']='2';
 			$order_cond['OrderProduct.item_type']='evaluation';
 			$order_cond['OrderProduct.product_id']=$id;
-			$order_info=$this->OrderProduct->find('cunt',array('conditions'=>$order_cond));
+			$order_info=$this->OrderProduct->find('count',array('conditions'=>$order_cond));
 			if(!empty($order_info))$need_buy=false;
 		}
 		$this->set('evaluation_view_action',$evaluation_view_action);
