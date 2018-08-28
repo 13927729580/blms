@@ -1687,7 +1687,7 @@ function ajax_register_show(){
 			$("#ajax_login_register .am-modal-hd font").html(register_title);
 			$("#ajax_login_register .am-modal-bd").html(data);
 			if(!$("#ajax_login_register").is(".am-modal-active")){
-				$("#ajax_login_register").modal({'width':400,'height':600});
+				$("#ajax_login_register").modal({'width':400,'height':450});
 			}
 		}
 	});

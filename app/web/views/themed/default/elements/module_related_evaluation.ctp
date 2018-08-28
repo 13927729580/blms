@@ -58,14 +58,14 @@ h3
 			<ul class="am-avg-lg-6 am-avg-md-3 am-avg-sm-2">
 				<?php if(is_array($sm)&&sizeof($sm)>0){foreach($sm as $v){ ?>
 
-				<li class="pince_xiangguan" style="min-height: 250px;position: relative;">
+				<li class="pince_xiangguan" style="position: relative;">
 					<div class="">
+					    <div class="am-text-center div_img" style="line-height:120px;"><img class="xuexi_shouye_img" style="width:auto;height:100%;max-width:200px;max-height:200px;" src="<?php echo $v['Evaluation']['img']!=''?$v['Evaluation']['img']:'/theme/default/images/default.png'; ?>"></div>
 						<div style="font-size:14px;"><?php echo $v['Evaluation']['name'];?></div>
 						<div class="shijian"><?php echo date("Y-m-d",strtotime($v['Evaluation']['created']));?></div>
-						<div class="jiejian"><?php echo $v['Evaluation']['description'];?></div>
+						<div class="jiejian" style="height:100px;overflow:hidden;"><?php echo $v['Evaluation']['description'];?></div>
 					</div>
-		
-					<div class="am-text-center pingce_zi"><a href="<?php echo $html->url('/evaluations/view/'.$v['Evaluation']['id']); ?>">去测试</a></div>
+					<div class="am-text-center"><a class="am-btn am-radius am-btn-success ceshi_btn" href="<?php echo $html->url('/evaluations/view/'.$v['Evaluation']['id']); ?>">去测试</a></div>
 				</li>
 				<?php }} ?>
 			</ul>

@@ -132,7 +132,7 @@ margin-bottom:10px;font-size:28px;font-weight:500;
 #evaluation_condition .am-modal-bd{font-size:2rem;}
 </style>
 <div class="am-g ceshi_start">
-	<div class="am-u-sm-12 am-u-md-12 am-u-lg-12 ceshi_1" style="padding-left:10%;">
+	<div class="am-u-sm-12 am-u-md-12 am-u-lg-12 ceshi_1" style="padding-left:2%;">
 		<div class='evaluation_data'>
 			<h3><?php echo isset($sm['evaluation_data'])?$sm['evaluation_data']['name']:''; ?></h3>
 			<div class="am-g">

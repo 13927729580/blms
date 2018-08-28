@@ -295,7 +295,7 @@ form.am-form .am-form-label{text-align: left;}
 					<td><?php echo isset($v['User']['name'])?$v['User']['name']:''; ?></td>
 					<td><?php echo isset($user_read_detail[$v['UserCourseClass']['user_id']])?$user_read_detail[$v['UserCourseClass']['user_id']]['first_read']:'-'; ?></td>
 					<td><?php echo isset($user_read_detail[$v['UserCourseClass']['user_id']])?$user_read_detail[$v['UserCourseClass']['user_id']]['last_read']:'-'; ?></td>
-					<td>已学：<?php echo isset($couse_class_detail_list[$v['UserCourseClass']['user_id']])?$couse_class_detail_list[$v['UserCourseClass']['user_id']]:0; ?>/<?php echo isset($couse_class_total)?$couse_class_total:0; ?></td>
+					<td>已完成：<?php echo isset($couse_class_detail_list[$v['UserCourseClass']['user_id']])?$couse_class_detail_list[$v['UserCourseClass']['user_id']]:0; ?>/<?php echo isset($couse_class_total)?$couse_class_total:0; ?></td>
                                 <td>
                                     <a class="mt am-btn am-btn-success am-btn-xs  am-seevia-btn-view" onclick="course_class_detail(<?php echo $v['UserCourseClass']['id']; ?>)"><span class="am-icon-eye"></span>查看</a>
                                 </td>
