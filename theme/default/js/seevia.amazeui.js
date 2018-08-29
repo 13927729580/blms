@@ -1575,7 +1575,11 @@ function email_code_send(input_str,send_btn){
 							countdown_second = 60;
 						} else { 
 							btn.setAttribute("disabled", true);
-							$(btn).text('重新发送('+countdown_second+')').val('重新发送('+countdown_second+')');
+                            if(countdown_second==60){
+                                $(btn).text('发送中').val('发送中');
+                            }else{
+                                $(btn).text('重新发送('+countdown_second+')').val('重新发送('+countdown_second+')');
+                            }
 							countdown_second--;
 							setTimeout(function(){countdown(btn)},1000);
 						}
@@ -1679,18 +1683,8 @@ function ajax_login_show(){
 
 function ajax_register_show(){
 	var register_title="注册";
-	$.ajax({
-		url:web_base+"/users/ajax_register",
-		type:'post',
-		dataType:'html',
-		success:function(data){
-			$("#ajax_login_register .am-modal-hd font").html(register_title);
-			$("#ajax_login_register .am-modal-bd").html(data);
-			if(!$("#ajax_login_register").is(".am-modal-active")){
-				$("#ajax_login_register").modal({'width':400,'height':450});
-			}
-		}
-	});
+	$("#ajax_login_register .am-modal-hd font").html(register_title);
+	$("#ajax_login_register").modal({'width':400,'height':450,'closeViaDimmer':0});
 }
 
 function virtual_purchase_pay(type,type_id){

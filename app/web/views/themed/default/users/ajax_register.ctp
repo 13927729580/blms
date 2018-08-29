@@ -36,7 +36,7 @@
 	<div class="am-form-group">
 		<div class="am-input-group">
 			<input type="text" placeholder="请输入验证码" class="am-form-field" name="data[Users][email_code]" chkRules="nnull:验证码错误" />
-			<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="email_code_send('#ajax_registerform #user_emails')">获取验证码</button></span>
+			<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="email_code_send('#ajax_registerform #user_emails',this)">获取验证码</button></span>
 		</div>
 	</div>
 	<?php } ?>
@@ -204,8 +204,7 @@ function ajax_register(){
 			$(".errors").html("&nbsp;");
 			$(".errors").css("height","0px");
 			ajax_register_lock=true;
-			$.ajax({ 
-					// url:"<?php echo $html->url('/users/register'); ?>",
+			$.ajax({
 					url:web_base+"/users/register",
 					type:"POST",
 					data:$("#ajax_registerform").serialize()+"&is_ajax=true",
@@ -222,11 +221,6 @@ function ajax_register(){
 							<?php } ?>
 						}else{
 							window.location.href=web_base+data.back_url;
-//							if(typeof(js_login_user_data)!='undefined'){
-//							    if(typeof(data.user_data)!='undefined'&&data.user_data!=null){
-//							        js_login_user_data=data.user_data;
-//							    }
-//							}
 						}
       				}
       		});

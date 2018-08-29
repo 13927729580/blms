@@ -2688,11 +2688,6 @@ class UsersController extends AppController
         $this->set('syns', $syns);
     }
 
-    function ajax_register(){
-        Configure::write('debug',1);
-        $this->layout = null;
-    }
-
     /*
     		商品访问浏览历史
     */
