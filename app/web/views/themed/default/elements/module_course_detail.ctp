@@ -102,10 +102,6 @@ a
     padding:10px 0;
     font-size:14px;
 }
-#course_chapter_list>li>ul>li a
-{
-    color:#898989;
-}
 .admin-sidebar-sub
 {
     padding-left:0;
@@ -289,22 +285,22 @@ h5
                                                     		?>
                                             				<span class="xuexi_span"><a class="xuexi_but xuexi_danger" href='javascript:void(0);' data-function="ajax_access_permission(null,<?php echo $sm['course_data']['id']; ?>,<?php echo $vv['id']; ?>);">￥<?php echo $vv['price']; ?> 购买</a></span>
                                                 			<?php	}else if(!empty($copy_class_access_result)&&!isset($class_access_permission['message']['buy'])){ ?>
-                                                			<span class="xuexi_span"><a class="xuexi_but xuexi_danger" href='javascript:void(0);' data-function="ajax_access_permission(null,<?php echo $sm['course_data']['id']; ?>,<?php echo $vv['id']; ?>);">开始学习</a></span>
+                                                			<span class="xuexi_span"><a class="am-btn am-radius am-btn-success" href='javascript:void(0);' data-function="ajax_access_permission(null,<?php echo $sm['course_data']['id']; ?>,<?php echo $vv['id']; ?>);">开始学习</a></span>
                                                 			<?php  }else{ ?>
                                             				<span class="xuexi_span"><a class="xuexi_but xuexi_danger" href='javascript:void(0);' data-function="virtual_purchase_pay('course_class',<?php echo $vv['id']; ?>);">￥<?php echo $vv['price']; ?> 购买</a></span>
                                                     			<?php	} ?>
                                                     		<?php }else if(isset($class_access_permission['code'])&&$class_access_permission['code']=='0'){ ?>
-                                                    		<span class="xuexi_span"><a class="xuexi_but xuexi_danger" href='javascript:void(0);' data-function="ajax_access_permission(null,<?php echo $sm['course_data']['id']; ?>,<?php echo $vv['id']; ?>);">开始学习</a></span>
+                                                    		<span class="xuexi_span"><a class="am-btn am-radius am-btn-success" href='javascript:void(0);' data-function="ajax_access_permission(null,<?php echo $sm['course_data']['id']; ?>,<?php echo $vv['id']; ?>);">开始学习</a></span>
                                                     		<?php }else if(isset($class_access_permission['code'])&&$class_access_permission['code']=='1'&&isset($sm['course_log_data'][$vv['id']])){
                                                     					if($sm['course_log_data'][$vv['id']]['status']=='1'){
                                                     		?>
                                                     					<span class="xuexi_span"><a class="xuexi_but xuexi_complete" href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id'].'/'.$vv['id']); ?>"><span class="am-icon am-icon-check-circle am-icon-sm"></span>&nbsp; 已完成</a></span>
                                                     		<?php		}else{ 	?>
-                                                    					<span class="xuexi_span"><a class="xuexi_but xuexi_success" href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id'].'/'.$vv['id']); ?>">继续学习</a></span>
+                                                    					<span class="xuexi_span"><a class="am-btn am-btn-warning am-radius" href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id'].'/'.$vv['id']); ?>">继续学习</a></span>
                                                     		<?php
                                                     					}
                                                     		 	      }else if(isset($class_access_permission['code'])&&$class_access_permission['code']=='1'){?>
-                                                    		<span class="xuexi_span"><a class="xuexi_but xuexi_success" href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id'].'/'.$vv['id']); ?>">开始学习</a></span>
+                                                    		<span class="xuexi_span"><a class="am-btn am-radius am-btn-success" href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id'].'/'.$vv['id']); ?>">开始学习</a></span>
                                                     		<?php } ?>
                                                     		<?php if(isset($vv['CourseWare'])&&sizeof($vv['CourseWare'])>0){foreach($vv['CourseWare'] as $vvv){if($vvv['CourseClassWare']['type']=='evaluation'){ ?>
                                                     		<span class="xuexi_span"><i class="am-icon am-icon-file-code-o <?php echo isset($sm['ware_result']['ware_evaluation'][$vvv['CourseClassWare']['ware']])&&$sm['ware_result']['ware_evaluation'][$vvv['CourseClassWare']['ware']]=='1'?'am-text-success':''; ?>" title="<?php echo $vvv['CourseClassWare']['name']; ?>"></i></span>
