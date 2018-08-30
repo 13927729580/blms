@@ -134,7 +134,7 @@ a
 }
 #course_chapter_list>li>ul>li a.xuexi_danger{background-color: #dd514c;color: #fff;
 }
-#course_chapter_list>li>ul>li a.xuexi_success{background-color: #149842;color: #fff;}
+#course_chapter_list>li>ul>li a.xuexi_success{background-color: #F37B1D;color: #fff;}
 #course_chapter_list>li>ul>li a.xuexi_complete{color: #149842;}
 #course_chapter_list>li>ul>li:hover a.xuexi_complete{color: #fff;}
 .a_1
@@ -240,7 +240,7 @@ h5
 				<?php }else if($access_result['code']=='0'){ ?>
 						<button class="am-btn am-radius am-btn-success" onclick="ajax_access_permission(this,'<?php echo $sm['course_data']['id'] ?>')">开始学习</button>
 				<?php }else{ ?>
-                                <a class="am-btn am-radius am-btn-success" target='_blank' href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id']); ?>"><?php if(!empty($sm['course_log_data'])&&sizeof($sm['course_log_data'])<=$sm['course_chapter_total']&&sizeof($sm['course_log_data'])>0){echo '继续学习';}else{echo '开始学习';} ?></a>
+                                <a class="<?php if(!empty($sm['course_log_data'])&&sizeof($sm['course_log_data'])<=$sm['course_chapter_total']&&sizeof($sm['course_log_data'])>0){echo 'am-btn am-btn-warning am-radius';}else{echo 'am-btn am-radius am-btn-success';} ?>" target='_blank' href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id']); ?>"><?php if(!empty($sm['course_log_data'])&&sizeof($sm['course_log_data'])<=$sm['course_chapter_total']&&sizeof($sm['course_log_data'])>0){echo '继续学习';}else{echo '开始学习';} ?></a>
                             <?php } ?>
                         <?php }else if(isset($sm['course_data']['allow_learning'])&&$sm['course_data']['allow_learning']=='1'){ ?>
                             <a class="am-btn am-radius am-btn-success" href="<?php echo $html->url('/courses/detail/'.$sm['course_data']['id']); ?>">开始学习</a>

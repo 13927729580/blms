@@ -1,5 +1,6 @@
 <?php //pr($evaluation_class_list)?>
 <style>
+#show_info form{max-height:300px;}
 .evaluation_log_zw>.huise:first-child{color:#ccc;}
 @media only screen and (max-width: 641px){
 	.riqi{padding-bottom:10px;}
@@ -95,36 +96,37 @@ a{color:#ccc;}
 		<div class="am-tab-panel am-active">
 			<div class='am-g course_log' style="margin-top: 0;">
 				<ul class='am-list course_ul'>
-					<?php if(isset($evaluation_study)&&sizeof($evaluation_study)>0){foreach($evaluation_study as $v){ ?>
+					<?php if(isset($evaluation_study)&&sizeof($evaluation_study)>0){foreach($evaluation_study as $k=>$v){?>
 					<li>
 						<div class="am-g">
 						<div class="am-u-lg-12 am-u-sm-12 am-u-md-12" style="padding-left: 0;border-bottom:1px solid #ccc;">
 							<div class="am-u-lg-1 am-u-md-2 am-u-sm-12 riqi" style="padding:0;">
-								<div  style="margin-bottom: 10px;" class="nian"><?php echo date("Y",strtotime($v['UserEvaluationLog']['submit_time'])); ?></div>
-								<div class="font_16" style="margin-bottom: 10px;"><?php echo date("m月d日",strtotime($v['UserEvaluationLog']['submit_time'])); ?>
+								<div  style="margin-bottom: 10px;" class="nian"><?php echo date("Y",strtotime($v[0]['UserEvaluationLog']['submit_time'])); ?></div>
+								<div class="font_16" style="margin-bottom: 10px;"><?php echo date("m月d日",strtotime($v[0]['UserEvaluationLog']['submit_time'])); ?>
 								</div>
 							</div>
 							<div class="am-u-lg-11 am-u-md-10 am-u-sm-12 xinxi" style="padding-left: 0;">
 								<div class="am-u-md-3 am-u-sm-3" style="width: 25%;padding-left: 0;height: 110px;padding:2px;border:1px solid #ccc;text-align: center;line-height: 100px;">
-								<a target="_blank" href="<?php echo $html->url('/evaluations/view/'.$v['UserEvaluationLog']['evaluation_id']); ?>"><?php echo $html->image($v['Evaluation']['img']!=''?$v['Evaluation']['img']:"/theme/default/images/default.png",array('title'=>$user_list['User']['name'],'style'=>'margin-left:7px;')); ?></a>
+								<a target="_blank" href="<?php echo $html->url('/evaluations/view/'.$v[0]['UserEvaluationLog']['evaluation_id']); ?>"><?php echo $html->image($v[0]['Evaluation']['img']!=''?$v[0]['Evaluation']['img']:"/theme/default/images/default.png",array('title'=>$user_list['User']['name'],'style'=>'margin-left:7px;')); ?></a>
 								</div>
 								<div class="am-u-lg-7 am-u-sm-7 am-u-md-7">
-									<a target="_blank" href="<?php echo $html->url('/evaluations/view/'.$v['UserEvaluationLog']['evaluation_id']); ?>"><div class="am-g evaluation_log_tab"><?php echo $v['Evaluation']['name']; ?></div></a>
+									<a target="_blank" href="<?php echo $html->url('/evaluations/view/'.$v[0]['UserEvaluationLog']['evaluation_id']); ?>"><div class="am-g evaluation_log_tab"><?php echo $v[0]['Evaluation']['name']; ?></div></a>
 									<div class="am-g evaluation_log_zw">
-										<div style="padding:0;" class="am-u-sm-6 am-u-lg-6 am-u-md-6 <?php echo $v['UserEvaluationLog']['score']>$v['Evaluation']['pass_score']?'':'huise'?>">
-										<?php echo $v['UserEvaluationLog']['score']>$v['Evaluation']['pass_score']?'通过':'未通过'?>
-										</div>
 										<div class="am-u-sm-6 am-u-lg-6 am-u-md-6" style="padding: 0;">
-											得分:<?php echo $v['UserEvaluationLog']['score']; ?>
+											最后得分:<?php echo $v[0]['UserEvaluationLog']['score']; ?><br/>
+                                            <a style="color: #424242;cursor:pointer;" onclick="showInfo(<?php echo ($k);?>)">做题次数:<?php echo count($v); ?></a>
+										</div>
+										<div style="padding:0;" class="am-u-sm-6 am-u-lg-6 am-u-md-6 <?php echo $v[0]['UserEvaluationLog']['score']>$v[0]['Evaluation']['pass_score']?'':'huise'?>">
+										<?php echo $v[0]['UserEvaluationLog']['score']>$v[0]['Evaluation']['pass_score']?'通过':'未通过'?>
 										</div>
 									</div>
 								</div>
 								<div style="padding:0;margin-top: 0px;" class="jiantou am-u-lg-2 am-u-sm-1 am-u-md-1" >
-									<a style="margin-left: 5px;margin-top: 5px;color: #fff;padding:7px 10px;" class="mt am-btn am-btn-primary am-seevia-btn-add am-btn-sm am-radius" href="<?php echo $html->url('/user_evaluation_logs/view/'.$v['UserEvaluationLog']['id']); ?>" title="查看评测" target="_blank">
+									<a style="margin-left: 5px;margin-top: 5px;color: #fff;padding:7px 10px;" class="mt am-btn am-btn-primary am-seevia-btn-add am-btn-sm am-radius" href="javascript:;" title="查看评测" onclick="showInfo(<?php echo $k;?>)">
 										<span class="am-icon-chevron-right" style="width: 14px;height: 14px;"></span>
 									</a>
-							        <?php if($v['Evaluation']['evaluation_type']=='0'){ ?>
-								        <a style="margin-left: 5px;margin-top: 5px;padding:7px 10px;" class="mt am-btn am-btn-danger am-seevia-btn-add am-btn-sm am-radius" href="javascript:;" onclick="list_delete_submit(web_base+'/evaluations/remove_study/<?php echo $v['UserEvaluationLog']['id'] ?>');" title="删除评测">
+							        <?php if($v[0]['Evaluation']['evaluation_type']=='0'){ ?>
+								        <a style="margin-left: 5px;margin-top: 5px;padding:7px 10px;" class="mt am-btn am-btn-danger am-seevia-btn-add am-btn-sm am-radius" href="javascript:;" onclick="list_delete_submit(web_base+'/evaluations/remove_study/<?php echo $k ?>');" title="删除评测">
 								            <span class="am-icon-trash-o" style="width: 14px;height: 14px;"></span>
 								        </a>
 								 <?php } ?>
@@ -141,6 +143,20 @@ a{color:#ccc;}
 		</div>
 	</div>
 </div>
+<div class="am-modal am-modal-no-btn" id="show_info" style="font-size: 1.4rem;">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd" style=" z-index: 11;">
+            <h4 class="am-popup-title" id="chapter_title">做题次数列表</h4>
+            <span data-am-modal-close class="am-close">&times;</span>
+        </div>
+        <div class="am-modal-bd">
+            <form method='POST' class='am-form am-form-horizontal'>
+                <div class="am-panel-bd" id="show_list">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <style type='text/css'>
 div.evaluation_log ul.am-list li{border-top:none;padding-top:30px;}
 div.evaluation_log ul.am-list li img{max-width:100%;max-height:100%;}
@@ -151,6 +167,30 @@ var checkorg = new Array();
 <?php if(isset($check_org)&&count($check_org)>0){foreach ($check_org as $k3 => $v3) { ?>
 	checkorg["<?php echo $k3 ?>"] = '<?php echo $v3 ?>';
 <?php }} ?>
+
+function showInfo(data){
+    $.ajax({
+        url:web_base+"/user_evaluation_logs/show_info/",
+        type:"POST",
+        data:{id:data},
+        dataType:"json",
+        success:function(data){
+            var html="";
+            $.each(data.data,function(i,item){
+                html+='<div class="am-form-group"><div class="am-u-lg-3 am-u-md-3 am-u-sm-3">'+item.time+'</div><div class="am-u-lg-3 am-u-md-3 am-u-sm-3">得分:'+item.score_num+'</div>';
+                if(item.score=='通过'){
+                    html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3" style="color:green;">'+item.score+'</div>';
+                }else{
+                    html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3" style="color:red;">'+item.score+'</div>';
+                }
+                html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3""><a style="color: #424242;cursor:pointer;" href="'+web_base+'/user_evaluation_logs/view/'+item.id+'">查看</a></div></div>'
+            });
+            $("#show_list").html(html);
+            $("#show_info").modal("open");
+        }
+    });
+}
+
 function list_delete_submit(sUrl){
 	var aa = function(){
 		$.ajax({
@@ -159,7 +199,6 @@ function list_delete_submit(sUrl){
             dataType: 'json',
             success: function (result) {
                 if(result.flag==1){
-                    //alert(result.message);
                     window.location.reload();
                 }
                 if(result.flag==2){

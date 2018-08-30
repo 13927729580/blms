@@ -39,11 +39,9 @@ class UserEvaluationLogsController extends AppController
 		//当前位置开始
 		$this->ur_heres[] = array('name' => $this->ld['user_center'], 'url' => '/users/index');
 		$this->ur_heres[] = array('name' => '我的评测', 'url' => '');
-		
 		$this->loadModel('User');
 		$this->loadModel('UserFans');
 		$this->loadModel('Blog');
-		
 		$user_id=$_SESSION['User']['User']['id'];
 		//获取我的信息
 		$user_list = $this->User->find('first', array('conditions' => array('User.id' => $user_id)));
@@ -61,7 +59,6 @@ class UserEvaluationLogsController extends AppController
 		//关注数量
 		$focus = $this->UserFans->find_focuscount_byuserid($user_id);
 		$this->set('focuscount', $focus);
-		
 		$share_evaluation_ids=array();
 		$share_evaluation_cond=array();
 		$user_member_list = $this->OrganizationMember->find('list',array('fields'=>'OrganizationMember.organization_id,OrganizationMember.id','conditions'=>array('OrganizationMember.user_id'=>$user_id,'OrganizationMember.status'=>'1')));
@@ -105,7 +102,6 @@ class UserEvaluationLogsController extends AppController
 		$user_evaluation_view_cond['UserEvaluationLog.user_id']=$user_id;
 		$user_evaluation_view_cond['UserEvaluationLog.evaluation_id >']=0;
 		$user_evaluation_view_ids=$this->UserEvaluationLog->find('list',array('conditions'=>$user_evaluation_view_cond,'fields'=>'evaluation_id'));
-
 		$conditions=array();
 		$conditions['or'][]['Evaluation.user_id']=$user_id;
 		if(!empty($share_evaluation_ids))$conditions['or'][]['Evaluation.id']=$share_evaluation_ids;
@@ -120,13 +116,6 @@ class UserEvaluationLogsController extends AppController
 		$UserEvaluation_lists=$this->Evaluation->find('all',array('conditions'=>$conditions,'order'=>'Evaluation.modified desc','page'=>$page,'limit'=>$limit));
 		$this->set('UserEvaluation_lists',$UserEvaluation_lists);
 		if(!empty($UserEvaluation_lists)){
-			$evaluation_codes=array();
-			// foreach($UserEvaluation_lists as $v)$evaluation_codes[]=$v['Evaluation']['code'];
-			// $evaluation_class_infos=$this->EvaluationQuestion->find('all',array('conditions'=>array('EvaluationQuestion.evaluation_codes'=>$evaluation_codes),'fields'=>'evaluation_codes.evaluation_codes,count(*) as name','group'=>'evaluation_codes'));
-			// pr($evaluation_class_infos);
-			// $course_class_list=array();
-			// foreach($course_class_infos as $v)$course_class_list[$v['CourseClass']['course_code']]=$v[0]['class_count'];
-			// $this->set('course_class_list',$course_class_list);
 			if(!empty($share_evaluation_ids)){
 				$share_evaluation_cond['share_type_id']=$share_evaluation_ids;
 				$share_evaluation_objects=$this->OrganizationShare->find('all',array('fields'=>'share_type_id,organization_id,share_user','conditions'=>$share_evaluation_cond,'group'=>'share_type_id,organization_id,share_user','order'=>'id desc'));
@@ -152,15 +141,46 @@ class UserEvaluationLogsController extends AppController
 			$this->set('share_evaluation',$share_evaluation_ids);
 		}
 		$this->set('user_evaluation_view_ids',$user_evaluation_view_ids);
-		$evaluation_study=$this->UserEvaluationLog->find('all',array('conditions'=>$user_evaluation_view_cond,'order'=>"UserEvaluationLog.id desc"));
+		$evaluation_study=$this->UserEvaluationLog->find('all',array('conditions'=>$user_evaluation_view_cond,'order'=>'UserEvaluationLog.id desc'));
 		$evaluation_question = $this->EvaluationQuestion->find('all',array('conditions'=>array('status'=>1)));
 		$evaluation_question_list = array();
 		foreach ($evaluation_question as $k => $v) {
 			$evaluation_question_list[$v['EvaluationQuestion']['evaluation_code']][] = $v['EvaluationQuestion']['name'];
 		}
+        $evaluation_data=array();
+		foreach($evaluation_study as $k=>$v){
+            $evaluation_data[$v['UserEvaluationLog']['evaluation_id']][]=$v;
+        }
 		$this->set('evaluation_question_list',$evaluation_question_list);
-		$this->set('evaluation_study',$evaluation_study);
+		$this->set('evaluation_study',$evaluation_data);
 	}
+
+    function show_info(){
+        Configure::write('debug', 1);
+        $this->layout = 'ajax';
+        $user_id=$_SESSION['User']['User']['id'];
+        $user_evaluation_view_cond=array();
+        $user_evaluation_view_cond['UserEvaluationLog.user_id']=$user_id;
+        $user_evaluation_view_cond['UserEvaluationLog.evaluation_id']=$_POST['id'];
+        $evaluation_study=$this->UserEvaluationLog->find('all',array('conditions'=>$user_evaluation_view_cond,'order'=>'UserEvaluationLog.id desc'));
+        $data=array();
+        if(isset($evaluation_study)){
+            foreach($evaluation_study as $k=>$v){
+                $data[$k]['id']=$v['UserEvaluationLog']['id'];
+                $data[$k]['time']=date("m月d日",strtotime($v['UserEvaluationLog']['submit_time']));
+                if($v['UserEvaluationLog']['score']>$v['Evaluation']['pass_score']){
+                    $data[$k]['score']="通过";
+                }else{
+                    $data[$k]['score']="未通过";
+                }
+                $data[$k]['score_num']=$v['UserEvaluationLog']['score'];
+            }
+        }
+        $result['code']='1';
+        $result['message']='操作成功';
+        $result['data']=$data;
+        die(json_encode($result));
+    }
 
 	public function get_eval_count(){
 		$this->loadModel('User');

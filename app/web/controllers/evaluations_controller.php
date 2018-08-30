@@ -1600,10 +1600,12 @@ class EvaluationsController extends AppController
         $this->layout = 'ajax';
         $result['flag'] = 2;
         //操作员日志
-        $UserEvaluationLog_detail = $this->UserEvaluationLog->find('first',array('conditions'=>array('UserEvaluationLog.id' => $id,'UserEvaluationLog.user_id'=>$_SESSION['User']['User']['id'])));
+        $UserEvaluationLog_detail = $this->UserEvaluationLog->find('all',array('conditions'=>array('UserEvaluationLog.evaluation_id' => $id,'UserEvaluationLog.user_id'=>$_SESSION['User']['User']['id'])));
         if(!empty($UserEvaluationLog_detail)){
-        	$this->UserEvaluationLog->deleteAll(array('UserEvaluationLog.id' => $id));
-        	$this->UserEvaluationLogDetail->deleteAll(array('UserEvaluationLogDetail.user_evaluation_log_id' => $id));
+        	$this->UserEvaluationLog->deleteAll(array('UserEvaluationLog.evaluation_id' => $id,'UserEvaluationLog.user_id'=>$_SESSION['User']['User']['id']));
+        	foreach($UserEvaluationLog_detail as $k=>$v){
+				$this->UserEvaluationLogDetail->deleteAll(array('UserEvaluationLogDetail.user_evaluation_log_id' => $v['UserEvaluationLog']['id']));
+			}
         }
         $result['flag'] = 1;
         if ($this->RequestHandler->isPost()) {

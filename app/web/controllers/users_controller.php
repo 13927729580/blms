@@ -272,11 +272,11 @@ class UsersController extends AppController
                 }
             }
             if(isset($this->configs['user_register_mode'])&&$this->configs['user_register_mode']=='2'){
-                $user_register_mode=isset($_REQUEST['user_register_mode'])?$_REQUEST['user_register_mode']:'0';
+                $user_register_mode=2;
             }else{
                 $user_register_mode=isset($this->configs['user_register_mode'])?$this->configs['user_register_mode']:'0';
             }
-            if($user_register_mode=='1'){
+            if($user_register_mode=='1' || ($user_register_mode==2 && isset($this->data['Users']['mobile']))){
                 $mobile=isset($this->data['Users']['mobile'])?trim($this->data['Users']['mobile']):'';
                 $phone_code_key="phone_code_number{$mobile}";
                 $phone_code_number=isset($_COOKIE[$phone_code_key])?$_COOKIE[$phone_code_key]:'';
@@ -343,7 +343,7 @@ class UsersController extends AppController
                 if (!isset($this->data['Users']['name']) || (isset($this->data['Users']['name']) && $this->data['Users']['name'] == '')) {
                     $this->data['Users']['name'] = $this->data['Users']['mobile'];
                 }
-            }else if($user_register_mode=='0'){//邮箱注册
+            }else if($user_register_mode=='0' || ($user_register_mode==2 && isset($this->data['Users']['email']))){//邮箱注册
                 $email=isset($this->data['Users']['email'])?trim($this->data['Users']['email']):'';
                 $tmp_x = $this->User->find('first', array('conditions' => array('User.email' => $email)));
                 if (!empty($tmp_x)) {
