@@ -29,7 +29,7 @@
 			<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="mobile_code_send('#ajax_registerform #user_mobile')">获取验证码</button></span>
 		</div>
 	</div>
-	<?php }else{ ?>
+	<?php }elseif(isset($configs['user_register_mode'])&&$configs['user_register_mode']=='0'){ ?>
 	<div class="am-form-group">
 		<input class="register_user_names" type="text" placeholder="请输入邮箱" name="data[Users][email]" id="user_emails"  chkRules="nnull:<?php echo $ld['e-mail_empty']?>;email:<?php echo $ld['accounts_incorrectly_completed']?>" />
 	</div>
@@ -39,6 +39,28 @@
 			<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="email_code_send('#ajax_registerform #user_emails',this)">获取验证码</button></span>
 		</div>
 	</div>
+	<?php }else{?>
+			<div class="am-form-group">
+				<div><input type="text" name="data[Users][mobile]" id="user_mobile" chkRules="nnull:<?php echo $ld['phone_can_not_be_empty']?>;mobile:<?php echo $ld['phone_incorrectly_completed']?>;ajax:check_input('mobile','user_mobile')" value="<?php echo isset($this->data['Users'])?$this->data['Users']['mobile']:'';?>" placeholder="请输入手机号" style="float:left;" />
+					<em style="float:left;margin-left:0.3rem;"><font color="red" style="font-style:normal;"></font></em>
+					<div class="am-cf"></div>
+				</div>
+			</div>
+			<div class="am-form-group">
+				<div class="am-input-group">
+					<input type="text" name="data[Users][mobile_code]" class="am-form-field" id="mobile_code" value="" chkRules="nnull:<?php echo $ld['please_enter_the_code']?>" placeholder="获取验证码" />
+					<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="mobile_code_send('#ajax_registerform #user_mobile')">获取验证码</button></span>
+				</div>
+			</div>
+			<div class="am-form-group">
+				<input class="register_user_names" type="text" placeholder="请输入邮箱" name="data[Users][email]" id="user_emails"  chkRules="nnull:<?php echo $ld['e-mail_empty']?>;email:<?php echo $ld['accounts_incorrectly_completed']?>" />
+			</div>
+			<div class="am-form-group">
+				<div class="am-input-group">
+					<input type="text" placeholder="请输入验证码" class="am-form-field" name="data[Users][email_code]" chkRules="nnull:验证码错误" />
+					<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="email_code_send('#ajax_registerform #user_emails',this)">获取验证码</button></span>
+				</div>
+			</div>
 	<?php } ?>
 	<div class="am-form-group">
 		<input class="am-hide" type="password"  name="md5password"  id="md5pwd" value=""  />

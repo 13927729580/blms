@@ -62,7 +62,7 @@
         	        <div class="am-form-group">
           <label class="am-u-lg-2 am-u-md-4 am-u-sm-4  am-form-label am-icon-mobile am-icon-md"><?php echo $ld['message'] ?></label>
           <div class="am-u-lg-8 am-u-md-8 am-u-sm-8">
-            <textarea  name="data[Contact][content]" >
+            <textarea  name="data[Contact][content]" id="ContactContent">
             </textarea>
     	<em class="l1"><font color="red">*</font>&nbsp;</em>
     	  </div>
@@ -81,7 +81,7 @@
 <script type="text/javascript">
 auto_check_form("contact_form",false);
 $("#save_btn").click(function(){
-  if(check_form(document.getElementById("contact_form"))){
+  if(check_form()){
   	  var save_btn=$(this);
   	  $(save_btn).button('loading');
 	  $.ajax({
@@ -245,12 +245,24 @@ function cTrim(sInputString,iType)
                                           .css('color','green');
    }
  }
-function check_form (arg) {
-  if($(".form_yanz").val() == ''){
-    alert("请填写带 * 部分");
-    return false;
-  }
-  return true;
+function check_form () {
+    if($('#ContactContactName').val()==""){
+        alert("联系人不能为空");
+        return false;
+    }
+    if($('#ContactEmail').val()==""){
+        alert("E-mail地址不能为空 ");
+        return false;
+    }
+    if($('#ContactMobile').val()==""){
+        alert("手机号不能为空");
+        return false;
+    }
+    if($('#ContactContent').val()==""){
+        alert("留言不能为空");
+        return false;
+    }
+    return true;
 }
 
 function upload_contact(input,name){

@@ -167,7 +167,7 @@ class UserEvaluationLogsController extends AppController
         if(isset($evaluation_study)){
             foreach($evaluation_study as $k=>$v){
                 $data[$k]['id']=$v['UserEvaluationLog']['id'];
-                $data[$k]['time']=date("m月d日",strtotime($v['UserEvaluationLog']['submit_time']));
+                $data[$k]['time']=date("Y年m月d日",strtotime($v['UserEvaluationLog']['submit_time']));
                 if($v['UserEvaluationLog']['score']>$v['Evaluation']['pass_score']){
                     $data[$k]['score']="通过";
                 }else{

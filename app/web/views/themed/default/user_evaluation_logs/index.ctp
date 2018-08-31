@@ -114,7 +114,7 @@ a{color:#ccc;}
 									<div class="am-g evaluation_log_zw">
 										<div class="am-u-sm-6 am-u-lg-6 am-u-md-6" style="padding: 0;">
 											最后得分:<?php echo $v[0]['UserEvaluationLog']['score']; ?><br/>
-                                            <a style="color: #424242;cursor:pointer;" onclick="showInfo(<?php echo ($k);?>)">做题次数:<?php echo count($v); ?></a>
+                                            <a style="color: #424242;cursor:pointer;text-decoration:underline;" onclick="showInfo(<?php echo ($k);?>)">做题次数:<?php echo count($v); ?></a>
 										</div>
 										<div style="padding:0;" class="am-u-sm-6 am-u-lg-6 am-u-md-6 <?php echo $v[0]['UserEvaluationLog']['score']>$v[0]['Evaluation']['pass_score']?'':'huise'?>">
 										<?php echo $v[0]['UserEvaluationLog']['score']>$v[0]['Evaluation']['pass_score']?'通过':'未通过'?>
@@ -177,13 +177,13 @@ function showInfo(data){
         success:function(data){
             var html="";
             $.each(data.data,function(i,item){
-                html+='<div class="am-form-group"><div class="am-u-lg-3 am-u-md-3 am-u-sm-3">'+item.time+'</div><div class="am-u-lg-3 am-u-md-3 am-u-sm-3">得分:'+item.score_num+'</div>';
+                html+='<div class="am-form-group" style="border-bottom:1px solid #ccc;"><div class="am-u-lg-4 am-u-md-4 am-u-sm-4">'+item.time+'</div><div class="am-u-lg-3 am-u-md-3 am-u-sm-3">得分:'+item.score_num+'</div>';
                 if(item.score=='通过'){
-                    html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3" style="color:green;">'+item.score+'</div>';
+                    html+='<div class="am-u-lg-2 am-u-md-2 am-u-sm-2" style="color:green;">'+item.score+'</div>';
                 }else{
-                    html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3" style="color:red;">'+item.score+'</div>';
+                    html+='<div class="am-u-lg-2 am-u-md-2 am-u-sm-2" style="color:red;">'+item.score+'</div>';
                 }
-                html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3""><a style="color: #424242;cursor:pointer;" href="'+web_base+'/user_evaluation_logs/view/'+item.id+'">查看</a></div></div>'
+                html+='<div class="am-u-lg-3 am-u-md-3 am-u-sm-3""><a class="mt am-btn am-btn-primary am-seevia-btn-add am-btn-sm am-radius" style="margin-bottom: 5px;color: #fff;padding:7px 10px;" href="'+web_base+'/user_evaluation_logs/view/'+item.id+'" title="查看评测"><span class="am-icon-chevron-right" style="width: 14px;height: 14px;"></span></a></div></div>'
             });
             $("#show_list").html(html);
             $("#show_info").modal("open");
