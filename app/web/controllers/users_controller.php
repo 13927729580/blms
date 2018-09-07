@@ -2316,6 +2316,21 @@ class UsersController extends AppController
                 }
                 die(json_encode($result));
             }
+            if (!empty($_POST['mobile_mail'])) {
+                $result['type'] = 'mobile_mail';
+                $result['type_id'] = $_POST['type_id'];
+                if ($this->User->find('first', array('conditions' => array('User.mobile' => $_POST['mobile_mail'])))) {
+                    $result['error'] = 1;
+                    $result['msg'] = $this->ld['mobile_exists'];
+                } else if($this->User->find('first', array('conditions' => array('User.email' => $_POST['mobile_mail'])))) {
+                    $result['error'] = 1;
+                    $result['msg'] = $this->ld['email_exists'];
+                }else{
+                    $result['error'] = 0;
+                    $result['msg'] = $this->ld['rebate_088'];
+                }
+                die(json_encode($result));
+            }
         }
         die();
     }

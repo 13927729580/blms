@@ -37,7 +37,7 @@
         			<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="mobile_code_send('#ajax_registerform #user_mobile')">获取验证码</button></span>
         		</div>
         	</div>
-        	<?php }else{ ?>
+        	<?php }elseif(isset($configs['user_register_mode'])&&$configs['user_register_mode']=='0'){ ?>
         	<div class="am-form-group">
         		<input class="register_user_names" type="text" placeholder="请输入邮箱" name="data[Users][email]" id="user_emails"  chkRules="nnull:<?php echo $ld['e-mail_empty']?>;email:<?php echo $ld['accounts_incorrectly_completed']?>" />
         	</div>
@@ -47,7 +47,22 @@
         			<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="email_code_send('#ajax_registerform #user_emails',this)">获取验证码</button></span>
         		</div>
         	</div>
-        	<?php } ?>
+			<?php }else{?>
+					<div class="am-form-group">
+						<input type="hidden" name="data[Users][mobile]" id="user_mobile" value="<?php echo isset($this->data['Users'])?$this->data['Users']['mobile']:'';?>"/>
+						<input type="hidden" name="data[Users][email]" id="user_emails" value="<?php echo isset($this->data['Users'])?$this->data['Users']['mobile']:'';?>"/>
+						<div><input type="text" id="user_mobile_mail" chkRules="nnull:手机号或邮箱不能为空;mobile_mail:手机号或邮箱格式错误;ajax:check_input('mobile_mail','user_mobile_mail')" value="<?php echo isset($this->data['Users'])?$this->data['Users']['mobile']:'';?>" placeholder="请输入手机号或邮箱" style="float:left;" />
+							<em style="float:left;margin-left:0.3rem;"><font color="red" style="font-style:normal;"></font></em>
+							<div class="am-cf"></div>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<div class="am-input-group">
+							<input type="text" name="data[Users][mobile_code]" class="am-form-field" id="mobile_code" value="" chkRules="nnull:<?php echo $ld['please_enter_the_code']?>" placeholder="获取验证码" />
+							<span class="am-input-group-btn"><button type='button' class='am-btn am-btn-primary' onclick="mobile_code_send('#ajax_registerform #user_mobile')">获取验证码</button></span>
+						</div>
+					</div>
+			<?php } ?>
         	<div class="am-form-group">
         		<input class="am-hide" type="password"  name="md5password"  id="md5pwd" value=""  />
         		<input class="input1"  type="password" name="data[Users][password]"  id="register_pwd" placeholder="请输入密码" />

@@ -437,15 +437,29 @@ function field_check(rules, field){
     			else
     				return rule_arr[0];
 			}
-
-    	}else if(rule_arr[0]=='zip_code'){//邮政编码
+    	}else if(rule_arr[0]=='mobile_mail'){//手机号码或者邮箱
+            var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w{2,4}$/;
+            if(!isNone(field.value) && !/^1[3-9]\d{9}$/.test(field.value)){
+                if(!reg.test(field.value)){
+                    if (rule_arr.length > 1)
+                        return rule_arr[1];
+                    else
+                        return rule_arr[0];
+                }else{
+                    $("#user_emails").val(field.value);
+                    $("#user_mobile").val("");
+                }
+            }else{
+                $("#user_mobile").val(field.value);
+                $("#user_emails").val("");
+            }
+        }else if(rule_arr[0]=='zip_code'){//邮政编码
 			if(!isNone(field.value) && !/(^[0-9]{4,10}$)/.test(field.value)){
     			if(rule_arr.length>1)
     				return rule_arr[1];
     			else
     				return rule_arr[0];
 			}
-
     	}else if(rule_arr[0]=='cpwd'){//确认密码
 			if( field.value != $("#"+rule_arr[2])[0].value){
 				return rule_arr[1];
@@ -588,6 +602,7 @@ function check_input(type,id,email,local){
 	if(type=="sn_email"||type=="email"){emailstatus=false;}
 	if(type=="account"){accountstatus=false;}
 	if(type=="mobile"){mobilestatus=false;}
+	if(type=="mobile_mail"){mobilestatus=false;emailstatus=false;}
 	input = document.getElementById(id);
 	if(typeof(arguments[2])!='undefined'&&!arguments[2])
 	{
@@ -608,6 +623,7 @@ function check_input(type,id,email,local){
 		if(type=="sn_email"||type=="email"){emailstatus=true;}
 		if(type=="account"){accountstatus=true;}
 		if(type=="mobile"){mobilestatus=true;}
+		if(type=="mobile_mail"){mobilestatus=true;emailstatus=true;}
 		setTimeout('put_msg(input,"")',10);
 	}
 }
@@ -633,6 +649,7 @@ var check_input_Success = function(result){
 		if(inputtype=="sn_email"||inputtype=="email"){emailstatus=true;}
 		if(inputtype=="account"){accountstatus=true;}
 		if(inputtype=="mobile"){mobilestatus=true;}
+        if(inputtype=="mobile_mail"){mobilestatus=true;emailstatus=true;}
 		if(document.getElementById("isNo")!=null){
 			document.getElementById("isNo").value  = '0';
 		}
